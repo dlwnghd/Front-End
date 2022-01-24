@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 선택자 2</title>
+    <style>
+        /* [title="css"]{color: red;} */
+        
+        /* 1, 4, 5  */
+        /* [title~="css"]{color: blue;} */
+        
+        /* 전부 바뀜 */
+        /* [title*="css"]{color: yellow;} */
+        
+        /* 1, 4, 6 */
+        /* [title$="css"]{color: red;} */
+        
+        /* 1, 2 */
+        /* [title|="css"]{color: red;} */
+        
+        /* 1, 2, 3, 5, 7 */
+        /* [title^="css"]{color: red;} */
+    </style>
+</head>
+<body>
+    <h2>속성 선택자 2</h2>
+    <p title="css">독립적인 단어</p>
+    <p title="css-funny">하이픈이 들어간 합성어</p>
+    <p title="css_funny">언더바가 들어간 합성어</p>
+    <p title="funny css">공백으로 연결된 합성어(접미사)</p>
+    <p title="css funny">공백으로 연결된 합성어(접두사)</p>
+    <p title="funnycss">공백이 없는 합성어(접미사)</p>
+    <p title="cssfunny">공백이 없는 합성어(점두사)</p>
+</body>
+
+</html>

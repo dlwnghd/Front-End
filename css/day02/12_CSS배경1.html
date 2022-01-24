@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 배경 - 1</title>
+    <style>
+        div{width: 80%; padding: 20px;}
+        .color{
+            background-color: royalblue;
+            color: white;
+            border: 5px dotted silver;
+        }
+        p{
+            /* font-size: 150%; */
+            /* font-size: 1.5rem; */
+            font-size: 24px;
+        }
+        .normal{
+            font-weight: 400;
+        }
+        .bold{
+            font-weight: 700;
+        }
+        .extrabold{
+            font-size: 800;
+        }
+        .image{
+            height: 600px;
+            background-image: url(./jeju.jpg);
+            /* 가로 방향으로 배경사진 반복배치 */
+            /* background-repeat: repeat-x; */
+            /* 세로 방향으로 배경사진 반복배치 */
+            /* background-repeat: repeat-y; */
+            /* 배경사진 반복하지 않음 */
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <h2>CSS 배경 - 1</h2>
+    <div class="color">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+        cccccccccccccccccccccccccccccccccccccccccccccc
+        dddddddddddddddddddddddddddddddddddddddddddddd
+        eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    </div>
+    <div class="image">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+        cccccccccccccccccccccccccccccccccccccccccccccc
+        dddddddddddddddddddddddddddddddddddddddddddddd
+        eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+    </div>
+    <p class="normal">a</p>
+    <p class="bold">a</p>
+    <p class="normal">a</p>
+</body>
+</html>

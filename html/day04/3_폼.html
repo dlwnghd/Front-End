@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼</title>
+</head>
+
+<body>
+    <h2>폼</h2>
+    <form action="regist.html">
+        <p>
+            <input type="text" name="userid" placeholder="아이디를 입력하세요." maxlength="12" required>
+        </p>
+        <p>
+            <input type="password" value="abcd1234" size="30">
+        </p>
+        <p>
+        <fieldset>
+            <legend>성별</legend>
+            <label>남자<input type="radio" name="gender" checked value="m"></label><br>
+            <label for="w">여자</label> <!-- 만약 둘이 텍스트와 radio가 떨어져 있는 경우 for ="w"와 라디오에서 id="w"를 통해 연결해줌 -->
+            <input type="radio" name="gender" id="w" value="w">
+        </fieldset>
+        </p>
+        <p>
+            <input type="checkbox">
+            <input type="checkbox">
+            <input type="checkbox">
+        </p>
+        <p>
+            <input type="file">
+        </p>
+        <p>
+            <input type="email" readonly value="apple@juice.com">
+        </p>
+        <p>
+            <input type="url" disabled>
+        </p>
+        <p>
+            <input type="tel">
+        </p>
+        <p>
+            <input type="date">
+        </p>
+        <p>
+            <input type="number" min="0" max="100" step="5">
+        </p>
+        <p>
+            <input type="color">
+        </p>
+        <p>
+            <input type="search">
+        </p>
+        <p>
+            <input type="range" min="1" max="5">
+        </p>
+        <p>
+            <input type="button" value="일반버튼!" onclick="alert('안녕하세요')">
+        </p>
+        <p>
+            <input type="submit" value="회원가입">
+        </p>
+        <p>
+            <input type="reset" value="허망함느끼기">
+        </p>
+        <p>
+            <select name="lang">
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="js">JS</option>
+            </select>
+        </p>
+        <p>
+            <input type="text" list="language">
+            <datalist id="language">
+                <option value="html" label="HTML"></option>
+                <option value="css">CSS</option>
+                <option value="node">node.js</option>
+                <option value="react">React</option>
+            </datalist>
+        </p>
+        <p>
+            <textarea cols="40" rows="10" style="resize: none;">미리 적혀 있는 글</textarea>
+            <!-- textarea는 띄워쓰기 엔터를 다 인식하기 때문에 한줄로 적는 것이 좋다 -->
+        </p>
+    </form>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
