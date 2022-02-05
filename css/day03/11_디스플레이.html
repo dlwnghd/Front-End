@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스플레이</title>
+    <style>
+        div{
+            margin: 20px;
+            border: 1px solid deeppink;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        img{
+            border: 1px solid deepskyblue;
+            width: 100px;
+        }
+        #block img{ display: block;}
+        .ib{
+            border-radius: 0%;
+            border: 3px solid blue;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+        span.ib{
+            /* display: block; */
+            display: inline-block;
+        }
+        div.ib{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>디스플레이 - 1</h2>
+    <div id="inline">
+        <img src="./1.png" alt="바다">
+        <img src="./2.png" alt="바다">
+        <img src="./3.png" alt="바다">
+    </div>
+    <div id="block">
+        <img src="./1.png" alt="바다">
+        <img src="./2.png" alt="바다">
+        <img src="./3.png" alt="바다">
+    </div>
+    <hr>
+    <span class="ib"></span>
+    <span class="ib"></span>
+    <span class="ib"></span>
+    <div id="ib"></div>
+    <div id="ib"></div>
+    <div id="ib"></div>
+</body>
+</html>

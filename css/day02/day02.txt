@@ -1,4 +1,4 @@
-CSS 선택자
+[CSS 선택자]
     10. 속성 선택자
         [속성명 ~= "속성값"] : 속성값이 완벽히 일치하는 문자를 가지고 있는요소를 선택
             = "apple" - 값이 "apple"인 것을 선택
@@ -44,7 +44,7 @@ CSS 선택자
         :hover
             마우스가 올라갔을 때
 
-CSS의 컬러
+[CSS의 컬러]
     색상 이름으로 표현
         red,white,black, ...
 
@@ -59,10 +59,10 @@ CSS의 컬러
         #0000ff (파란색) -> #00f
 
     
-컬러 사이트
+[컬러 사이트]
     https://materializecss.com/color.html
 
-CSS의 텍스트
+[CSS의 텍스트]
     color
         텍스트 내에서 글자의 색상을 설정
     letter-spacing
@@ -112,7 +112,7 @@ CSS의 텍스트
         무료 웹 폰트
             구글 폰트 : https://fonts.google.com/
 
-CSS의 배경
+[CSS의 배경]
     background-color
         HTML 요소의 배경색을 설정
     background-image
