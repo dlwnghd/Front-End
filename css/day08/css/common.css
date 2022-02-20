@@ -1,100 +1,196 @@
+/* baes.css 적용 */
 @import url(./layout_base.css);
+
+/* 외부 폰트 적용하기 */
 @font-face {
-    font-family: 'CookieRun-Regular';
+    font-family: 'CookieRun-Regular';   /* 폰트명*/
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 /* 공통 부분 */
 body{
+    /* 폰트 불러오기 */
     font-family:'CookieRun-Regular';
+    /* 폰트 크기 */
     font-size: 16px;
+    /* 높이 */
     height: 100%;
+    /* 폰트 색상 */
     color: #444;
+    /* white-space : 스페이스와 탭, 줄바꿈, 자동줄바꿈을 어떻게 처리할지 정하는 속성 */
+    /* 참조 : https://www.codingfactory.net/10597*/
     white-space: normal;
+    /* wrod-break : 아시아 언어의 긴 텍스트를 강제로 끊어 줄바꿈을 해주는 속성 */
+    /* 참조 : https://aboooks.tistory.com/189 */
     word-break: normal;
+    /* word-wrap : 비아시아 언어의 긴 텍스트를 강제로 끊어 줄바꿈을 해주는 속성 */
+    /* 참조 : https://aboooks.tistory.com/188 */
     word-wrap: break-word;
+    /* 줄 간견 */
     line-height: 1;
+    /* 글자 간격 */
     letter-spacing: -1px;
 }
 *{
-    margin: 0; padding: 0;
+    /* 외부 여백 */
+    margin: 0;
+    /* 내부 여백 */
+    padding: 0;   
 }
-/* 초기화 */
 h1,h2,h3,h4,h5,h6{
+    /* 폰트 두께 */
     font-weight: normal;
+    /* 폰트 크기 */
     font-size: inherit;
 }
 ul,ol,li{
-    list-style: none;
+    /* 리스트의 스타일  */
+    list-style: none;   /* 없음으로 주어짐*/
 }
+/* 텍스트 꾸미기 */
 a{ text-decoration: none;}
-a:link,a:visited,a:hover,a:focus{color: #444; }
-.clear::after{
-    content: '';
+/* 링크가 있는 a태그, 방문했던 a태그, 마우스가 올라간 a태그, 클릭 또는 탭하거나, 키보드 Tab키로 선택된 a태그 */
+a:link,a:visited,a:hover,a:focus{ color: #444;}
+
+/* clear 클래스 뒤에 있는 속성들*/
+.clear::after{ 
+    /* content : 생성한 값으로 요소를 대체 */
+    content: '';    /* 보이지 않는 요소를 생성*/
+    /* block타입으로 보여줌 */
     display: block;
-    clear: both;
+    /* clear : float 속성이 적용된 이후 나타나는 요소들의 동작을 조절 */
+    clear: both;    /* 왼쪽 오른쪽 둘다 영향을 받지 않고 아래로 내려감*/
 }
-img{ border: none; vertical-align: middle; }
-.box_innter{
+
+/* img태그 */
+img{
+    /* 요소의 테두리 */
+    border: none;   /* 없음 */
+    /* 수직 정렬 */
+    vertical-align: middle; /* 중앙 배치 */
+}
+
+/* box_inner 클래스 : 안에서 컨테츠들을 감싸고있는 박스*/
+.box_inner{
+    /* 넓이 */
     width: 1050px;
+    /* 외부 여백 */
     margin: 0 auto;
 }
 
-/* -----메인페이지(index.html) 시작----- */
+/* ------메인 페이지(index.html) 시작------ */
 /* 헤더 */
 header{
-    position: fixed;
-    top: 0; left: 0;
+    /* 화면 내의 위치 */
+    position: fixed;    /* 고정 */
+    /* 컨텐츠에서의 위 여백 */
+    top: 0;
+    /* 컨텐츠에서의 왼쪽 여백*/
+    left: 0;
+    /* 넓이 */
     width: 100%;
+    /* 높이 */
     height: 113px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    /* 배경 색상 */
+    background: rgba(0,0,0,0.5);
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
+    z-index: 100;   /* 100번째*/
 }
 
+/* header태그 > header_area를 클래스로 가지는 태그 > h1태그 */
 header > .header_area > h1{
-    float: left;
-    padding: 45px 0 0;
+    /* 요소 좌우측 배치 여부 */
+    float: left;    /* 왼쪽 */
+    /* 내부 여백 */
+    padding: 45px 0 0;  /* 위 45px 나머지 0 */
 }
+
+/* header태그 > header_area를 클래스로 가지는 태그 > h1태그 > a태그 */
 header > .header_area > h1 > a{
+    /* block타입으로 보여줌 */
     display: block;
+    /* 넓이 */
     width: 270px;
+    /* 높이 */
     height: 71px;
-    background: url(../images/logo.png) no-repeat;
+    /* 배경 */
+    background: url(../images/logo.png) no-repeat;  /* url로 이미지 불러옴 반복X*/
+
+    /* 시각 장애인을 위해서 지우지 않고 남겨둠 */
+    /* 들여쓰기 */
     text-indent: -9999px;
-    overflow: hidden;
+    /* overflow : 요소의 컨텐츠가 너무 커서 요소의 블록 서식 맥락에 맞출 수 없을 때의 처리법 */
+    overflow: hidden;   /* 숨김 */
 }
-.closePop {font-size: 0;}
+/* header_cont클래스 */
 .header_cont{
+    /* 왼쪽 정렬 */
     float: right;
+    /* 넓이 */
     width: 780px;
 }
+/* header_cont 와 util클래스를 같이 가지는 태그 */
 .header_cont .util{
+    /* 글자 정렬 */
     text-align: right;
+    /* 내부 여백 */
     padding-top: 10px;
 }
-.header_cont .util li{ display: inline; }
+/* header_cont 와 util클래스를 같이 가지는 태그 내부의 li */
+.header_cont .util li{display: inline;} /* inline요소로 */
+
+/* header_cont 와 util클래스를 같이 가지는 태그 내부의 첫뻔째 li의 뒤에 */
 .header_cont .util li:first-child::after{
-    content: '|';
+    /* content : 생성한 값으로 요소를 대체 */
+    content: '|';   /* | 배치 */
+     /* inline-block 타입으로 보여줌 */
     display: inline-block;
+    /* 내부 여백 */
     padding: 0 10px;
+    /* 폰트 크기 */
     font-size: 10px;
+    /* 텍스트 색상 */
     color: #eee;
+    /* 상대 위치 참조 */
     position: relative;
-    top: -2px;
+    /* 컨텐츠에서의 위 여백 */
+    top: -2px;  /* 2px 줄임*/
 }
+/* header_cont 와 util클래스를 같이 가지는 태그 내부의 li 내부의 a태그*/
 .header_cont .util li a{
     font-size: 14px;
     color: #eee;
 }
+/* 네비게이션 바 */
+/* header_cont 와 gnb클래스를 같이 가지는 태그*/
 .header_cont .gnb{
     float: right;
+    /* 박스 크기 */
     box-sizing: border-box;
+    /* 위쪽 내부 여백 */
     padding-top: 5px;
 }
-.header_cont .gnb li{ float:left; }
-.header_cont .gnb li a{ display: block; padding: 26px 40px; font-size: 18px; color: #fff; }
-.header_cont .gnb li:last-child a{ padding-right: 0; }
+/* header_cont 와 gnb클래스를 같이 가지는 태그의 li태그*/
+.header_cont .gnb li{ float: left;} /* 왼쪽 정렬*/
+/* header_cont 와 gnb클래스를 같이 가지는 태그의 li태그의 a태그*/
+.header_cont .gnb li a{
+    /* 블록으로 보임 */ 
+    display: block;
+    /* 내부 여백 : (위아래)26px (좌우)40px */
+    padding: 26px 40px;
+    /* 폰트 크기 */
+    font-size: 18px;
+    /* 폰트 색상 */
+    color: #fff;
+}
+/* header_cont 와 gnb클래스를 같이 가지는 태그의 마지막 li태그의 a태그*/
+.header_cont .gnb li:last-child a{
+    /* 오른쪽 내부 여백 */
+    padding-right: 0;
+}
+/*  */
 .gnb_depth{
     position: absolute;
     left: 0;
@@ -102,19 +198,37 @@ header > .header_area > h1 > a{
     width: 100%;
     background: rgba(250,100,0,0.85);
     z-index: 100;
-    display: none;
-}
-.gnb_depth .submenu_list{ width: 1050px; margin: 0 auto; text-align: left; box-sizing: border-box;}
-
-.gnb_depth2_1 .submenu_list{ padding-left: 480px;}
-.gnb_depth2_2 .submenu_list{ padding-left: 600px;}
-.gnb_depth2_3 .submenu_list{ padding-left: 730px;}
-.gnb_depth2_4 .submenu_list{ padding-left: 945px;}
-
-.gnb_depth .submenu_list li{ display: inline;}
-.gnb_depth .submenu_list li a{ display: inline-block; padding: 20px; }
-.gnb_depth .submenu_list li:last-child a{
-    padding-right: 0;
+    /* display: none; */
 }
 
-/* -----메인페이지(index.html) 끝----- */
+/* 아래는 위에서 설명한 것이 많기 때문에 설명 생략 */
+/* gnb_depth와 submenu_list를 클래스로 가지는 태그 */
+.gnb_depth .submenu_list{width: 1050px; margin: 0 auto; text-align: left; box-sizing: border-box;}
+/* gnb_depth2_1와 submenu_list를 클래스로 가지는 태그 */
+.gnb_depth2_1 .submenu_list{padding-left: 480px;}
+/* gnb_depth2_2와 submenu_list를 클래스로 가지는 태그 */
+.gnb_depth2_2 .submenu_list{padding-left: 600px;}
+/* gnb_depth2_3와 submenu_list를 클래스로 가지는 태그 */
+.gnb_depth2_3 .submenu_list{padding-left: 730px;}
+/* gnb_depth2_4와 submenu_list를 클래스로 가지는 태그 */
+.gnb_depth2_4 .submenu_list{padding-left: 945px;}
+
+
+/* gnb_depth와 submenu_list를 클래스의 li태그 */
+.gnb_depth .submenu_list li { display: inline;}
+/* gnb_depth와 submenu_list를 클래스의 li태그의 a태그 */
+.gnb_depth .submenu_list li a{ display: in-inline; padding: 20px;}
+/* gnb_depth와 submenu_list를 클래스의 마지막 li태그의 a태그 */
+.gnb_depth .submenu_list li:last-child a{ padding-right: 0;}
+
+
+/* 1시간 50분 12초 */
+
+
+
+
+
+
+
+
+/* ------메인 페이지(index.html) 끝------ */
