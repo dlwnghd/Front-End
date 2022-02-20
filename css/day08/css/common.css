@@ -1,0 +1,120 @@
+@import url(./layout_base.css);
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 공통 부분 */
+body{
+    font-family:'CookieRun-Regular';
+    font-size: 16px;
+    height: 100%;
+    color: #444;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: break-word;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+*{
+    margin: 0; padding: 0;
+}
+/* 초기화 */
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    font-size: inherit;
+}
+ul,ol,li{
+    list-style: none;
+}
+a{ text-decoration: none;}
+a:link,a:visited,a:hover,a:focus{color: #444; }
+.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+img{ border: none; vertical-align: middle; }
+.box_innter{
+    width: 1050px;
+    margin: 0 auto;
+}
+
+/* -----메인페이지(index.html) 시작----- */
+/* 헤더 */
+header{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 113px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+header > .header_area > h1{
+    float: left;
+    padding: 45px 0 0;
+}
+header > .header_area > h1 > a{
+    display: block;
+    width: 270px;
+    height: 71px;
+    background: url(../images/logo.png) no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.closePop {font-size: 0;}
+.header_cont{
+    float: right;
+    width: 780px;
+}
+.header_cont .util{
+    text-align: right;
+    padding-top: 10px;
+}
+.header_cont .util li{ display: inline; }
+.header_cont .util li:first-child::after{
+    content: '|';
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #eee;
+    position: relative;
+    top: -2px;
+}
+.header_cont .util li a{
+    font-size: 14px;
+    color: #eee;
+}
+.header_cont .gnb{
+    float: right;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.header_cont .gnb li{ float:left; }
+.header_cont .gnb li a{ display: block; padding: 26px 40px; font-size: 18px; color: #fff; }
+.header_cont .gnb li:last-child a{ padding-right: 0; }
+.gnb_depth{
+    position: absolute;
+    left: 0;
+    top: 113px;
+    width: 100%;
+    background: rgba(250,100,0,0.85);
+    z-index: 100;
+    display: none;
+}
+.gnb_depth .submenu_list{ width: 1050px; margin: 0 auto; text-align: left; box-sizing: border-box;}
+
+.gnb_depth2_1 .submenu_list{ padding-left: 480px;}
+.gnb_depth2_2 .submenu_list{ padding-left: 600px;}
+.gnb_depth2_3 .submenu_list{ padding-left: 730px;}
+.gnb_depth2_4 .submenu_list{ padding-left: 945px;}
+
+.gnb_depth .submenu_list li{ display: inline;}
+.gnb_depth .submenu_list li a{ display: inline-block; padding: 20px; }
+.gnb_depth .submenu_list li:last-child a{
+    padding-right: 0;
+}
+
+/* -----메인페이지(index.html) 끝----- */

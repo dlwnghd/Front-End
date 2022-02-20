@@ -1,3 +1,4 @@
+/* 외부 폰트 스타일 불러오기 */
 @font-face {
     font-family: 'twayair';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
@@ -7,6 +8,8 @@
 body{
     font-family: "twayair";
 }
+
+/* 공통 스타일 적용 구간 */
 #container{
     width: 100%;
     margin: 0 auto;
@@ -35,8 +38,8 @@ header{
     margin: 0;
 }
 
+/* 이미지 가리기 */
 .photo{
-    /* 이미지 가리기 */
     display: none;
 }
 section{
@@ -74,6 +77,8 @@ footer > p{
     text-align: center;
     line-height: 100px;
 }
+
+/* 테블릿 사이즈*/
 @media screen and (min-width:768px) {
     section#intro, section#path, section#choice{
         float: left;
@@ -86,6 +91,7 @@ footer > p{
     }
 }
 
+/* PC 사이즈 */
 @media screen and (min-width:1024px) {
     body{
         width: 80%;
