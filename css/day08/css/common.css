@@ -71,13 +71,51 @@ img{
     /* 수직 정렬 */
     vertical-align: middle; /* 중앙 배치 */
 }
-
+/* .hdd클래스 */
+.hdd{
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    top: 0; left: 0;
+}
 /* box_inner 클래스 : 안에서 컨테츠들을 감싸고있는 박스*/
 .box_inner{
     /* 넓이 */
     width: 1050px;
     /* 외부 여백 */
     margin: 0 auto;
+}
+/* skipnavi */
+/* 
+    웹 접근성을 위한 skipnavi
+    https://nuli.navercorp.com/community/article/1132804
+*/
+/* skipnavi클래스 */
+.skipnavi{
+    position: absolute;
+    left: 0; top: -50px;
+    width: 100%;
+    text-indent: -9999px;
+    font-size: 0;
+    z-index: 999;
+}
+/* skipnavi클래스 안에 li태그 안에 (포커싱이잡힌)a 또는 skipnavi클래스 안에 li태그 안에 (활성화된)a태그 */
+.skipnavi > li > a:focus, .skipnavi > li > a:active{
+    position: absolute;
+    width: 100%;
+    left: 0; top: 50px;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    text-indent: 0px;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    font-weight: bold;
 }
 
 /* ------메인 페이지(index.html) 시작------ */
@@ -117,12 +155,15 @@ header > .header_area > h1 > a{
     height: 71px;
     /* 배경 */
     background: url(../images/logo.png) no-repeat;  /* url로 이미지 불러옴 반복X*/
-
     /* 시각 장애인을 위해서 지우지 않고 남겨둠 */
     /* 들여쓰기 */
     text-indent: -9999px;
     /* overflow : 요소의 컨텐츠가 너무 커서 요소의 블록 서식 맥락에 맞출 수 없을 때의 처리법 */
     overflow: hidden;   /* 숨김 */
+}
+/* closePop 클래스 */
+.closePop{
+    font-size: 0;
 }
 /* header_cont클래스 */
 .header_cont{
@@ -153,7 +194,7 @@ header > .header_area > h1 > a{
     font-size: 10px;
     /* 텍스트 색상 */
     color: #eee;
-    /* 상대 위치 참조 */
+    /* 자기자신 기준 위치 참조 */
     position: relative;
     /* 컨텐츠에서의 위 여백 */
     top: -2px;  /* 2px 줄임*/
@@ -198,7 +239,7 @@ header > .header_area > h1 > a{
     width: 100%;
     background: rgba(250,100,0,0.85);
     z-index: 100;
-    /* display: none; */
+    display: none;
 }
 
 /* 아래는 위에서 설명한 것이 많기 때문에 설명 생략 */
@@ -221,14 +262,383 @@ header > .header_area > h1 > a{
 /* gnb_depth와 submenu_list를 클래스의 마지막 li태그의 a태그 */
 .gnb_depth .submenu_list li:last-child a{ padding-right: 0;}
 
+/* -----------------------------------Container----------------------------------- */
+/* id가 container인 태그 */
+#container{
+    /* 내부 아래 여백 */
+    padding-bottom: 70px;
+}
+/* visualRoll 클래스 */
+.visualRoll{
+     /* 자기자신 기준 위치 참조 */
+    position: relative;
+    width: 100%;
+}
+/* viewImgList 클래스 */
+.viewImgList{
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    width: 100%;
+}
+/* viewImgList 클래스의 li태그들 */
+.viewImgList li{
+    text-align: center;
+    height: 550px;
+    /* 줄 간견 */
+    line-height: 550px;
+    /* 배경 크기 */
+    background-size: cover !important;  /* !important로 최우선 순위 CSS스타일 적용 */
+}
+/* viewImgList 클래스의 li태그중에 imgList0 클래스 */
+.viewImgList li.imgList0{
+    /* 배경 */
+    background: url(../images/mainslide01.jpg) no-repeat center;
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
+    z-index: 50;
+}/* viewImgList 클래스의 li태그중에 imgList1 클래스 */
+.viewImgList li.imgList1{
+    /* 배경 */
+    background: url(../images/mainslide02.jpg) no-repeat center;
+    /* 상대적 위치 */
+    position: absolute;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
+    z-index: 10;
+    top: 0; left: 0; width: 100%;
+}
+/* viewImgList 클래스의 li태그중에 imgList2 클래스 */
+.viewImgList li.imgList2{
+    /* 배경 */
+    background: url(../images/mainslide03.jpg) no-repeat center;
+    /* 상대적 위치 */
+    position: absolute;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
+    z-index: 10;
+    top: 0; left: 0; width: 100%;
+}
+/* viewImgList 클래스의 li의 roll_content클래스 */
+.viewImgList li .roll_content{
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+}
+/* viewImgList 클래스의 li의 roll_content클래스의 roll_txtline클래스 */
+.viewImgList li .roll_content .roll_txtline{
+    /* 상대적 위치 */
+    position: absolute;
+    left: 0;
+    bottom: 60px;
+    width: 100%;
+    /* 줄 간격 */
+    line-height: 1;
+    /* 글자 정렬 */
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    /* 단어 간격 */
+    letter-spacing: 2px;
+}
+/* rollbtnArea클래스 */
+.rollbtnArea{
+    /* 상대적 위치 */
+    position: absolute;
+    width: 100%;
+    left: 0; bottom: 25px;
+    z-index: 70;
+}
+/* rollbtnArea클래스의 rollingbtn 클래스 */
+.rollbtnArea .rollingbtn{
+    width: 320px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-/* 1시간 50분 12초 */
+/* rollbtnArea클래스의 rollingbtn 클래스의 li태그 */
+.rollbtnArea .rollingbtn li{
+    /*  */
+    display: inline-block;
+    margin-right: 5px;
+}
+/* rollbtnArea클래스의 rollingbtn 클래스의 li태그중에 butt0클래스 */
+.rollbtnArea .rollingbtn li.butt0{
+    margin-left: 10px;
+}
+/* rollbtnArea클래스의 rollingbtn 클래스의 li태그중에 play클래스 */
+.rollbtnArea .rollingbtn li.play{
+    display: none;
+}
+/* rollbtnArea클래스의 rollingbtn 클래스의 li태그의 a태그 */
+.rollbtnArea .rollingbtn li a{
+    /* 수직 배치 */
+    vertical-align: middle; /* 중앙 */
+}
 
+/* about_area클래스의 h2 */
+.about_area h2{
+    padding: 55px 0 105px;
+    text-align: center;
+    font-size: 40px;
+}
+/* about_area클래스의 about_box클래스 */
+.about_area .about_box{
+    background-color: #f4f0e9;
+}
+/* about_area클래스의 place_list클래스의 li태그 */
+.about_area .place_list li{
+    float: left;
+    width: 32%;
+    margin-left: 2%;
+    text-align: center;
+    /* 자기자신 기준 배치 */
+    position: relative;
+    top: -50px;
+}
+/* about_area클래스의 place_list클래스의 li태그에서 첫번째 */
+.about_area .place_list li:first-child{
+    margin-left: 0;
+}
+/* about_area클래스의 place_list클래스의 li태그의 img_topplace클래스 */
+.about_area .place_list li .img_topplace{
+    width: 100%;
+}
+/* about_area클래스의 place_list클래스의 li태그의 h3태그 */
+.about_area .place_list li h3{
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 25px;
+    color: #000;
+}
+/* about_area클래스의 place_list클래스의 p태그(txt클래스를 가진) */
+.about_area .place_list p.txt{
+    box-sizing: border-box;
+    padding: 10px 30px 0;
+    width: 100%;
+    /* 범위를 벗어나는 글을 숨김 */
+    overflow: hidden;
+    /* 모룸 */
+    word-break: keep-all;
+    /* 줄 간격 */
+    line-height: 1.8;
+    /* 폰트 색상 */
+    color: #666;
+}
+/* about_area클래스의 place_list클래스의 li태그의 view클래스 */
+.about_area .place_list li .view{
+    display: inline-block;
+    margin-top: 20px;
+    padding-top: 5px;
+    border-top: 2px solid #333;
+    color: #555;
+}
+/* appbbs_area클래스 */
+.appbbs_area{
+    padding: 60px 0;
+}
+/* appbbs_area클래스 안에 appbbs_box클래스 안에 app_line클래스*/
+.appbbs_area > .appbbs_box > .app_line{
+    float: left;
+    width: 66%;
+    box-sizing: border-box;
+    padding: 45px 0;
+    text-align: center;
+    background: url(../images/bg_app.jpg) no-repeat;
+    font-size: 0;
+}
+/* appbbs_area클래스 안에 appbbs_box클래스 안에 app_line클래스 안에 a태그*/
+.appbbs_area > .appbbs_box > .app_line > a{
+    border: 2px solid #fff;
+    display: inline-block;
+    width: 45.4%;
+    height: 100px;
+    line-height: 100px;
+    box-sizing: border-box;
+    padding-left: 75px;
+    text-align: left;
+    /* 배경에 색상과 이미지를 함께 줄 수 있음 */
+    background: rgba(0,0,0,0.3) url(../images/ico_katalk.png) no-repeat 20px 50%;
+    margin-right: 10px;
+    font-size: 26px;
+    color: #fff;
+    vertical-align: middle;
+}
+/* appbbs_area클래스 안에 appbbs_box클래스 안에 app_line클래스 안에 a태그 다음의 a태그*/
+.appbbs_area > .appbbs_box > .app_line > a+a{
+    margin-right: 0;
+    padding-left: 85px;
+    background-image: url(../images/ico_phone.png);
+}
+/* appbbs_box클래스 안에 bbs_line클래스 */
+.appbbs_box > .bbs_line{
+    float: right;
+    width: 30%;
+}
+/* appbbs_box클래스 안에 bbs_line클래스의 h3 */
+.appbbs_box > .bbs_line h3{
+    font-size: 26px;
+}
+/* appbbs_box클래스 안에 bbs_line클래스의 notice_recent클래스 */
+.appbbs_box > .bbs_line .notice_recent{
+    padding-top: 10px;
+}
+/* appbbs_box클래스 안에 bbs_line클래스 안에 notice_recent클래스 안에 li태그*/
+.appbbs_box > .bbs_line > .notice_recent > li{
+    padding: 6px 0;
+}
+/* appbbs_box클래스 안에 bbs_line클래스 안에 notice_recent클래스 안에 li태그 안에 a태그*/
+.appbbs_box > .bbs_line > .notice_recent > li > a{
+    display: block;
+    height: 20px;
+    padding-left: 14px;
+    background: url(../images/ico_bullet.png) no-repeat 0 40%;
+    /* 범위를 벗어나는 폰트 */
+    overflow: hidden;   /* 숨김 */
+    /* 줄바꿈 */
+    white-space: nowrap;    /* 줄바꿈 X*/
+    /* 범위를 벗어나는 폰트 */
+    text-overflow: ellipsis;    /* ...으로 처리*/
+}
+/* ----------------------------------footer---------------------------------- */
+footer{
+    border-top: 1px solid #ddd;
+}
+/* footer태그 안에 foot_area클래스 */
+footer > .foot_area{
+    position: relative;
+    padding-bottom: 40px;
+}
+/* footer태그 안에 foot_area클래스 안에 foot_list클래스 */
+footer > .foot_area > .foot_list{
+    padding-top: 25px;
+}
+/* footer태그 안에 foot_area클래스 안에 foot_list클래스 안에 li테그 */
+footer > .foot_area > .foot_list > li{
+    float: left;
+}
+/* footer태그 안에 foot_area클래스 안에 foot_list클래스 안에 li테그(첫번째 태그 이후 태그들) */
+footer > .foot_area > .foot_list > li:first-child::after{
+    /* content : 생성한 값으로 요소를 대체 */
+    content: '|';
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #000;
+    position: relative;
+    top: -2px;
+}
+/* footer태그 안에 foot_area클래스 안에 foot_list클래스 안에 li테그 안에 a태그*/
+footer > .foot_area > .foot_list > li >a{
+    /* 폰트 굵기 */
+    font-weight: bold;
+    font-size: 15px;
+}
+/* footer태그 안에 foot_area클래스 안에 h2태그*/
+footer > .foot_area > h2{
+    padding-top: 25px;
+    font-size: 14px;
+    color: #666;
+}
+/* footer태그 안에 foot_area클래스 안에 addr클래스*/
+footer > .foot_area  .addr{
+    padding-top: 5px;
+    line-height: 1.4;
+    font-size: 13px;
+    color: #666;
+}
+/* footer태그 안에 foot_area클래스 안에 addr클래스 안에 space0클래스*/
+footer > .foot_area > .addr > .space0{
+    letter-spacing: 0;
+}
+/* footer태그 안에 foot_area클래스 안에 copy클래스*/
+footer > .foot_area > .copy{
+    padding-top: 3px;
+    font-size: 13px;
+    color: #666;
+    letter-spacing: 0;
+}
+/* footer태그 안에 foot_area클래스 안에 snslink클래스*/
+footer > .foot_area > .snslink{
+    position: absolute;
+    right: 20px; top: 50px;
+}
+/* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 li태그*/
+footer > .foot_area > .snslink > li{
+    float: left;
+    margin-left: 60px;
+}
+/* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 li태그 안에 a태그*/
+footer > .foot_area > .snslink > li > a{
+    background: url(../images/ico_blog_r.png) no-repeat;
+    display: block;
+    width: 50px;
+    height: 74px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+/* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 (li태그 다음의)li태그 안에 a태그*/
+footer > .foot_area > .snslink > li+li > a{
+    background-image: url(../images/ico_facebook_r.png);
+}
+/* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 (li태그 다음의 li태그 다음의)li태그 안에 a태그*/
+footer > .foot_area > .snslink > li+li+li > a{
+    background-image: url(../images/ico_instargram_r.png);
+}
 
-
-
-
-
-
-
+/* ------------------------------------퀵메뉴------------------------------------ */
+/* quick_area클래스 */
+.quick_area{
+    position: fixed;
+    top: 171px;
+    right: 0;
+    width: 94px;
+    z-index: 100;
+}
+/* quick_area클래스 안에 quick_list 안에 li태그 */
+.quick_area > .quick_list > li{
+    text-align: center;
+    background-color: #282828;
+    font-size: 15px;
+}
+/* quick_area클래스 안에 quick_list 안에 li태그 안에 a태그*/
+.quick_area > .quick_list > li > a{
+    display: block;
+    padding: 15px 0;
+    border-top: 1px solid #4d4d4d;
+}
+/* quick_area클래스 안에 quick_list 안에 (첫번쨰)li태그*/
+.quick_area > .quick_list > li:first-child{
+    border-top: none;
+}
+/* quick_area클래스 안에 quick_list 안에 li태그 안에 a태그 안에 h3태그*/
+.quick_area > .quick_list > li > a > h3{
+    color: #ddd;
+    padding-bottom: 10px;
+    letter-spacing: -1px;
+}
+/* quick_area클래스 안에 quick_list 안에 (마지막)li태그 안에 a태그 안에 h3태그*/
+.quick_area > .quick_list > li:last-child > a > h3{
+    padding-bottom: 0;
+}
+/* quick_area클래스 안에 quick_list 안에 li태그 안에 a태그 안에 p태그*/
+.quick_area > .quick_list > li > a > p{
+    color: #fff;
+    line-height: 1.3;
+    font-size: 12px;
+}
+/* to_top클래스*/
+.to_top{
+    text-align: center;
+    background-color: #fff;
+}
+/* to_top클래스 안에 a태그*/
+.to_top > a{
+    display: block;
+    box-sizing: border-box;
+    height: 45px;
+    text-indent: -9999px;
+    overflow: hidden;
+    border-left: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    background: url(../images/ico_totop.png) no-repeat center;
+    background-size: 50%;
+}
 /* ------메인 페이지(index.html) 끝------ */
