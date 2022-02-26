@@ -162,10 +162,12 @@ textarea::-webkit-input-placeholder{
 }
 /* ----------서브페이지 공통 시작---------- */
 .bodytext_area{ box-sizing: border-box; padding: 55px 50px 0; }
-.location_area{ height:445px; background: url(../images/img_top2.jpg) no-repeat center bottom; background-size: cover;}
+.location_area{ height:445px; background: url(../images/img_top2.jpg) no-repeat center bottom;
+background-size: cover;
+}
 
 .location_area.member{
-    background-image:url(../images/img_top5.jpg) no-repeat center bottom;
+    background-image:url(../images/img_top5.jpg);
 }
 
 .location_area h2.tit_page{
@@ -711,19 +713,19 @@ h1.loginTit > a > img { width:100%; }
 }
 .btn_line{padding:20px 0;}
 /* ------회원가입 페이지(join.html) 끝------ */
-/* ------내정보 페이지(mypage.html) 시작 */
+/* ------내정보 페이지(mypage.html) 시작------ */
 .myinfo dt{
     background-color: #000;
-    color: #fff;
-    width: 170px;
-    height: 70px;
+    color:#fff;
+    width:170px;
+    height:70px;
     line-height: 70px;
     text-align: center;
     font-size: 18px;
 }
-.myinfo dd{ border-top: 2px solid #000;}
+.myinfo dd{ border-top: 2px solid #000; }
 
-.regForm .reg_list{padding: 0 0; background: url(../images/bg_reglist.png) repeat-y; }
+.regForm .reg_list{ padding:0 0; background: url(../images/bg_reglist.png) repeat-y; }
 .regForm .reg_list li{
     min-height: 60px;
     padding: 0;
@@ -731,21 +733,20 @@ h1.loginTit > a > img { width:100%; }
 }
 .regForm .reg_list li .tit_lbl{
     position: relative;
-    float: left;
-    width: 150px;
+    float:left;
+    width:150px;
     box-sizing: border-box;
     padding-left: 20px;
     line-height: 60px;
     font-weight: bold;
     font-size: 16px;
 }
-
 .regForm .reg_list li .reg_content{
-    float: right;
-    width: 770px;
+    float:right;
+    width:770px;
     box-sizing: border-box;
     padding-left: 20px;
     padding-top: 22.5px;
     font-size: 15px;
 }
-/* ------내정보 페이지(mypage.html) 끝 */
+/* ------내정보 페이지(mypage.html) 끝------ */

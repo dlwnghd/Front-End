@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투어 리스트 인 투어</title>
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="icon" href="../images/favicon.ico">
+</head>
+<body>
+    <!-- 시각 장애인을 위한 skipnavi 시작 -->
+    <ul class="skipnavi">
+        <li><a href="#container">본문내용</a></li>
+    </ul>
+    <!-- skipnavi 끝 -->
+    <!-- wrap 시작 -->
+    <div class="wrap">
+        <!-- header 시작 -->
+        <header>
+            <!--  다중 클래스 : div.header_area.box_inner.clear -->
+            <div class="header_area box_inner clear">
+                <!-- 로고 이미지 칸 시작-->
+                <h1><a href="./index.html">Tourist in Tour</a></h1>
+                <p class="openMOgnb">
+                    <a href="#">
+                        <b class="hdd">메뉴열기</b>
+                        <span></span><span></span><span></span>
+                    </a>
+                </p>
+                <!-- 로고 이미지 칸 끝-->
+                <!--  로그인 회원가입 그리고 gnb_box(네비게이션 바) 시작-->
+                <div class="header_cont">
+                    <!-- 로그인 + 회원가입 -->
+                    <ul class="util clear">
+                        <li><a href="./member/login.html">로그인</a></li>     <!-- 로그인 페이지 url -> member폴더 내부에 html에 연결해줄 예정--> 
+                        <li><a href="./member/join.html">회원가입</a></li>   <!-- 회원가입 페이지 url -> member폴더 내부에 html에 연결해줄 예정-->
+                    </ul>
+                    <!-- 네이게이션 바 시작-->
+                    <nav>
+                        <ul class="gnb clear">
+                            <!-- 네비게이션 바 메뉴 시작-->
+                            <li>
+                                <a href="" class="openAll1">여행정보</a>
+                                <!-- 네비게이션 바의 하위 메뉴 영역 시작-->
+                                <div class="gnb_depth gnb_depth2_1">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">국내</a></li>
+                                        <li><a href="#">해외</a></li>
+                                    </ul>
+                                </div>
+                                <!-- 네비게이션 바의 하위 메뉴 영역 끝-->
+                            </li>
+                            <li>
+                                <a href="" class="openAll2">고객센터</a>
+                                <div class="gnb_depth gnb_depth2_2">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">공지사항</a></li>
+                                        <li><a href="#">문의하기</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="" class="openAll3">상품투어</a>
+                                <div class="gnb_depth gnb_depth2_3">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">프로그램 소개</a></li>
+                                        <li><a href="#">여행자료</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="" class="openAll4">티켓/가이드</a>
+                                <div class="gnb_depth gnb_depth2_4">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">항공</a></li>
+                                        <li><a href="#">호텔</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- 네비게이션 바 메뉴 끝-->
+                        </ul>
+                    </nav>
+                    <!-- 네이게이션 바 끝-->
+                    <p class="closePop"><a href="#">닫기</a></p>
+                </div>
+                <!--  로그인 회원가입 그리고 gnb_box(네비게이션 바) 시작-->
+            </div>
+        </header>
+        <!-- header 끝 -->
+        <!-- container(본문) 시작 -->
+        <div id="container">
+            <div class="location_area member">
+                <div class="box_inner">
+                    <h2 class="title_page">TOURIST <span class="in">in</span> TOUR</h2>
+                    <p class="location">
+                        MEMBER <span class="path">/</span> 회원가입
+                    </p>
+                    <ul class="page_menu clear">
+                        <li><a href="#" class="on">회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 본문 시작 -->
+            <div class="bodytext_area box_inner">
+                <!-- 회원가입 폼 시작 -->
+                <form action="#" class="appForm" method="post">
+                    <fieldset>
+                        <legend>회원가입 입력 양식</legend>
+                        <p class="info_pilsoo pilsoo_item">필수입력</p>
+                        <ul class="app_list">
+                            <!-- 이메일 -->
+                            <li class="clear">
+                                <label for="" class="tit_lbl pilsoo_item">이메일</label>
+                                <div class="app_content email_area">
+                                    <input type="text" class="w160" id="email_lbl" title="이메일주소">
+                                    <span class="ico_space">@</span>
+                                    <input type="text" class="w160" title="이메일 제공업체">
+                                    <div class="select_common">
+                                        <select title="이메일 제공업체">
+                                            <option value="">직접입력</option>
+                                            <option value="naver">naver.com</option>
+                                            <option value="daum">daum.net</option>
+                                            <option value="gmail">gmail.com</option>
+                                            <option value="nate">nate.com</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- 이름 -->
+                            <li class="clear">
+                                <label for="name_lbl" class="tit_lbl pilsoo_item">이름</label>
+                                <div class="app_content">
+                                    <input type="text" class="w100p" id="name_lbl" placeholder="이름을 입력하세요">
+                                </div>
+                            </li>
+                            <!-- 비밀번호 -->
+                        </ul>
+                    </fieldset>
+                </form>
+                <!-- 회원가입 폼 끝 -->
+            </div>
+            <!-- 본문 끝 -->
+        </div>
+        <!-- container 끝 -->
+        <!-- footer 시작 -->
+        <footer>
+            <div class="foot_area box_inner">
+                <ul class="foot_list clear">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보취급방침</a></li>
+                </ul>
+                <h2>투어리스트인투어</h2>
+                <p class="addr">
+                    서울특별시 종로구 혜화동 9길 청운빌딩 5층
+                    <span class="gubun">/</span>
+                    <span class="br_line">
+                        대표전화
+                        <span class="space0">02-1234-5678</span>
+                        <span class="gubun">/</span>
+                    </span>
+                    <span class="br_line">
+                        Email : <span class="space0">titour@touristintour.com</span>
+                    </span>
+                </p>
+                <p class="copy box_inner">
+                    Copyright&copy; TouristInTour all right reserved
+                </p>
+                <ul class="snslink">
+                    <li><a href="#">blog</a></li>
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">instagram</a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- footer 끝 -->
+    </div>
+    <!-- wrap 끝 -->
+    <!-- 퀵메뉴 시작 -->
+    <div class="quick_area">
+        <ul class="quick_list">
+            <li>
+                <a href="#">
+                    <h3>전화문의</h3>
+                    <p>02-1234-5678</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h3>카카오톡 <em>상담</em></h3>
+                    <p>1:1상담</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h3 class="to_content">오시는 길</h3>
+                </a>
+            </li>
+        </ul>
+        <p class="to_top"><a href="#">TOP</a></p>
+    </div>
+    <!-- 퀵메뉴 끝 -->
+</body>
+</html>
