@@ -28,7 +28,7 @@ body{
     /* word-wrap : 비아시아 언어의 긴 텍스트를 강제로 끊어 줄바꿈을 해주는 속성 */
     /* 참조 : https://aboooks.tistory.com/188 */
     word-wrap: break-word;
-    /* 줄 간견 */
+    /* 줄 간격 */
     line-height: 1;
     /* 글자 간격 */
     letter-spacing: -1px;
@@ -78,8 +78,10 @@ img{
     height: 0;
     line-height: 0;
     text-indent: -9999px;
+    /* 범위를 벗어나는 글을 숨김 */
     overflow: hidden;
     visibility: hidden;
+    /* 상대적 위치 */
     position: absolute;
     top: 0; left: 0;
 }
@@ -91,7 +93,114 @@ img{
     margin: 0 auto;
 }
 
+/* 회원가입 공통 시작 */
+input, select, textarea, button, form, label{ vertical-align: middle;}
+fieldset{border: none;}
+input[type=text], input[type=number], input[type=password], input[type=tel], input[type=email]{
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* inline-block으로 사용자에게 보이도록 설정 */
+    display: inline-block;
+    /* 높이 45px */
+    height: 45px;
+    /* 내부 여백 */
+    padding: 0 10px;
+    /* 테두리 */
+    border: 1px solid #ccc;
+    /* 줄 간격 */
+    line-height: normal;
+    /* 폰트 크기 */
+    font-size: 15px;
+}
+/* textarea 태그 */
+textarea{
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* 내부 여백 */
+    padding: 10px;
+    /* 테두리 */
+    border: 1px solid #ccc;
+    /* 폰트 크기 */
+    font-size: 15px;
+}
+/* input 타입=radio고 클래스를 css-radio를 */
+input[type=radio].css-radio{
+    /* 범위를 벗어나는 글을 숨김 */
+    overflow: hidden;
+    /* 상대적 위치 */
+    position: absolute;
+    /* 왼쪽으로 부터 */
+    left: -1000px;
+    /* 넓이 */
+    width: 1px;
+    /* 높이 */
+    height: 1px;
+}
+/* input 타입=radio고 클래스를 css-radio 안에 label */
+input[type=radio].css-radio + label {
+    /* inline-block으로 사용자에게 보이도록 설정 */
+    display: inline-block;
+    /* 내부 왼쪽 여백 */
+    /* important로 우선순위를 줌 */
+    padding-left: 20px !important;
+    /* 오른쪽 외부 여백*/
+    margin-right: 20px;
+    /* 배경 */
+    background: url(../images/bg_radio.png) no-repeat 0 0;
+    /* 마우스 커서가 올라갔을때 */
+    cursor: pointer;
+    /* 수평 정렬 */
+    vertical-align: middle;
+    /* 폰트 크기 */
+    font-size: 15px;
+    /* 줄 간격 */
+    line-height: 16px;
+}
+/* input 타입=radio고 클래스를 css-radio 안에 label */
+input[type=radio].css-radio:checked + label{
+    /* 배경 이미지 위치 */
+    background-position: 0 -50px;
+}
+/* input 타입=checkbox이고 클래스를 css-checkbox */
+input[type=checkbox].css-checkbox{
+    /* 범위를 벗어나는 글을 숨김 */
+    overflow: hidden;
+    /* 상대적 위치 */
+    position: absolute;
+    /* 왼쪽에서 거리 */
+    left: -1000px;
+    /* 넓이 */
+    width: 1px;
+    /* 높이 */
+    height: 1px;
+}
+
+/* input 타입=checkbox이고 클래스를 css-checkbox 안에 label*/
+input[type=checkbox].css-checkbox + label{
+    /* inline-block으로 사용자에게 보이도록 설정 */
+    display: inline-block;
+    /* 내부 왼쪽 여백 */
+    /* important로 우선순위를 줌 */
+    padding-left: 30px !important;
+    /* 오른쪽 외부 여백*/
+    margin-right: 20px;
+    /* 배경 */
+    background: url(../images/bg_checkbox.png) no-repeat 0 0;
+    /* 마우스 커서가 올라갔을때 */
+    cursor: pointer;
+    /* 배경 크기 */
+    background-size: 20px;
+    /* 수평 정렬 */
+    vertical-align: middle;
+    /* 폰트 크기 */
+    font-size: 15px;
+    /* 줄 간격 */
+    line-height: 20px;
+}
+
+/* 회원가입 공통 끝 */
 /* --------------------------------------서브페이지 공통 시작-------------------------------------- */
+/* bodytext_area를 클래스로 가지는 요소 */
 .bodytext_area{ box-sizing: border-box; padding: 55px 50px 0;}
 /* --------------------------------------서브페이지 공통 끝-------------------------------------- */
 
@@ -349,6 +458,7 @@ header > .header_area > h1 > a{
     position: absolute;
     width: 100%;
     left: 0; bottom: 25px;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
     z-index: 70;
 }
 /* rollbtnArea클래스의 rollingbtn 클래스 */
@@ -455,6 +565,7 @@ header > .header_area > h1 > a{
     display: inline-block;
     width: 45.4%;
     height: 100px;
+    /* 줄 간격 */
     line-height: 100px;
     box-sizing: border-box;
     padding-left: 75px;
@@ -545,6 +656,7 @@ footer > .foot_area > h2{
 /* footer태그 안에 foot_area클래스 안에 addr클래스*/
 footer > .foot_area  .addr{
     padding-top: 5px;
+    /* 줄 간격 */
     line-height: 1.4;
     font-size: 13px;
     color: #666;
@@ -577,6 +689,7 @@ footer > .foot_area > .snslink > li > a{
     width: 50px;
     height: 74px;
     text-indent: -9999px;
+    /* 범위를 벗어나는 글을 숨김 */
     overflow: hidden;
 }
 /* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 (li태그 다음의)li태그 안에 a태그*/
@@ -595,6 +708,7 @@ footer > .foot_area > .snslink > li+li+li > a{
     top: 171px;
     right: 0;
     width: 94px;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
     z-index: 100;
 }
 /* quick_area클래스 안에 quick_list 안에 li태그 */
@@ -626,6 +740,7 @@ footer > .foot_area > .snslink > li+li+li > a{
 /* quick_area클래스 안에 quick_list 안에 li태그 안에 a태그 안에 p태그*/
 .quick_area > .quick_list > li > a > p{
     color: #fff;
+    /* 줄 간격 */
     line-height: 1.3;
     font-size: 12px;
 }
@@ -640,6 +755,7 @@ footer > .foot_area > .snslink > li+li+li > a{
     box-sizing: border-box;
     height: 45px;
     text-indent: -9999px;
+    /* 범위를 벗어나는 글을 숨김 */
     overflow: hidden;
     border-left: 1px solid #a3a3a3;
     border-bottom: 1px solid #a3a3a3;
@@ -648,98 +764,168 @@ footer > .foot_area > .snslink > li+li+li > a{
 }
 /* ------메인 페이지(index.html) 끝------ */
 /* ------로그인 페이지(login.html) 시작----- */
-.login_wrap{ width: 580px; margin: 100px auto 0;}
-h1.loginTit{ text-align: center;}
-h1.loginTit > a{ display: block;}
-h1.loginTit > a > img{width: 100%;}
 
+/* login_wrap클래스 */
+.login_wrap{ 
+    width: 580px; 
+    margin: 100px 
+    auto 0;
+}
+/* loginTit를 클래스로 가지는 h1태그 */
+h1.loginTit{ text-align: center;}
+/* loginTit를 클래스로 가지는 h1태그 안에 a태그 */
+h1.loginTit > a{ display: block;}
+/* loginTit를 클래스로 가지는 h1태그 안에 a태그 안에 img태그 */
+h1.loginTit > a > img{width: 100%;}
+/* login_list를 클래스로 가지는 요소 */
 .login_list{ width: 75%; margin: 70px auto 20px;}
+/* login_list를 클래스로 가지는 요소 안에 li태그 */
 .login_list > li {
+    /* 자기자신 기준 위치 참조 */
     position: relative;
+    /* 아래 외부 여백 */
     margin-bottom: 4px;
     height: 54px;
+    /* 박스 크기 */
     box-sizing: border-box;
+    /* 왼쪽 내부 여백 */
     padding-left: 50px;
     /* ↓ 확인용 */
     /* border: 1px solid black; */
+    /* border의 모서리 깍기 */
     border-radius: 5px;
 }
-
+/* login_list를 클래스로 가지는 요소 안에 li 안에 a태그 */
 .login_list > li > a{
+    /* 블록으로 보임 */ 
     display: block;
+    /* 줄 간격 */
     line-height: 54px;
+    /* 글 정렬 */
     text-align: center;
+    /* 글자 크기 */
     font-size: 14px;
     color: #fff;
 }
-
+/* login_list를 클래스로 가지는 요소 안에 li태그중 마지막 요소 */
 .login_list > li:last-child{ margin-bottom: 0;}
-
+/* login_list를 클래스로 가지는 요소 안에 kakao를 클래스로 가지는 li태그 */
 .login_list > li.kakao{
+    /* 배경 */
     background: #f3e129 url(../images/ico_kakao.png) no-repeat 15px 50%;
+    /* 배경 크기 */
     background-size: 45px 45px;
 }
+/* login_list를 클래스로 가지는 요소 안에 kakao를 클래스로 가지는 li태그 안에 a태그 */
 .login_list > li.kakao > a{ color: #202224;}
+/* login_list를 클래스로 가지는 요소 안에 naver를 클래스로 가지는 li태그 */
 .login_list > li.naver{
+    /* 배경 */
     background: #00c300 url(../images/ico_naver.png) no-repeat 15px 50%;
+    /* 배경 크기 */
     background-size: 45px 45px;
 }
+/* login_list를 클래스로 가지는 요소 안에 facebook을 클래스로 가지는 li태그 */
 .login_list > li.facebook{
+    /* 배경 */
     background: #405ea9 url(../images/ico_face.png) no-repeat 15px 50%;
+    /* 배경 크기 */
     background-size: 45px 45px;
 }
+/* login_list를 클래스로 가지는 요소 안에 email을 클래스로 가지는 li태그 */
 .login_list > li.email{
+    /* 배경 */
     background: #888 url(../images/ico_cellphone.png) no-repeat 15px 50%;
+    /* 배경 크기 */
     background-size: 45px 45px;
 }
+/* btnonoff_line을 클래스로 가지는 요소 */
 .btnonoff_line{ width: 75%; margin: 10px auto; text-align: center;}
+/* btnonoff_line을 클래스의 btn_onoff를 클래스로 가지는 요소 */
 .btnonoff_line .btn_onoff{ margin-left: 5px; font-size: 14px;}
 /* 
     appearance
         운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현할 때 사용함
         none 값을 준다면 원래 쓰이는 속성을 없앰
+        인터넷 상에서 찾아보았을 때는 js문법이라고 함
 */
+/* switch를 클래스로 가지는 요소 */
 .switch{
+    /* 외부 선 */
     /* border: 1px solid black; */
+    /* 자기자신 기준 위치 참조 */
     position: relative;
+    /* inline-block으로 사용자에게 보이도록 설정 */
     display: inline-block;
+    /* 넓이 */
     width: 35px;
+    /* 높이 */
     height: 22px;
+    /* 외부 여백 */
     margin: 0;
+    /* 내부 여백 */
     padding: 0;
+    /* 둥글기 */
     border-radius: 16px;
+    /* 배경 색상 */
     background-color: #e5e5e5;
+    /* 수평 정렬 위로 */
     vertical-align: top;
+    /* 마우스 커서를 올렸을 때 효과 */
     cursor: pointer;
+    /* z-index : 겹쳐지는 요소들이 쌓이는 순서 */
     z-index: 0;
+    /* 위쪽에 설명 */
     appearance: none;
 }
+/* switch를 클래스로 가지는 요소의 가상 요소 before*/
 .switch::before{
     content: "";
+    /* 상대적 위치 */
     position: absolute;
+    /* 넓이 */
     width: 33px;
+    /* 높이 */
     height: 20px;
+    /* 모서리 깍기 */
     border-radius: 15px;
+    /* 배경 색상 */
     background-color: #fff;
+    /* 위에서 겹치는순서 1번째 */
     z-index: 1;
+    /* 왼쪽에서부터 1px 떨어짐 */
     left: 1px;
+    /* 위에서부터 1px 떨어짐 */
     top: 1px;
 }
+/* switch를 클래스로 가지는 요소의 가상 요소 after*/
 .switch::after{
     content: "";
+    /* 상대적 위치 */
     position: absolute;
+    /* 위에서 겹치는 순서 2번째 */
     z-index: 2;
+    /* 넓이 */
     width: 19px;
+    /* 높이 */
     height: 19px;
+    /* 왼쪽에서부터 1px 떨어짐 */
     left: 1px;
+    /* 위에서부터 1px 떨어짐 */
     top: 1px;
+    /* 요소의 그림자 */
     box-shadow: 0 2px 5px #999;
+    /* 배경 색상 */
     background-color: #fff;
+    /* 모서리 깍기 비율 */
     border-radius: 50%;
 }
 /* ------로그인 페이지(login.html) 끝----- */
+
 /* ------회원가입 페이지(join.html) 시작 */
+
 /* ------회원가입 페이지(join.html) 끝 */
+
 /* ------내정보 페이지(mypage.html) 시작 */
 
 /* ------내정보 페이지(mypage.html) 끝 */
