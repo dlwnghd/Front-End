@@ -72,7 +72,7 @@ img{
     vertical-align: middle; /* 중앙 배치 */
 }
 /* .hdd클래스 */
-.hdd{
+.hdd,legend{
     font-size: 0;
     width: 0;
     height: 0;
@@ -96,6 +96,8 @@ img{
 /* 회원가입 공통 시작 */
 input, select, textarea, button, form, label{ vertical-align: middle;}
 fieldset{border: none;}
+
+
 input[type=text], input[type=number], input[type=password], input[type=tel], input[type=email]{
     /* 박스의 크기 */
     box-sizing: border-box;
@@ -218,8 +220,8 @@ select{
     border: px solid #ccc;
 }
 /* select_common을 클래스로 가지는 요소 */
-.selct_common{
-     /* inline-block 타입으로 보여줌 */
+.select_common{
+    /* inline-block 타입으로 보여줌 */
     display: inline-block;
     /* 박스의 크기 */
     box-sizing: border-box;
@@ -236,14 +238,142 @@ select{
     /* 배경 */
     background: url(../images/ico_selectArr.png) no-repeat 100% 50%;
 }
-
+/* select_common을 클래스로 가지는 요소 안에 select태그 */
+.select_common select{
+    /* inline-block 타입으로 보여줌 */
+    display: inline-block;
+    /* 넓이 185px */
+    width: 185px;
+    /* 배경 */
+    background: none;
+    /* 높이 */
+    height: 29px;
+    /* 내부 여백 */
+    padding: 0 10px;
+    /* 테두리 */
+    border: none;
+    /* 글자 크기 */
+    font-size: 15px;
+    /* 아웃라인 */
+    outline: none;
+}
+/* btn_line을 클래스로 가지는 요소 */
+.btn_line{
+    /* 글자 정렬 */
+    text-align: center;
+    /* 폰트 크기 */
+    font-size: 0;
+}
+/* btn_line을 클래스로 가지는 요소 안의 a태그*/
+.btn_line a{
+    /* 왼쪽 외부 여백 */
+    margin-left: 10px;
+}
+/* btn_line을 클래스로 가지는 요소 안의 첫번째 a태그*/
+.btn_line a:first{
+    /* 왼쪽 외부 여백 */
+    margin-left: 0;
+}
+/* btn_basecolor를 클래스로 가지는 요소 */
+.btn_basecolor{
+    /* inline-block 타입으로 보여줌 */
+    display: inline-block;
+    /* 테두리 */
+    border: 1px solid #ccc;
+    /* 글자 정렬 */
+    text-align: center;
+    /* 글자 크기 */
+    font-size: 20px;
+    /* 넓이 */
+    width: 125px;
+    /* 높이 */
+    height: 50px;
+    /* 줄 간격 */
+    line-height: 50px;
+    /* 수직 글자 정렬 */
+    vertical-align: middle; /* 중간*/
+    /* 배경 */
+    background: #384d75;
+    /* 글자 색상 */
+    color: #fff !important; /* !important를 이용한 우선순위 부여*/
+    /* 모서리 깍기 비율 */
+    border-radius: 10px;
+}
+/* input 태그의 입력 전 상태 텍스트 */
+input::-webkit-input-placeholder{
+    color: #999;
+}
+/* textarea 태그의 입력 전 상태 텍스트 */
+textarea::-webkit-input-placeholder{
+    color: #999;
+}
 /* 회원가입 공통 끝 */
 /* --------------------------------------서브페이지 공통 시작-------------------------------------- */
 /* bodytext_area를 클래스로 가지는 요소 */
-.bodytext_area{ box-sizing: border-box; padding: 55px 50px 0;}
+.bodytext_area{
+    /* 박스 크기 */
+    box-sizing: border-box;
+    /* 내부 여백 */
+    padding: 55px 50px 0;
+}
+/* location_area를 클래스로 가지는 요소 */
+.location_area{
+    /* 높이 */
+    height: 445px;
+    /* 배경 */
+    background: url(../images/img_top2.jpg) no-repeat center bottom; /* 반복없이 이미지의 중앙 아래부분 */
+}
+/* location_area와 member를 클래스로 가지는 요소 */
+.location_area.member{
+    /* 배경 */
+    background: url(../images/img_top5.jpg) no-repeat center bottom;
+}
+/* location_area를 클래스로 가지는 요소 안에 tit_page를 클래스로 가지는 h2태그 */
+.location_area h2.tit_page{
+    /* 내부 여백 */
+    padding: 250px 0 0 0;
+    /* 외부 여백 */
+    margin: 0 50px;
+    /* 아래 테두리 */
+    border-bottom: 1px solid #ccc;
+    /* 폰트 크기 */
+    font-size: 30px;
+    /* 글자 간격 */
+    letter-spacing: 3px;
+    /* 폰트 색상 */
+    color: #fff;
+}
+/* location_area를 클래스로 가지는 요소 안에 tit_page를 클래스로 가지는 h2 안에 in을 클래스로 가지는 요소 */
+.location_area h2.tit_page .in{
+    /* font의 크기 */
+    font-variant:small-caps;    /* small-caps : 작은 크기의 대문자로 변환*/
+}
+/* location_area를 클래스로 가지는 요소 안에 location을 클래스로 가지는 p태그 */
+.location_area p.location{
+    /* 내부 여백 */
+    padding: 20px 0 0 50px;
+    /* 폰트 색상 */
+    color: #fff;
+}
+
+/* location_area를 클래스로 가지는 요소 안에 location을 클래스로 가지는 p태그 안에 path를 클래스로 가지는 요소*/
+.location_area p.location .path{
+    /* inline-block으로 보이기 */
+    display: inline-block;
+    /* 내부 여백 */
+    padding: 0 10px;
+}
+/* location_area를 클래스로 가지는 요소 안에 page_menu를 클래스로 가지는 ul태그 */
+.location_area ul.page_menu{
+    /* 보이기 속성 */
+    display: none;
+}
+
+
+
 /* --------------------------------------서브페이지 공통 끝-------------------------------------- */
 
-/* --------------------------------------skipnavi-------------------------------------- */
+/* --------------------------------------skipnavi 시작-------------------------------------- */
 /* 
     웹 접근성을 위한 skipnavi
     https://nuli.navercorp.com/community/article/1132804
@@ -360,6 +490,7 @@ header > .header_area > h1 > a{
 /* 네비게이션 바 */
 /* header_cont 와 gnb클래스를 같이 가지는 태그*/
 .header_cont .gnb{
+    /* 요소 좌우측 배치 여부 */
     float: right;
     /* 박스 크기 */
     box-sizing: border-box;
@@ -539,6 +670,7 @@ header > .header_area > h1 > a{
 }
 /* about_area클래스의 place_list클래스의 li태그 */
 .about_area .place_list li{
+    /* 요소 좌우측 배치 여부 */
     float: left;
     width: 32%;
     margin-left: 2%;
@@ -590,6 +722,7 @@ header > .header_area > h1 > a{
 }
 /* appbbs_area클래스 안에 appbbs_box클래스 안에 app_line클래스*/
 .appbbs_area > .appbbs_box > .app_line{
+    /* 요소 좌우측 배치 여부 */
     float: left;
     width: 66%;
     box-sizing: border-box;
@@ -624,6 +757,7 @@ header > .header_area > h1 > a{
 }
 /* appbbs_box클래스 안에 bbs_line클래스 */
 .appbbs_box > .bbs_line{
+    /* 요소 좌우측 배치 여부 */
     float: right;
     width: 30%;
 }
@@ -667,6 +801,7 @@ footer > .foot_area > .foot_list{
 }
 /* footer태그 안에 foot_area클래스 안에 foot_list클래스 안에 li테그 */
 footer > .foot_area > .foot_list > li{
+    /* 요소 좌우측 배치 여부 */
     float: left;
 }
 /* footer태그 안에 foot_area클래스 안에 foot_list클래스 안에 li테그(첫번째 태그 이후 태그들) */
@@ -718,6 +853,7 @@ footer > .foot_area > .snslink{
 }
 /* footer태그 안에 foot_area클래스 안에 snslink클래스 안에 li태그*/
 footer > .foot_area > .snslink > li{
+    /* 요소 좌우측 배치 여부 */
     float: left;
     margin-left: 60px;
 }
@@ -962,11 +1098,253 @@ h1.loginTit > a > img{width: 100%;}
 /* ------로그인 페이지(login.html) 끝----- */
 
 /* ------회원가입 페이지(join.html) 시작 */
+/* location_area와 member를 클래스로 가지는 요소 아래에 box_inner를 클래스로 가지는 요소 아래에 form태그 */
+.location_area.member > .box_inner > form{
+    /* 위쪽 내부 여백 */
+    padding-top: 100px;
+}
+/* appForm을 클래스로 가지는 태그 */
+.appForm{
+    /* 외부 여백 */
+    margin: 40px auto 0;
+}
+/* appForm을 클래스로 가지는 태그 안에 info_pilsoo를 클래스로 가지는 요소 */
+.appForm .info_pilsoo{
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    /* 왼쪽 내부 여백 */
+    padding-left: 20px;
+    /* 아래 내부 여백 */
+    padding-bottom: 10px;
+    /* 아래 테두리 */
+    border-bottom: 2px solid #000;
+    /* 폰트 크기 */
+    font-size: 15px;
+    /* 글자 색상 */
+    color: #f00;
+}
+/* appForm이라는 클래스를 가지는 요소 안의 pilsoo_item이라는 클래스를 가지는 요소의 이전 속성 */
+.appForm .pilsoo_item::before{
+    /* 컨텐츠 */
+    content:"*";
+    /* inline-block으로 보이기 */
+    display: inline-block;
+    /* 상대적 위치 */
+    position: absolute;
+    /* 왼쪽에서 */
+    left:5px;
+    /* 위쪽에서 */
+    top:0px;
+    /* 넓이 */
+    width:15px;
+    /* 폰트 굴기 */
+    font-weight: bold;
+    /* 폰트 크기 */
+    font-size: 17px;
+    /* 색상 */
+    color:#f00;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 */
+.appForm .app_list{
+    /* 내부 여백 */
+    padding: 10px 0;
+    /* 아래 테두리 */
+    border-bottom: 1px solid #ccc;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 */
+.appForm .app_list li{
+    /* 내부 여백 */
+    padding: 8px 0;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 iti_lbl을 클래스로 가지는 요소 */
+.appForm .app_list .tit_lbl{
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    /* 요소 좌우측 배치 여부 */
+    float: left;
+    /* 넓이 */
+    width: 150px;
+    /* border-box형태로 보기 */
+    box-sizing: border-box;
+    /* 왼쪽 내부 여백 */
+    padding-left: 20px;
+    /* 줄 간격 */
+    line-height: 42px;
+    /* 글자 굵기 */
+    font-weight: bold;
+    /* 글자 크기 */
+    font-size: 17px;
+    /* 글자 간격 */
+    letter-spacing: -1px;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content를 클래스로 가지는 요소 */
+.appForm .app_list li .app_content{
+    /* 요소 좌우측 배치 여부 */
+    float: right;
+    /* 넓이 */
+    width: 770px;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content를 클래스로 가지는 요소 안의 모든 요소 */
+.appForm .app_list li .app_content *{
+    /* 수평 정렬 위로 */
+    vertical-align: top;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content와 email_aera를 클래스로 가지는 요소 안의 ico_space를 클래스로 가지는 요소 */
+.appForm .app_list li .app_content.email_area .ico_space{
+    /* inline-block으로 보이기 */
+    display: inline-block;
+    /* 위쪽 내부 여백 */
+    padding-top: 15px;
+}
 
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content를 클래스로 가지는 요소 안에 label태그 */
+.appForm .app_list li .app_content label{
+    /* 수평 정렬 중앙 */
+    vertical-align: middle; 
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 select_common를 클래스로 가지는 요소 */
+.appForm .app_list li .select_common{
+    /* 넓이 */
+    width:160px;
+    /* 높이 */
+    height:45px;
+    /* 배경 위치 */
+    background-position: 100% 50%;
+    /* 테두리 */
+    border:1px solid #ccc;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 select_common과 select를 클래스로 가지는 요소 */
+.appForm .app_list li .select_common select{
+    /* 넓이 */
+    width:200px;
+    /* 높이 */
+    height:43px;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content와 radio_area를 클래스로 가지는 요소 */
+.appForm .app_list li .app_content.radio_area{
+    /* 높이 */
+    height:45px;
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* 위쪽 내부 여백 */
+    padding-top: 12px;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content와 checkbox_area를 클래스로 가지는 요소 */
+.appForm .app_list li .app_content.checkbox_area{
+    /* 높이 */
+    height:45px;
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* 위쪽 내부 여백 */
+    padding-top: 12px;
+}
+/* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 textarea를 클래스로 가지는 요소 */
+.appForm .app_list li textarea{
+    /* 높이 */
+    height:245px;
+    /* 수직으로 컨텐츠의 크기를 조절할 수 있게 함 */
+    resize:vertical;
+}
+/* 등록 버튼을 크게 둘러싸고 있는 요소임 */
+/* btn_line을 클래스로 가지는 요소 */
+.btn_line{
+    /* 내부 여백 */
+    padding:20px 0;
+}
 /* ------회원가입 페이지(join.html) 끝 */
 
 /* ------내정보 페이지(mypage.html) 시작 */
+/* myinfo를 클래스로 가지는 요소 안에 dt태그 */
+.myinfo dt{
+    /* 배경 */
+    background-color: #000;
+    /* 텍스트 색상 */
+    color:#fff;
+    /* 넓이 */
+    width:170px;
+    /* 높이 */
+    height:70px;
+    /* 줄 간격 */
+    line-height: 70px;
+    /* 글자 정렬 */
+    text-align: center;
+    /* 폰트 크기 */
+    font-size: 18px;
+}
+/* myinfo를 클래스로 가지는 요소 안에 dd태그 */
+.myinfo dd{
+    /* 위쪽 테두리 */
+    border-top: 2px solid #000; 
+}
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 */
+.regForm .reg_list{
+    /* 내부 여백 */
+    padding:0 0;
+    /* 배경 */
+    background: url(../images/bg_reglist.png) repeat-y; 
+}
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그*/
+.regForm .reg_list li{
+    /* 최소 높이 */
+    min-height: 60px;
+    /* 내부 여백 */
+    padding: 0;
+    /* 아래쪽 테두리 */
+    border-bottom: 1px solid #ccc;
+}
 
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 tit_lbl을 클래스로 가지는 요소*/
+.regForm .reg_list li .tit_lbl{
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    /* 요소 좌우측 배치 여부 */
+    float:left;
+    /* 넓이 */
+    width:150px;
+    /* 박스 크기 */
+    box-sizing: border-box;
+    /* 왼쪽 내부 여백 */
+    padding-left: 20px;
+    /* 줄 간격 */
+    line-height: 60px;
+    /* 폰트 굵기 */
+    font-weight: bold;
+    /* 폰트 크기 */
+    font-size: 16px;
+}
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 reg_content를 클래스로 가지는 요소*/
+.regForm .reg_list li .reg_content{
+    /* 요소 좌우측 배치 여부 */
+    float:right;
+    /* 넓이 */
+    width:770px;
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* 왼쪽 내부 여백 */
+    padding-left: 20px;
+    /* 위쪽 내부 여백 */
+    padding-top: 22.5px;
+    /* 폰트 크기 */
+    font-size: 15px;
+}
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 reg_content를 클래스로 가지는 요소 안에 모든 요소*/
+.regForm .reg_list li .reg_content *{
+    /* 수직 정렬 */
+    vertical-align: middle;
+}
+/* :not(선택자) --> 선택자에 해당하는 것은 제외하고 */
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 reg_content와 radio_area를 클래스로 가지고 gender클래스는 제외한 요소*/
+.regForm .reg_list li .reg_content.radio_area:not(.gender){
+    /* 위쪽 내부 여백 */
+    padding-top: 12px;
+}
+/* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 reg_content를 클래스로 가지는 요소 안에 info_line을 클래스로 가지는 요소*/
+.regForm .reg_list li .reg_content .info_line{
+    /* 내부 여백 */
+    padding: 5px 10px 5px 0;
+    /* 폰트 크기 */
+    font-size: 15px;
+}
 /* ------내정보 페이지(mypage.html) 끝 */
 
 /* ------프로그램 페이지(program.html) 시작------ */
