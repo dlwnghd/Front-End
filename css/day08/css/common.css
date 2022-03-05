@@ -197,6 +197,45 @@ input[type=checkbox].css-checkbox + label{
     /* 줄 간격 */
     line-height: 20px;
 }
+/* input 타입=checkbox이고 클래스를 css-checkbox 안에 label*/
+input[type=checkbox].css-checkbox:checked + label{
+    /* 배경사진 위치 */
+    background-position: 0 -20px;
+}
+/* select 태그 */
+select{
+    /* 몰루 */
+    -webkit-appearance:unset;
+    /* appearance
+        운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현할 때 사용함
+        none 값을 준다면 원래 쓰이는 속성을 없앰 */
+    appearance: none;
+    /* 높이 */
+    height: 30px;
+    /* 내부 여백 */
+    padding: 0 5px;
+    /* 테두리 */
+    border: px solid #ccc;
+}
+/* select_common을 클래스로 가지는 요소 */
+.selct_common{
+     /* inline-block 타입으로 보여줌 */
+    display: inline-block;
+    /* 박스의 크기 */
+    box-sizing: border-box;
+    /* 자기자신 기준 위치 참조 */
+    position: relative;
+    /* 넓이 */
+    width: 158px;
+    /* 높이 */
+    height: 35px;
+    /* 테두리 */
+    border: 1px solid #ccc;
+    /* 넘치는 텍스트 숨기기 */
+    overflow: hidden;
+    /* 배경 */
+    background: url(../images/ico_selectArr.png) no-repeat 100% 50%;
+}
 
 /* 회원가입 공통 끝 */
 /* --------------------------------------서브페이지 공통 시작-------------------------------------- */
@@ -530,7 +569,7 @@ header > .header_area > h1 > a{
     width: 100%;
     /* 범위를 벗어나는 글을 숨김 */
     overflow: hidden;
-    /* 모룸 */
+    /* 몰루 */
     word-break: keep-all;
     /* 줄 간격 */
     line-height: 1.8;
@@ -929,3 +968,13 @@ h1.loginTit > a > img{width: 100%;}
 /* ------내정보 페이지(mypage.html) 시작 */
 
 /* ------내정보 페이지(mypage.html) 끝 */
+
+/* ------프로그램 페이지(program.html) 시작------ */
+
+/* ------프로그램 페이지(program.html) 끝------ */
+
+/* ------태블릿 반응형 시작------ */
+@media screen and (max-width:1065px) and (min-width: 801px){
+    .box_inner{ width: 100%;}
+}
+/* ------태블릿 반응형 끝------ */
