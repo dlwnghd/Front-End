@@ -1353,3 +1353,93 @@ h1.loginTit > a > img{width: 100%;}
     .box_inner{ width: 100%;}
 }
 /* ------------태블릿 반응형 끝------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 내 정보 페이지(강사님) 시작 */
+.regForm{
+    width: 100%;
+    margin: 0 auto;
+}
+.regForm .reg_list{
+    background: none;
+    padding: 10px 0 0;
+}
+.regForm .reg_list .reg_content{
+    position: relative;
+    min-height: 50px;
+    padding: 0;
+}
+.regForm .reg_list li .tit_lbl{
+    position: relative;
+    float: none;
+    width: auto;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.regForm .reg_list li .reg_content{
+    float: none;
+    width: auto;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+.regForm .reg_list li .reg_content .info_line{
+    padding: 10px 10px 3px 0;
+    line-height: 1.4;
+    font-size: 15px;
+}
+.regForm .reg_list li .reg_content *{
+    vertical-align: middle;
+}
+
+/* 내 정보 페이지(강사님)끝 */
+
+/* 내 정보 페이지 시작 */
+/* fieldset{
+    min-width: 40px;
+}
+.regForm .reg_list {
+    background: none;
+}
+.regForm .reg_list li .reg_content {
+    width: fit-content;
+    clear:both;
+    float: left;
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+.regForm .reg_list li{
+    width: 100%;
+}
+.regForm .reg_list li .reg_content .info_line{
+    padding-top: 10px;
+}
+.regForm .reg_list li .reg_content.radio_area{
+    width: fit-content;
+}
+.regForm .reg_list li .reg_content{
+    width: fit-content;
+}
+.btn_basecolor{
+    width: 100%;
+} */
+/* 내 정보 페이지 끝 */
