@@ -299,6 +299,52 @@ select{
     /* 모서리 깍기 비율 */
     border-radius: 10px;
 }
+/* btn_srch를 클래스로 가지는 요소 */
+.btn_srch{
+    /* inline-block 형태로 표시 */
+    display: inline-block;
+    /* 배경 */
+    background: #384d75;
+    /* 폰트 색상 */
+    color: #fff !important; /* 우선순위 1 */
+    /* 글자 정렬 */
+    text-align: center;
+    /* 넓이 */
+    width: 70px;
+    /* 높이 */
+    height: 35px;
+    /* 글자 크기 */
+    font-size: 14px;
+    /* 수직 정렬 */
+    vertical-align: middle;
+    /* 글자 굵기 */
+    line-height: 35px;
+    /* 테두리 둥글기 */
+    border-radius: 10px;
+}
+/* btn_bbs를 클래스로 가지는 요소 */
+.btn_bbs{
+    font-size: 14px;
+    display: inline-block;
+    background: #384d75;
+    color: #fff !important;
+    width: 70px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+/* table,thead,tbody,tfoot태그 */
+table,thead,tbody,tfoot{
+    /* 테두리 함몰(사라짐) */
+    border-collapse: collapse;
+    /* 테두리 공간 */
+    border-spacing: 0;
+    /* 테두리 */
+    border: none;
+}
 /* input 태그의 입력 전 상태 텍스트 */
 input::-webkit-input-placeholder{
     color: #999;
@@ -327,6 +373,9 @@ textarea::-webkit-input-placeholder{
 .location_area.member{
     /* 배경 */
     background: url(../images/img_top5.jpg) no-repeat center bottom;
+}
+.location_area.package{
+    background-image: url(../images/img_top3.jpg);
 }
 /* location_area를 클래스로 가지는 요소 안에 tit_page를 클래스로 가지는 h2태그 */
 .location_area h2.tit_page{
@@ -1344,7 +1393,272 @@ h1.loginTit > a > img{width: 100%;}
 }
 /* ------------내정보 페이지(mypage.html) 끝 ------------*/
 
+/* ------------리스트 페이지(notice_list.html) 시작------------ */
+.minisrch_form{
+    text-align: right;
+    width: 100%;
+}
+.minisrch_form .tbox{
+    padding: 0 5px 0 30px;
+    width: 200px;
+    height: 35px;
+    line-height: 30px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: url(../images/ico_search.png) no-repeat 10px 50%;
+    background-size: 15px;
+}
+.bbsListTbl{
+    width: 100%;
+    border-top: 2px solid #384d75;
+}
+.bbsListTbl th, .bbsListTbl td{
+    padding: 10px;
+    box-sizing: border-box;
+    height: 55px;
+}
+.bbsListTbl th{
+    border-bottom: 1px sold #ccc;
+    background-color: #f0f3fa;
+}
+.bbsListTbl td{
+    text-align: center;
+    line-height: 1.3;
+    border-bottom: 1px solid #ccc;
+}
+.bbsListTbl td.tit_notice{
+    text-align: left;
+}
+.bbsListTbl td:nth-child(1){
+    width: 10%;
+}
+.bbsListTbl td:nth-child(2){
+    width: 55%;
+}
+.bbsListTbl td:nth-child(3){
+    width: 15%;
+}
+.bbsListTbl td:nth-child(4){
+    width: 20%;
+}
+.pagination{
+    padding: 40px 0 0;
+    text-align: center;
+}
+.pagination a{
+    display: inline-block;
+}
+.pagination a.pbtn{
+    padding: 7px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+}
+.pagination a .pagenum{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pagination a .currentPage{
+    background-color: #384d75;
+    color: #fff;
+    border-radius: 3px;
+}
+.pagination a:hover .pagenum{
+    background-color: #ddd;
+    border-radius: 3px;
+}
+/* ------------리스트 페이지(notice_list.html) 끝------------ */
+/* ------상세보기 페이지(notice_view.html) 시작------ */
+/* bbsview_list를 클래스로 가지는 요고 */
+.bbsview_list{ 
+    /* 아래쪽 내부 여백 */
+    padding-bottom: 30px;
+    /* 위쪽 테두리 */
+    border-top: 2px solid #384d75; 
+}
+/* bbsview_list를 클래스로 가지는 요소 안의 li태그 */
+.bbsview_list li{
+    /* 박스 크기  */
+    box-sizing: border-box;
+    /* 내부 여백 */
+    padding:0 15px;
+    /* 아래쪽 테두리 */
+    border-bottom: 1px solid #ccc;
+    /* 글자 크기 */
+    font-size: 14px;
+    /* 글자 색상 */
+    color:#666;
+}
+/* bbsview_list를 클래스로 가지는 요소 안의 bbs_title을 클래스로 가지는 li태그 */
+.bbsview_list li.bbs_title{
+    /* 넓이 */
+    width:100%;
+    /* 글자 넘침 */
+    overflow:hidden;
+    /* 요소가 공백 문자를 처리하는 법 */
+    white-space: nowrap;
+    /* 글자 넘치 처리하는 법 */
+    text-overflow: ellipsis;
+    /* 높이 */
+    height:50px;
+    /* 줄 간격 */
+    line-height: 50px;
+    /* 글자 굵기 */
+    font-weight: bold;
+    /* 글자 크기 */
+    font-size: 16px;
+}
+/* bbsview_list를 클래스로 가지는 요소 안의 bbs_date를 클래스로 가지는 li태그 */
+.bbsview_list li.bbs_date{
+    /* 높이 */
+    height:40px;
+    /* 줄 간격 */
+    line-height: 40px;
+    /* 넓이 */
+    width:50%;
+    /* 왼쪽에 붙임 */
+    float:left;
+}
+/* bbsview_list를 클래스로 가지는 요소 안의 bbs_hit를 클래스로 가지는 li태그 */
+.bbsview_list li.bbs_hit{
+    /* 높이 */
+    height:40px;
+    /* 줄 간격 */
+    line-height: 40px;
+    /* 넓이 */
+    width:50%;
+    /* 왼쪽에 붙임 */
+    float:left;
+}
+/* bbsview_list를 클래스로 가지는 요소 안의 bbs_content를 클래스로 가지는 li태그 */
+/* 내용 */
+.bbsview_list li.bbs_content{
+    /* clear : float 속성이 적용된 이후 나타나는 요소들의 동작을 조절 */
+    clear:both;
+    /* 요소의 최소 높이 */
+    min-height: 200px;
+    /* 내부 여백 */
+    padding: 20px 15px;
+}
+/* bbsview_list를 클래스로 가지는 요소 안에 bbs_content를 클래스로 가지는 li태그 안에 editor_content를 클래스로 가지는 요소 */
+.bbsview_list li.bbs_content .editor_content{
+    /* 줄 간격 */
+    line-height: 1.4;
+}
+/* near_list를 클래스로 가지는 요소 */
+.near_list{
+    /* 위쪽 테두리 */
+    border-top: 1px solid #ccc;
+}
+/* near_list를 클래스로 가지는 요소 안에 li태그 */
+.near_list li{
+    /* 내부 여백 */
+    padding:10px;
+    /* 아래 테두리 */
+    border-bottom: 1px solid #ccc; 
+}
+/* near_list를 클래스로 가지는 요소 안에 li태그 after이펙트 */
+.near_list li:after{
+    /* 콘텐트 */
+    content:"";
+    /* 보이기 속성 */
+    display: block;
+    /* clear : float 속성이 적용된 이후 나타나는 요소들의 동작을 조절 */
+    clear:both;
+}
+/* near_list를 클래스로 가지는 요소 안에 li태그 안에 h4태그 */
+.near_list li h4{
+    /* 왼쪽에 붙임 */
+    float:left;
+    /* 넓이 */
+    width:100px;
+    /* 내부 여백 */
+    padding: 0 0 0 50px;
+    /* 배경 */
+    background:url(../images/ico_nearNext.png) no-repeat 12px 50%;
+    /* 글자 크기 */
+    font-size: 15px;
+}
+/* near_list를 클래스로 가지는 요소 안에 li태그 안에 next를 클래스로 가지는 h4태그 */
+.near_list li h4.next{
+    /* 배경 이미지 */
+    background-image: url(../images/ico_nearPrev.png);
+}
+/* ------상세보기 페이지(notice_view.html) 끝------ */
+
 /* ------------프로그램 페이지(program.html) 시작------------ */
+/* bodytext_area와 place_area를 클래스로 가지는 요소 */
+.bodytext_area.place_area{
+    /* 내부 여백 */
+    padding: 55px 0 0;
+}
+/* program_list를 클래스로 가지는 요소 안에 li태그 */
+.program_list li{
+    /* 왼쪽에 붙임 */
+    float: left;
+    /* 넓이 */
+    width: 31.5%;
+    /* 외부 여백 */
+    margin: 0 0.9%;
+}
+/* program_list를 클래스로 가지는 요소 안에 3n+1번째 li태그 */
+.program_list li:nth-child(3n+1){
+    /* clear : float 속성이 적용된 이후 나타나는 요소들의 동작을 조절 */
+    clear: both;
+}
+/* program_list를 클래스로 가지는 요소 안에 li태그 안에 img_place를 클래스로 가지는 요소 */
+.program_list li .img_place{
+    /* block형태로 표시 */
+    display: block;
+    /* 넓이 */
+    width: 100%;
+}
+/* program_list를 클래스로 가지는 요소 안에 li태그 안에 h3태그 */
+.program_list li h3{
+    /* 내부 여백 */
+    padding: 40px 0 0;
+    /* 글자 굵기 */
+    font-weight: bold;
+    /* 글자 크기 */
+    font-size: 20px;
+}
+/* program_list를 클래스로 가지는 요소 안에 li태그 안에 subttl을 클래스로 가지는 요소 */
+.program_list li .subttl{
+    /* 내부 여백 */
+    padding: 25px 0 0;
+    /* 글자 굵기 */
+    font-weight: bold;
+    /* 글자 크기 */
+    font-size: 16px;
+    /* 글자 색상 */
+    color: #fa6400;
+    /* 글자 사이의 간격을 조절 */
+    letter-spacing: 0;
+}
+.program_list li .program_content p{
+    width: 100%;
+    overflow: hidden;
+    word-break: keep-all;
+}
+.program_list li .program_content p .subtxt{
+    display: none;
+}
+.program_list li .btn_more{
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 12px;
+}
+.program_list li .btn_more a{
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: tomato;
+    border-radius: 3px;
+    color: #fff;
+}
 
 /* ------------프로그램 페이지(program.html) 끝------------ */
 
