@@ -1639,32 +1639,129 @@ h1.loginTit > a > img{width: 100%;}
     /* 글자 사이의 간격을 조절 */
     letter-spacing: 0;
 }
+/* program_list클래스를 가지는 요소 안에 li태그 안에 program_content 안에 p태그 */
 .program_list li .program_content p{
+    /* 넓이 */
     width: 100%;
+    /* 넘어가는 글자 속성 */
     overflow: hidden;
+    /* 텍스트가 자신의 콘텐츠 박스 밖으로 오버플로 할 때 줄을 바꿀 지 지정 */
     word-break: keep-all;
 }
+/* program_list클래스를 가지는 요소 안에 li태그 안에 .program_content를 클래스로 가지는 요소 안에 p태그 안에 subtxt를 클래스로 가지는 요소 */
 .program_list li .program_content p .subtxt{
+    /* 보이기 속성 */
     display: none;
 }
+/* program_list클래스를 가지는 요소 안에 li태그 btn_more클래스를 가지는 요소 */
 .program_list li .btn_more{
+    /* 내부 여백 */
     padding: 10px 0 20px;
+    /* 글자 정렬 */
     text-align: center;
+    /* 글자 크기 */
     font-size: 12px;
 }
+/* program_list클래스를 가지는 요소 안에 li태그 안에 btn_more클래스를 가지는 요소 a태그 */
 .program_list li .btn_more a{
+    /* 보이기 속성 */
     display: inline-block;
+    /* 내부 속성 */
     padding: 5px 7px;
+    /* 배경 */
     background-color: tomato;
+    /* 테두리 둥글기 */
     border-radius: 3px;
+    /* 글자 색상 */
     color: #fff;
 }
-
 /* ------------프로그램 페이지(program.html) 끝------------ */
 
 /* ------------태블릿 반응형 시작------------ */
 @media screen and (max-width:1065px) and (min-width: 801px){
-    .box_inner{ width: 100%;}
+    /* -------------------------태블릿 index.html 시작------------------------- */
+    /* box_inner를 클래스로 가지는 요소 */
+    .box_inner{
+        width:100%;
+    }
+    header .header_area h1{
+        padding-left: 20px;
+    }
+    .header_cont{
+        float: right;
+        width:60%;
+        padding-right: 20px;
+    }
+    .header_cont .gnb li a{
+        padding: 26px 25px;
+    }
+    .gnb_depth .submenu_list{
+        width: 100%;
+        padding-left: 52%;
+    }
+    .gnb_depth .submenu_list a{
+        padding: 20px;
+    }
+    
+    #container{
+        padding-bottom: 20px;
+    }
+    .about_area .place_list{
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .appbbs_area .appbbs_box{
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+    .appbbs_area .appbbs_box .app_line a{
+        font-size: 21px;
+    }
+    footer .foot_area{
+        box-sizing: border-box;
+        padding-left: 20px;
+    }
+    footer .foot_area .snslink li{
+        margin-left: 15px;
+    }
+    .quick_area .quick_list{
+        display: none;
+    }
+    .to_top{
+        position: fixed;
+        right: 20px;
+        bottom: 115px;
+        text-align: center;
+        background: none;
+        z-index: 100;
+    }
+    .to_top a{
+        display: block;
+        width: 45px;
+        height: 45px;
+        background: url(../images/ico_totop_mo.png) no-repeat center;
+        background-size: 45px;
+        border: none;
+        border-radius: 50%;
+    }
+    /* -------------------------태블릿 index.html 끝------------------------- */
+    /* -------------------------태블릿 join.html 시작------------------------- */
+    .appForm .app_list li .tit_lbl{
+        width: 21%;
+    }
+    .appForm .app_list li .app_content{
+        width: 79%;
+    }
+    /* -------------------------태블릿 join.html 끝------------------------- */
+    /* -------------------------태블릿 mypage.html 시작------------------------- */
+    .regForm .reg_list li .tit_lbl{
+        width: 21%;
+    }
+    .regForm .reg_list li .reg_content{
+        width: 79%;
+    }
+    /* -------------------------태블릿 mypage.html 끝------------------------- */
+    
 }
 /* ------------태블릿 반응형 끝------------ */
 
@@ -1680,15 +1777,8 @@ h1.loginTit > a > img{width: 100%;}
 
 
 
-
-
-
-
-
-
-
 /* 내 정보 페이지(강사님) 시작 */
-.regForm{
+/* .regForm{
     width: 100%;
     margin: 0 auto;
 }
@@ -1723,7 +1813,7 @@ h1.loginTit > a > img{width: 100%;}
 }
 .regForm .reg_list li .reg_content *{
     vertical-align: middle;
-}
+} */
 
 /* 내 정보 페이지(강사님)끝 */
 
