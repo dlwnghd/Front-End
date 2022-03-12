@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심볼형</title>
+</head>
+<body>
+    <h2>심볼형</h2>
+</body>
+<script>
+    // shift + alt + 방향키(위, 아래)= 행단위 복사
+    // Symbol("문자열"): 심볼 함수에 대한 설명으로 심볼
+    const symbol1= Symbol("apple");
+    const symbol2= Symbol("apple");
+
+    // ===: 양쪽의 타입과 값이 같으면 true / 아니면 false
+    console.log(symbol1 === symbol2);
+
+    const symbol3= Symbol();
+    const symbol4= symbol3;
+    console.log(symbol3 === symbol4);
+
+    const food ={
+        name: "tomato",
+        [symbol1] : "tomato"
+    }
+    
+    console.log(typeof(food[symbol1]));
+</script>
+</html>
