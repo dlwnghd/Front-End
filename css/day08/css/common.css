@@ -331,7 +331,7 @@ select{
     /* 배경 */
     background: #384d75;
     /* 글자 색상 */
-    color: #fff !important;
+    color: #fff !important; /* 속성 우선순위 */
     /* 넓이 */
     width: 70px;
     /* 높이 */
@@ -1749,83 +1749,138 @@ h1.loginTit > a > img{width: 100%;}
     /* -------------------------태블릿 index.html 시작------------------------- */
     /* box_inner를 클래스로 가지는 요소 */
     .box_inner{
+        /* 넓이 */
         width:100%;
     }
+    /* header태그 안에 header_area를 클래스로 가지는 요소 안에 h1태그 */
     header .header_area h1{
+        /* 왼쪽 내부 여백 */
         padding-left: 20px;
     }
+    /* header_cont를 클래스로 가지는 요소 */
     .header_cont{
+        /* 오른쪽에 붙임 */
         float: right;
+        /* 넓이 */
         width:60%;
+        /* 오른쪽 내부 여백 */
         padding-right: 20px;
     }
+    /* header_cont를 클래스로 가지는 요소 안에 gnb를 클래스로 가지는 요소 안에 li태그 안에 a태그*/
     .header_cont .gnb li a{
+        /* 내부 여백 */
         padding: 26px 25px;
     }
+    /* gnb_depth를 클래스로 가지는 요소 안에 submenu_list를 클래스로 가지는 요소 */
     .gnb_depth .submenu_list{
+        /* 넓이 */
         width: 100%;
+        /* 왼쪽 내부 여백 */
         padding-left: 52%;
     }
+    /* gnb_depth를 클래스로 가지는 요소 안에 submenu_list를 클래스로 가지는 요소 안에 a태그 */
     .gnb_depth .submenu_list a{
+        /* 내부 여백 */
         padding: 20px;
     }
-    
+    /* contatiner를 id로 가지는 요소 */
     #container{
+        /* 아래 내부 여백 */
         padding-bottom: 20px;
     }
+    /* .about_area를 클래스로 가지는 요소 안에 place_list를 클래스로 가지는 요소 */
     .about_area .place_list{
+        /* 박스 크기 */
         box-sizing: border-box;
+        /* 내부 여백 */
         padding: 0 20px;
     }
+    /* appbbs_area를 클래스로 가지는 요소 안에 appbbs_box를 클래스로 가지는 요소 */
     .appbbs_area .appbbs_box{
+        /* 박스 크기 */
         box-sizing: border-box;
+        /* 내부 여백 */
         padding: 0 20px;
     }
+    /* appbbs_area를 클래스로 가지는 요소 안에 appbbs_box를 클래스로 가지는 요소 안에 app_line을 클래스로 가지는 요소 안에 a태그 */
     .appbbs_area .appbbs_box .app_line a{
+        /* 폰트 크기 */
         font-size: 21px;
     }
+    /* footer태그 안에 foot_area를 클래스로 가지는 요소 */
     footer .foot_area{
+        /* 박스 크기 */
         box-sizing: border-box;
+        /* 왼쪽 내부 여백 */
         padding-left: 20px;
     }
+    /* footer태그 안에 foot_area를 클래스로 가지는 요소 안에 snslink를 클래스로 가지는 요소 안에 li태그 */
     footer .foot_area .snslink li{
+        /* 왼쪽 외부 여백 */
         margin-left: 15px;
     }
+    /* quick_area를 클래스로 가지는 요소 안에 quick_list를 클래스로 가지는 요소 */
     .quick_area .quick_list{
+        /* 보이기 */
         display: none;
     }
+    /* to_top을 클래스로 가지는 요소 */
     .to_top{
+        /* 위치 */
         position: fixed;
+        /* 오른쪽에서부터 수평 위치를 지정 */
         right: 20px;
+        /* 아래쪽에서부터 수직 위치를 지정 */
         bottom: 115px;
+        /* 글자 정렬 */
         text-align: center;
+        /* 배경 */
         background: none;
+        /* 겹치는 순서 */
         z-index: 100;
     }
+    /* to_top을 클래스로 가지는 요소 안에 a태그 */
     .to_top a{
+        /* 보이기 속성 */
         display: block;
+        /* 넓이 */
         width: 45px;
+        /* 높이 */
         height: 45px;
+        /* 배경 */
         background: url(../images/ico_totop_mo.png) no-repeat center;
+        /* 배경 크기 */
         background-size: 45px;
+        /* 테두리 */
         border: none;
+        /* 테두리 둥글기 */
         border-radius: 50%;
     }
     /* -------------------------태블릿 index.html 끝------------------------- */
-    /* -------------------------태블릿 join.html 시작------------------------- */
+    /* -------------------------태블릿 회원가입 페이지 join.html 시작------------------------- */
+    /* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 tit_lbl을 클래스로 가지는 요소 */
     .appForm .app_list li .tit_lbl{
+        /* 넓이 */
         width: 21%;
     }
+    /* appForm을 클래스로 가지는 요소 안에 app_list를 클래스로 가지는 요소 안에 li태그 안에 app_content를 클래스로 가지는 요소 */
     .appForm .app_list li .app_content{
+        /* 넓이 */
         width: 79%;
     }
-    /* -------------------------태블릿 join.html 끝------------------------- */
+    /* -------------------------태블릿 회원가입 페이지 join.html 끝------------------------- */
     /* -------------------------태블릿 mypage.html 시작------------------------- */
+    /* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 tit_lbl을 클래스로 가지는 요소 */
     .regForm .reg_list li .tit_lbl{
+        /* 넓이 */
         width: 21%;
     }
+    /* regForm을 클래스로 가지는 요소 안에 reg_list를 클래스로 가지는 요소 안에 li태그 안에 reg_content를 클래스로 가지는 요소 */
     .regForm .reg_list li .reg_content{
+        /* 넓이 */
         width: 79%;
+        /* 왼쪽 내부 여백 */
+        padding-left: 30px;
     }
     /* -------------------------태블릿 mypage.html 끝------------------------- */
     
