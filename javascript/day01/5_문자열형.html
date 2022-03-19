@@ -9,18 +9,37 @@
 <body>
     <h2>문자열형</h2>
 </body>
-<script>
-    let str1 = "김사과:'여러분 안녕하세요!?'"
-    console.log(str1);
+    <script>
+        let str1= "김사과: '여러분 안녕하세요!?'";
+        console.log(str1);
 
-    let str2 = '김사과: "여러분 안녕하세요!?"'
-    console.log(str2);
-    
-    let str3 = "김사과: \"방가방가\""
-    console.log(str3);
+        let str2= '김사과: "여러분 안녕하세요~"';
+        console.log(str2);
 
-    let str4 = '안녕하세요. \n저는 김사과라고 합니다."'
-    console.log(str4);
+        // \ 는 출력하고자 하는 따옴표 앞에 써주면 두 문자가 합쳐져서 하나의 따옴9표를 문자로 표현해준다.
+        let str3= '김사과: \'방가방가\''
+        console.log(str3);
 
-</script>
+        // \n: enter(줄바꿈)를 문자로 출력
+        let str4= "안녕하세요. \n저는 김사과라고 합니다.";
+        console.log(str4);
+
+        let num1= 10;
+        let num2= 5;
+        let num3= "5";
+
+        // 숫자+숫자 = 숫자연산
+        console.log(num1 + num2);   //15
+
+        // 숫자 + 문자열 = 문자열연결("105")
+        console.log(num1 + num3);  
+
+        console.log(num1 + "+" + num3 + "=" + (num1+num2));
+        //          10  "+" 5   "=" 15
+
+        // `` 안에 ${변수명}을 작성하면 변수에 있는 값이 지정한 자리에 와서 표현된다. 
+        console.log(`${num1} + ${num2} = ${num1 + num2}`);
+        // "" ,  '' 사용금지
+
+    </script>
 </html>

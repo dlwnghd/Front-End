@@ -9,20 +9,20 @@
 <body>
     <h2>자동 형변환</h2>
 </body>
-<script>
-    const a = 10 +"문자열";
-    console.log(a);
+    <script>
+        const a= 10 +"문자열";
+        console.log(a); // 10문자열
 
-    const b= 20;
-    console.log(b + "");
-    console.log(typeof(b + ""));
+        // 숫자 + "" = 문자열
+        const b= 20;
+        console.log(b + "") //"20"
+        console.log(typeof(b + "")) //string
 
-    const c="3" * "5";
-    console.log(c);
-    
-    const d=10 * "★";
-    console.log(d);
-    console.log(typeof(d));
+        const c= "3" * "5";
+        console.log(c); // 15
 
-</script>
+        // 숫자 - (문자로 이루어진) 문자열
+        const d= 100 - "★";
+        console.log(d);
+    </script>
 </html>
