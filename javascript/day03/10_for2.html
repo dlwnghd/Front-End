@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 - 2</title>
+</head>
+<body>
+    <h2>for문 - 2</h2>
+    <script>
+        //반복횟수 = (끝값 - 초기값) / 증감값
+        for(let i=2;i<22;i+=2){
+            console.log(i);
+        }
+
+        //3부터 24까지 3씩 증가하면 반복
+        for(let i=3;i<=24;i+=3){
+            console.log(i);
+        }
+
+        //100부터 3씩 감소하며 22번 반복하는 반복문
+        // 22 = (x - 100) / -3
+        for(let i=100 ; i>34 ; i-=3){
+            console.log(i);
+        }
+
+        let cnt = Number(prompt("반복횟수 입력"))
+        for(let i=0;i<cnt;i++){
+            console.log(i+1+"번째 반복...")
+        }
+
+    </script>
+</body>
+</html>
