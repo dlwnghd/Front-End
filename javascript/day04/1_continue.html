@@ -9,11 +9,21 @@
 <body>
     <h2>Continue 제어</h2>
     <script>
-        for (let i = 1; i <=10; i++) {
-            if (i == 4) {
+        for(let i=1;i<=10;i++){
+            if(i == 4){
                 continue;
             }
             console.log(i);
+        }
+
+        // continue는 아래의 if ~ else 문으로 처리한 것과 같은 결과를 낸다.
+        for(let i=1;i<=10;i++){
+            if(i == 4){
+
+            }
+            else{
+                console.log(i);
+            }
         }
 
     </script>
