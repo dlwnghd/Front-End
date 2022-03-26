@@ -14,27 +14,43 @@
         //생성자를 이용한 객체 생성
         //똑같은 형태의 객체를 여러개 만들어야 할 때 편하게 만들 수 있다.
         // 객체(요리) - 생성자(요리법, 메뉴얼)
+
+        // Car라는 기능은 brand,color,price라는 매개변수를 받음
         function Car(brand,color,price){
             this.brand = brand;
             this.color = color;
             this.price = price;
 
+            // engineStart 프로퍼티
             this.engineStart = function(){
                 console.log(this.brand+" 시동 켜기");
             }
+            // engineStop 프로퍼티
+            // 화살표 함수, 익명 함수
             this.engineStop = () => {
                 console.log(this.brand+" 시동 끄기");
             }
         }
 
+        // const타입의 mycar는 Car타입의 안의 매개변수로 새로 선언
         const mycar = new Car("Ferrari","Red",65000);
+        // const타입의 momcar는 Car타입의 안의 매개변수로 새로 선언
         const momcar = new Car("K8","White",4000);
 
+        // mycar 출력
         console.log(mycar);
+        // momcar 출력
         console.log(momcar);
 
+        // mycar의 engineStart파라미터 실행
         mycar.engineStart();
+        // mycar의 engineStop파라미터 실행
         mycar.engineStop();
+
+        // momcar의 engineStart파라미터 실행
+        momcar.engineStart();
+        // momcar의 engineStop파라미터 실행
+        momcar.engineStop();
 
     </script>
 </body>

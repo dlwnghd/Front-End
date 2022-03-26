@@ -20,17 +20,21 @@
         car.price -= 10000;
         console.log(`사고 후의 가격 : ${car.price}`);
 
-        // const arr = [10,20,30,40,50];
-        //arr = {
-        //  0:10,
-        //  1:20,
-        //  ..
-        // }
-        // console.log(arr[0])
+        // Object로 부르는 방법이 있으나
+        // 배열로 하는 것또한 가능하다 차이점이라고 한다면 keyVale처럼 배열에 이름이 있다는 것 정도인 것 같다.
+        const arr = [10,20,30,40,50];
+        arr1 = {
+            0:10,
+            1:20
+        }
+        console.log("arr[0] : "+arr[0])
+        console.log("arr1[1] : "+arr1[1])
+
         console.log(car["brand"])
 
+
         for(let key in car){
-            // console.log(key);
+            console.log(key);
             console.log(`이 차의 ${key}는 ${car[key]}입니다.`);
         }
     </script>

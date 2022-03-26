@@ -10,13 +10,15 @@
     <h2>화살표 함수</h2>
     <script>
         const sayHello = () => console.log("Hello Javascript!")
+        // sayHello함수 실행
+        sayHello();
+
         const add = (x,y) => {
             console.log('두 수의 덧셈 함수');
             console.log(`${x}와 ${y}의 합을 구합니다!`);
             return x+y;
         }
-
-        sayHello();
+        // add함수 출력
         console.log(add(10,3));
 
         let num = Number(prompt("숫자를 입력하세요"));
