@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 범위</title>
+</head>
+<body>
+    <h2>변수의 범위</h2>
+    <script>
+        let num2 = 100;
+        f1();
+        f2();
+        f3();
+        console.log('f3() 들어갔다가 나온 후 출력한 num2 : '+num2)
+        f4();
+        console.log('f4() 들어갔다가 나온 후 출력한 num2 : '+num2)
+
+        function f1(){
+            let num1 = 10;
+            console.log('f1() 내부에서 출력한 num1 : '+num1);
+        }
+        function f2(){
+            // f1 영역에 선언된 num1은 참조할 수 없다.
+            // console.log('f2() 내부에서 출력한 num1 : '+num1);
+            let num1 = 20;
+            console.log('f2() 내부에서 출력한 num1 : '+num1);
+        }
+        function f3(){
+            console.log('f3() 내부에서 출력한 num2 : '+num2);
+            num2 = 200;
+        }
+        function f4(){
+            let num2 = 300; //새로운 선언(지역변수 num2 선언)
+            console.log('f4() 내부에서 출력한 num2 : '+num2);
+        }
+
+        var num3 = 1000;
+        if(true){
+            num3 = 2000;
+            console.log('if문 내부에서 출력한 num3 : '+num3);
+        }
+        
+        var num4 = 10000;
+        if(true){
+            var num4 = 20000;//var는 새로운 선언을 하더라도 지역변수로 선언이 안된다. (함수 영역에서는 지역변수로 되긴 함)
+            console.log('if문 내부에서 출력한 num4 : '+num4);
+        }
+        console.log('if문 외부에서 출력한 num4 : '+num4);
+
+        let num5 = 100000;
+        if(true){
+            let num5 = 200000;
+            console.log('if문 내부에서 출력한 num5 : '+num5)
+        }
+        console.log('if문 외부에서 출력한 num5 : '+num5);
+
+    </script>
+</body>
+</html>

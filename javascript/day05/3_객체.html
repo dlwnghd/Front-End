@@ -15,10 +15,24 @@
             price:65000
         }
         // .(하위연산자)
-        // A.b -> A 안의 b / A의 b
+        // A.b -> A 안의 b / A 의 b
         console.log(`자동차의 브랜드 : ${car.brand}`);
         car.price -= 10000;
         console.log(`사고 후의 가격 : ${car.price}`);
+
+        // const arr = [10,20,30,40,50];
+        //arr = {
+        //  0:10,
+        //  1:20,
+        //  ..
+        // }
+        // console.log(arr[0])
+        console.log(car["brand"])
+
+        for(let key in car){
+            // console.log(key);
+            console.log(`이 차의 ${key}는 ${car[key]}입니다.`);
+        }
     </script>
 </body>
 </html>

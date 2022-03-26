@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스</title>
+</head>
+<body>
+    <h2>클래스</h2>
+    <script>
+        class Car{
+            constructor(brand,color,price){
+                this.brand = brand;
+                this.color = color;
+                this.price = price;
+            }
+            engineStart(){
+                console.log(this.brand+" 시동 켜기");
+            }
+            engineStop(){
+                console.log(this.brand+" 시동 끄기");
+            }
+
+        }
+
+        const mycar = new Car('Ferrari','Red',65000);
+        mycar.engineStart();
+
+        data=10;
+        console.log(data);
+
+        //기존에 없던 프로퍼티에 새로운 것을 대입해주면 프로퍼티가 생성된다.
+        mycar.wheel = 4;
+        console.log(mycar.wheel);
+    </script>
+</body>
+</html>

@@ -9,13 +9,13 @@
 <body>
     <h2>화살표 함수</h2>
     <script>
-        const sayHello = () => console.log("Hello JavaScript!");
+        const sayHello = () => console.log("Hello Javascript!")
         const add = (x,y) => {
-            console.log("두 수의 덧셈 함수");
+            console.log('두 수의 덧셈 함수');
             console.log(`${x}와 ${y}의 합을 구합니다!`);
             return x+y;
         }
-        
+
         sayHello();
         console.log(add(10,3));
 
@@ -23,16 +23,15 @@
         let doing = null;
 
         if(num > 0){
-            doing = () => alert("양수입니다.");
+            doing = () => alert("양수입니다.")
         }
         else if(num<0){
             doing = () => alert("음수입니다.")
         }
         else{
-            doing = () => alert("0입니다.");
+            doing = () => alert("0입니다.")
         }
         doing();
-
     </script>
 </body>
 </html>
