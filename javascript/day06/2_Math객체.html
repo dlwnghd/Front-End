@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 객체</title>
+</head>
+<body>
+    <h2>Math 객체</h2>
+    <script>
+        console.log(Math.min(1,10,-10,1100,0));
+        console.log(Math.min(1,10,"-10",1100,0));
+        console.log(Math.min(1,10,"-10","천백",0)); //(X)
+        console.log(Math.max());
+        console.log(Math.min());
+
+        console.log(Math.floor(10.999999));
+        console.log(Math.floor(-10.000000001));
+
+        console.log(Math.ceil(10.00000001));
+        console.log(Math.ceil(-10.99999999999));
+
+        console.log(Math.round(10.49));
+        console.log(Math.round(10.500000000000000000000001));
+
+        //둘째자리에서 반올림 하기
+        //10.48 -> 10.5
+        console.log(Math.round(10.48*10)/10);
+
+        //n번째 자리에서 반올림 하기
+        //1. 10의 (n-1) 제곱을 곱하기
+        //2. 반올림 하기(round())
+        //3. 곱했던 만큼 다시 나눠주기
+
+        for(let i=0;i<5;i++){
+            console.log(`랜덤 숫자 : ${Math.random()} `)
+        }
+
+        //11 ~ 20 랜덤한 숫자 뽑기
+        for(let i=0;i<5;i++){
+            console.log(`랜덤 숫자 : ${Math.floor(Math.random()*10)+11} `)
+        }
+
+    </script>
+</body>
+</html>

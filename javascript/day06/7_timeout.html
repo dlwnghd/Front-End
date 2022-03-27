@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout</title>
+</head>
+<body>
+    <h2>Timeout</h2>
+    <script>
+        const to = window.setTimeout(function(){
+            alert("5초가 흘렀습니다!");
+        },5000);
+
+        let input = prompt("취소 입력")
+
+        if(input == "취소"){
+            window.clearTimeout(to);
+        }
+
+    </script>
+</body>
+</html>

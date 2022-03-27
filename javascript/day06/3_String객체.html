@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 객체</title>
+</head>
+<body>
+    <h2>String 객체</h2>
+    <script>
+        const str1 = "Hello Javascript!";
+
+        console.log(str1.indexOf('J'));//6
+        console.log(str1.indexOf('Java'));//6
+        console.log(str1.indexOf('java'));//찾는 문자열이 없다면 -1
+
+        console.log(str1.indexOf('a'));//7(앞에서부터 탐색)
+        console.log(str1.lastIndexOf('a'));//9(뒤에서부터 탐색)
+
+        console.log(str1[6]);//J
+        console.log(str1.charAt(6));//J
+
+        console.log(str1.includes('Java'));//true
+        console.log(str1.includes('Python'));//false
+
+        console.log(str1.substring(6))//Javascript!(6 ~ 끝)
+        // console.log(str1); --> 원본이 바뀌지는 않음
+        console.log(str1.substring(6,10))//Java(6 ~ 10전까지)
+        console.log(str1.substr(6,4));//Java(6번부터 4글자)
+
+        const str2 = "apple/banana/cherry/durian"
+        let fruit = str2.split("/");//["apple","banana","cherry","durian"]
+        console.log(fruit[2]);//cherry
+        "apple/".split("/")//["apple",""]
+        
+        console.log(str1.replace("Hello","Bye"));//Bye Javascript!
+        console.log(str1);//원본은 변하지 않음
+
+        const str3 = "            Javascript             ";
+        console.log(str3 == "Javascript");
+        console.log(str3.trim() == "Javascript");
+
+    </script>
+</body>
+</html>

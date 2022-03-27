@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백함수</title>
+</head>
+<body>
+    <h2>콜백함수</h2>
+    <script>
+        function f(callback){
+            //2. f() 내부 코드들 수행 시작(callback 매개변수에는 test 라는 함수가 담겨있음)
+            console.log("콜백 함수를 호출합니다~!")
+            //3. test() 로 작동 ---> test 함수를 호출(18번줄로 이동)
+            callback();
+        }
+        function test(){
+            //4. test() 내부 코드들 수행 시작
+            alert("테스트 함수 입니다!");
+        }
+        function test2(){
+            alert("테스트2 함수 입니다!");
+        }
+        //1. f() 함수 호출(12번줄로 이동)
+        f(test);
+        f(test2);
+    </script>
+</body>
+</html>
