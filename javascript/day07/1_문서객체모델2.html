@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체모델 - 2</title>
+    <script>
+        //window.onload : 문서가 다 로딩 된 후에 선언해서 넣어준 함수를 호출
+        window.onload = function(){
+            //gnb id를 갖고있는 요소 노드
+            const gnb = document.getElementById("gnb");
+            console.log(gnb.parentNode);//div 요소
+
+            //childNodes    : 비요소 노드들도 포함
+            console.log(gnb.childNodes);//[ text노드, ul노드, text노드 ]
+            //children      : 요소 노드들만 담겨있음
+            console.log(gnb.children);//[ ul노드 ]
+            
+            const ul = gnb.children[0]; //ul 요소
+
+            console.log(ul.nextSibling);        //text 노드
+            console.log(ul.nextElementSibling); //null
+
+            console.log(ul.children[1]);        //<li>내용 2</li>
+            console.log(ul.children[1].previousSibling);        //text 노드
+            console.log(ul.children[1].previousElementSibling); //<li>내용 1</li>
+
+            console.log(ul.firstChild);         //text 노드
+            console.log(ul.firstElementChild)   //<li>내용 1</li>
+
+            console.log(ul.lastChild);
+            console.log(ul.lastElementChild)
+
+            ul.firstElementChild.style.color = "blue";
+        }
+    </script>
+</head>
+<body>
+    <h2>문서객체모델 - 2</h2>
+    <div>
+        <nav id="gnb">
+            <!-- 코멘트 -->
+            <ul>
+                <li class="first">내용 1</li>
+                <li>내용 2</li>
+                <li>내용 3</li>
+            </ul>
+        </nav>
+    </div>
+</body>
+<script>
+    //요소의 프로퍼티들을 다 볼 수 있도록 출력
+    // console.dir(document.getElementsByTagName("h2")[0]);
+    // document.getElementsByTagName("h2")[0].style.backgroundColor = "red";
+</script>
+</html>

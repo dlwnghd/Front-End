@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드의 추가</title>
+    <script>
+        const appendNode = function(){
+            const parent = document.getElementById('list');
+            const newItem = document.getElementById('item1');
+            parent.appendChild(newItem);
+        };
+        const insertNode = function(){
+            const parent = document.getElementById('list');
+            const backend = document.getElementById('backend');
+            const newItem = document.getElementById('item2');
+            parent.insertBefore(newItem,backend);
+        };
+        const appendText = function(){
+            const text = document.getElementById("text").firstChild;
+            text.insertData(7,"아주 졸린 ");
+        };
+    </script>
+</head>
+<body>
+    <h2>노드의 추가</h2>
+    <p id="item1">JavaScript</p>
+    <p id="item2">TypeScript</p>
+    <hr>
+    <div id="list">
+        <p id="backend">node.js</p>
+        <p>HTML</p>
+        <p>CSS</p>
+    </div>
+    <hr>
+    <p id="text">지금 시간은 오전 10시 38분 입니다.</p>
+    <hr>
+    <button onclick="appendNode();">노드추가1</button>
+    <button onclick="insertNode();">노드추가2</button>
+    <button onclick="appendText();">텍스트 추가</button>
+</body>
+</html>
