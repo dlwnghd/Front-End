@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>우선순위</title>
     <style>
-        .important{
+        body {
             background-color: darkorange !important;
         }
         div{
@@ -36,7 +36,7 @@
         li{color:aqua} /* element 1개(1점) */
     </style>
 </head>
-<body>
+<body style="background-color: violet;">
     <h2>우선순위</h2>
     <div id="id-style" class="class-style important" style="background-color: violet;">div 1번(!importnat 적용 우선 / darkorange)</div>
     <div id="id-style" class="class-style" style="background-color: violet;">div 2번(inline 스타일 적용 / 1000점 -> violet)</div>
