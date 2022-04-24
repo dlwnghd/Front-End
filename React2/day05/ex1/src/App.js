@@ -1,8 +1,10 @@
 import './App.css';
-import Reducer from 
+import ReducerState from './components/reducerState';
 
 function App() {
-  return <Todos/>;
+  return (
+    <ReducerState/>
+  )
 }
 
 export default App;

@@ -137,7 +137,7 @@ D:\Seongyong\React\day02 들어가려먼
 D:\Seongyong\React\ 요기까지 터미널에는 접속을 해야한다
 
 내가 설치하고자 하는 폴더의 경로 (ex day 02)
-npx create-react-app ex1
+⭐npx create-react-app ex1
 
 --------------------------------------
 
@@ -175,7 +175,10 @@ var a=5
 ===> undefined
 
 null = 값이 비어져있다는 걸
-undefine = 선언은 되어있는데 정의가 안되어있느것
+undefine = 선언은 되어있는데 정의가 안되어있는것
+
+var a; == 정의는 안되고 선언만 된것
+a=5;
 
 호이스팅이라고 하는 것은
 변수를 선언했을 때 선언부를 맨위로 올려버리는 것
@@ -218,7 +221,7 @@ package.json
 --------------------------------------
 
 todolist
-- react 초보자가 hook 함수와 react 컴포넌트에 적응하기 위해 가장 많이 만들어보는 toy project 
+- react 초보자가 hook 함수와 react 컴포넌트에 적응하기 위해 가장 많이 만들어보는 toy project
 - react의 기본 원리와 작동 개념을 명확히 알 수 있음
 
 --------------------------------------
