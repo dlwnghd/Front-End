@@ -22,7 +22,8 @@ const State = () => {
 
     ])
 
-    const onClickEvent = (idvalue, namevalue) => {
+    // state를 set해주는 함수
+    const onClickEvent = (idvalue, namevalue) => { // idvalue와 namevalue를 매개변수로 받음
         setState([...state, {id: idvalue, name: namevalue}])
     }
 
@@ -51,12 +52,13 @@ const State = () => {
         // 매우 중요, 작동하지 않을 시 type을 찍어보는 것
         const removeState = state.filter( (item) => item.id !== parseInt(e.target.value));
         setState(removeState);
-        // map = 반복, filter = 거르다 //
+        // map = 반복, filter = 거르다
     }
 
     return (
         <>
             {state.map((item)=>(
+                // div 반복
                 <div key={item.id}>
                     {item.id}. {item.name}
                     <button value={item.id} onClick={onRemove}>삭제</button>
