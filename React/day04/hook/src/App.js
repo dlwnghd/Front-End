@@ -5,10 +5,11 @@ import Effect from './components/effect';
 
 function App() {
   return (
-  <>
-    <State/>
-    <Memo/>
-  </>
+    <> 
+      <Effect>
+
+      </Effect>
+    </>
   );
 }
 
