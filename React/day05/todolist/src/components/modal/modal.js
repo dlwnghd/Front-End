@@ -1,4 +1,5 @@
 import React from "react";
+// 꾸미기 위해 StyledComponent사용
 import styled from "styled-components";
 
 const Modal = () =>{
@@ -13,7 +14,7 @@ export default Modal;
 const ModalTamplet = styled.div`
     width: 380px;
     height: 60px;
-    border-radious: 16px;
+    border-radius: 16px;
     margin: 0 auto;
     margin-top: 96px;
     margin-bottom: 32px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useReducer} from "react";
 import { reducer } from "../reducer";
 
 const Reducer = () => {

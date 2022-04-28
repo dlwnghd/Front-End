@@ -20,7 +20,7 @@ const TodoButton = styled.button`
 const TodoForm = ( {onAddhandler, id} ) => {
     const [Todo, setTodo] = useState("");
 
-    // 중간 다리함수 실행 시 실행
+    // 중간 다리함수 실행
     const onClieckEvent = useCallback(() => {
         onAddhandler(id + 1, Todo);
         setTodo("");
@@ -30,6 +30,7 @@ const TodoForm = ( {onAddhandler, id} ) => {
         setTodo(e.target.value);
     }, []);
 
+    // Enter키가 입력 되면 onClickEvent 실행
     const onKeyPressEvent = useCallback(
         (e) => {
             if(e.key === "Enter"){
@@ -43,13 +44,16 @@ const TodoForm = ( {onAddhandler, id} ) => {
     return (
         <div>
             <TodoaddInput 
-            type="text" 
-            placeholder="할 일을 적어주세요" 
-            value={Todo} 
-            onChange={onChangeEvent}
-            onKeyPress={onKeyPressEvent}
+                type="text" 
+                placeholder="할 일을 적어주세요" 
+                value={Todo} 
+                onChange={onChangeEvent}
+                onKeyPress={onKeyPressEvent}
             />
-            <TodoButton onClick={onClieckEvent}>추가</TodoButton>
+            <TodoButton
+                onClick={onClieckEvent}>
+                    추가
+            </TodoButton>
         </div>
     )
 }  

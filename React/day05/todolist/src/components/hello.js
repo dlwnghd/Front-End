@@ -5,7 +5,9 @@ const Hello = ( {name, color, islover, style} ) =>{
         <div style={style ? style : {color} }>
             안녕하세요
             {name}님! 
+            {/* 삼항연산자 {조건식 ? true : null} */}
             {islover ? <span>❤</span>:null}
+            {/* {조건식 && true } */}
             {islover && <span>❤</span>}
         </div>
     )
