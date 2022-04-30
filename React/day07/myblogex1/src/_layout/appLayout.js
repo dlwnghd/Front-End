@@ -3,6 +3,7 @@ import {Nav} from "react-bootstrap";
 
 const Applayout = ( {children}) => {
     return (
+        // 부모 태그
         <>
             <Nav defaultActiveKey="/home" as="ul">
                 <Nav.Item as="li">

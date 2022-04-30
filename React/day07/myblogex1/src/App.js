@@ -2,7 +2,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/home';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+// login 페이지 import
 import Login from './pages/login';
+// 회원가입 페이지 import
 import Sign from './pages/sign';
 
 
