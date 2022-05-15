@@ -1,36 +1,9 @@
-import React, { useCallback, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { useInput } from "../../../hook/useInput";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_POST_REQUEST } from "../../../reducer/post";
 
 const PostForm = () => {
-  const dispatch = useDispatch();
-  const [content, onChangeContent, setContent] = useInput("");
-  const { addpostDone, addpostError } = useSelector((state) => state.post);
-
-  useEffect(() => {
-    if (addpostDone) {
-      setContent("");
-    }
-  }, [addpostDone, setContent]);
-
-  useEffect(() => {
-    if (addpostError !== null) {
-      alert(addpostError);
-    }
-  }, [addpostError]);
-
-  const onAddPost = useCallback(
-    (e) => {
-      e.preventDefault();
-      dispatch({
-        type: ADD_POST_REQUEST,
-        data: content,
-      });
-    },
-    [dispatch, content]
-  );
+  const [content, onChangeContent] = useInput("");
 
   return (
     <StyledPostForm>
@@ -42,7 +15,7 @@ const PostForm = () => {
         placeholder={"성용님, 오늘은 어떤 일이 있었나요?"}
         autoComplete="off"
       />
-      <button onClick={onAddPost}>등록</button>
+      <button>등록</button>
     </StyledPostForm>
   );
 };
