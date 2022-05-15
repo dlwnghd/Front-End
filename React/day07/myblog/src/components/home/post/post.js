@@ -1,45 +1,97 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
 import moment from "moment";
-import {usePrev} from "../../../hook/usePrev";
+import { usePrev } from "../../../hook/usePrev";
+import CommentForm from "./commentForm";
+import Comment from "./comment";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  REMOVE_POST_REQUEST,
+  UPDATE_POST_REQUEST,
+} from "../../../reducer/post";
+import { useInput } from "../../../hook/useInput";
 
 moment.locale("ko");
-const Post = () => {
+const Post = ({ post }) => {
+  const dispatch = useDispatch();
+  const [editPost, onToggleEditPost, setEditPost] = usePrev(false);
+  const [commentBox, onToggleCommentBox] = usePrev(false);
+  const { info } = useSelector((state) => state.user);
+  const [content, onChangeContent] = useInput(post.content);
 
-  const [editPost, onToggleEditPost] = usePrev(false); 
-  const [commentBox, onToggleEditComment] = usePrev(false); 
+  const { updatepostDone } = useSelector((state) => state.post);
+
+  useEffect(() => {
+    if (updatepostDone) {
+      setEditPost((prev) => !prev);
+    }
+  }, [updatepostDone, setEditPost]);
+
+  const onRemovePost = useCallback(() => {
+    dispatch({
+      type: REMOVE_POST_REQUEST,
+      data: {
+        id: post.id,
+      },
+    });
+  }, [post.id, dispatch]);
+
+  const onUpdatePost = useCallback(() => {
+    dispatch({
+      type: UPDATE_POST_REQUEST,
+      data: {
+        postId: post.id,
+        content: content,
+      },
+    });
+  }, [content, post.id, dispatch]);
 
   return (
     <StyledPost>
       <div className="info">
         <div className="inner">
-          <StyledAvatar src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png"/>
+          <StyledAvatar src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" />
           <div className="name-date">
-            <div className="name">주홍님</div>
+            <div className="name">{post.User.nickname}</div>
             <div className="date"> {moment().format("YYYY.MM.DD")}</div>
           </div>
         </div>
         <div>
-          <button className="editBtn" onclick={onToggleEditPost}>수정</button>
-          <button className="editBtn">삭제</button>
+          {info && info.id === post.User.id && (
+            <button className="editBtn" onClick={onToggleEditPost}>
+              수정
+            </button>
+          )}
+          {info && info.id === post.User.id && (
+            <button className="editBtn" onClick={onRemovePost}>
+              삭제
+            </button>
+          )}
         </div>
       </div>
       {editPost ? (
         <>
-          <textarea cols="80" row="5" />
-          <button className="editBtn updateBtn">수정하기</button>
+          <textarea
+            cols="80"
+            row="5"
+            value={content}
+            onChange={onChangeContent}
+          />
+          <button className="editBtn updateBtn" onClick={onUpdatePost}>
+            수정하기
+          </button>
         </>
       ) : (
-      <div className="content">내용</div>
+        <div className="content">{post.content}</div>
       )}
-      <div className="comment" onclick={onToggleEditComment}>
+      <div className="comment" onClick={onToggleCommentBox}>
         <div className="total">댓글 1개</div>
         <div className="commentBtn">댓글 달기</div>
       </div>
-      {commentBox (
+      {commentBox && (
         <>
-          <CommentForm />
-          <Comment />
+          {info && <CommentForm />}
+          <Comment comment={post.Comments} postId={post.id} />
         </>
       )}
     </StyledPost>
@@ -54,7 +106,7 @@ const StyledAvatar = styled.img`
   height: 2rem;
   vertical-align: middle;
   text-align: center;
-`
+`;
 
 const StyledPost = styled.div`
   box-sizing: border-box;

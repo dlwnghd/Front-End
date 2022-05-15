@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { LOG_OUT_REQUEST } from "../reducer/user";
 
 const Layout = ({ children }) => {
+  const dispatch = useDispatch();
+  const { info } = useSelector((state) => state.user);
+
+  const onLogout = useCallback(() => {
+    dispatch({
+      type: LOG_OUT_REQUEST,
+    });
+  }, []);
+
   return (
     <>
       <StyledNav>
@@ -15,11 +26,14 @@ const Layout = ({ children }) => {
           <Link to="/sign">회원가입</Link>
         </div>
         <div>
-          <Link to="/login">로그인</Link>
+          {!info ? (
+            <Link to="/login">로그인</Link>
+          ) : (
+            <Styledinfo>
+              {info.nickname} | <button onClick={onLogout}>로그아웃</button>
+            </Styledinfo>
+          )}
         </div>
-        <Styledinfo>
-          성용님 | <button>로그아웃</button>
-        </Styledinfo>
       </StyledNav>
       <div> {children} </div>
     </>

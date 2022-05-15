@@ -1,9 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useInput } from "../../hook/useInput";
+import { useDispatch, useSelector } from "react-redux";
+import { SIGN_IN_REQUEST } from "../../reducer/user";
 
 const SignMain = () => {
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
+  const { signinDone, singinError } = useSelector((state) => state.user);
+
   const [email, onChangeUserEmail] = useInput("");
   const [name, onChangeUserName] = useInput("");
   const [password, onChangeUserPasswrod] = useInput("");
@@ -17,6 +23,37 @@ const SignMain = () => {
       setPasswordCheck(e.target.value !== password);
     },
     [password]
+  );
+
+  useEffect(() => {
+    if (singinError) {
+      alert(singinError);
+    }
+  }, [singinError]);
+
+  useEffect(() => {
+    if (signinDone) {
+      navigator("/", { replace: true });
+    }
+  }, [signinDone]);
+
+  const onRegist = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (password !== confirmPassword) {
+        return setPasswordCheck(true);
+      }
+
+      dispatch({
+        type: SIGN_IN_REQUEST,
+        data: {
+          email,
+          name,
+          password,
+        },
+      });
+    },
+    [password, confirmPassword, email, name]
   );
 
   return (
@@ -62,7 +99,7 @@ const SignMain = () => {
         {confirmPassword && passwordCheck && (
           <CheckMessage>비밀번호가 일치하지 않습니다</CheckMessage>
         )}
-        <button>가입하기</button>
+        <button onClick={onRegist}>가입하기</button>
         <Link to="/">돌아가기</Link>
       </SignFrom>
     </>

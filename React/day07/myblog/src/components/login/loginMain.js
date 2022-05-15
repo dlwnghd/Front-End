@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import styled from "styled-components";
 import { useInput } from "../../hook/useInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { LOG_IN_REQUEST } from "../../reducer/user";
 
 const LoginMain = () => {
+  const dispatch = useDispatch();
+  const navigator = useNavigate();
   const [email, onChangeEmail] = useInput("");
   const [password, onChangePassword] = useInput("");
+  const { info } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (info) {
+      navigator("/");
+    }
+  }, [info, navigator]);
+
+  const onLogin = useCallback(
+    (e) => {
+      e.preventDefault();
+      dispatch({
+        type: LOG_IN_REQUEST,
+        data: { email: email, password: password },
+      });
+    },
+    [email, password, dispatch]
+  );
 
   return (
     <LoginFrom>
@@ -30,7 +52,7 @@ const LoginMain = () => {
           required
         />
       </div>
-      <button>로그인</button>
+      <button onClick={onLogin}>로그인</button>
       <Link to="/sign">아직 회원이 아니신가요?</Link>
     </LoginFrom>
   );

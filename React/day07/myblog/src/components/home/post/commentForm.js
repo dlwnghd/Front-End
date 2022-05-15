@@ -1,23 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import {useInput} from "../../../hook/useInput";
+import { useInput } from "../../../hook/useInput";
 
 const CommentForm = () => {
-    const [comment, onChangeComment] = useInput();
+  const [comment, onChangeComment] = useInput("");
 
-    return (
-        <StyledForm>
-            <input
-                type="text"
-                placeholder="댓글을 남겨주세요"
-                value={comment}
-                onChange={onChangeComment}/>
-        </StyledForm>
-    );
+  return (
+    <StyledForm>
+      <input
+        type="text"
+        placeholder="댓글을 남겨주세요"
+        value={comment}
+        onChange={onChangeComment}
+      />
+      <button>등록</button>
+    </StyledForm>
+  );
 };
 export default CommentForm;
 
-const StyledForm = styled.form `
+const StyledForm = styled.form`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
