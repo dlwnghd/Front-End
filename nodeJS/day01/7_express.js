@@ -1,3 +1,4 @@
+// const타입의 express는 
 const express = require("express");
 
 const app = express();

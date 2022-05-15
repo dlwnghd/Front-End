@@ -3,7 +3,7 @@ const http = require("http");
 
 http
   .createServer((req, resp) => {
-    fs.readFile("./test.html", "utf-8", (err, data) => {
+    fs.readFile("./nodeJS/day01/test.html", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
       } else {

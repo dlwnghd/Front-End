@@ -3,7 +3,7 @@ react와 reactProject에 관하여
 
 nodeJS?
 
-    NodeJs는 Chorme V8 JavaScript 엔진으로 빌드된 JavaScript 런타임(환경)
+    ⭐NodeJs는 Chorme V8 JavaScript 엔진으로 빌드된 JavaScript 런타임(환경)
   
     노드를 통해 다양한 자바스크립트 애플리케이션을 실행할 수 있지만,
     노드는 서버를 실행하는데 유용한 도구들을 제공하여 서버로서 제일 많이 사용
@@ -34,7 +34,7 @@ callback 지옥?
     
     ex) 
     myblog에서 게시글id와 댓글id를 백서버로 보내게 되면 백서버는 
-    게시글을 먼저 찾고 찾은 게시글에서 댓글을 찾아야한다. 이 경우 게시글을 찾기 전에 댓글을 찾으려고 한다면 어떻게 될까?
+    1. 게시글을 먼저 찾고 2. 찾은 게시글에서 댓글을 찾아야한다. 이 경우 게시글을 찾기 전에 댓글을 찾으려고 한다면 어떻게 될까?
 
     이러한 처리를 위하여 callback 함수를 사용하는데
     callback 함수가 중첩되어 함수의 길이가 깊어지고 가독성이 떨어지며 코드가 난잡해 보이는 현상
@@ -43,7 +43,7 @@ callback 지옥?
 
 async?
     promise의 then catch 반복으로 인한 코드가 길어지는 현상과 pending(대기) 상태가 지속되는 
-    현상을 해결    
+    현상을 해결
 
 promise?
     비동기를 접하게 되었을 때 악명 높은 콜백 지옥을 탈출했다는 점에서 높은 평가를 받고 있음
@@ -89,6 +89,3 @@ nodemon 모듈
     ex) nodemon app.js
 
 npm i nodemon
-
-
-
