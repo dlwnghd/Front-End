@@ -4,7 +4,7 @@ const fs = require("fs");
 let text = null;
 
 // 예외처리
-try {
+try { // 에러가 발생할 수도 있는 문장
   // text는 fs의 파일을 동기적으로 읽음
   text = fs.readFileSync("./text1.txt", "utf-8");
   // text에 들어있는 데이터를 콘솔창에 출력
@@ -57,4 +57,5 @@ fs.readFile("./text2.txt", "utf-8", (err, data) => {
 //   }
 // });
 
-// 만약 순서대로 뽑고 싶다면? promise와 async / await을 활용하면 된다
+// 만약 순서대로 뽑고 싶다면?
+// promise와 async/await을 활용하면 된다

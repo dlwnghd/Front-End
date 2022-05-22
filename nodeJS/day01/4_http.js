@@ -1,6 +1,12 @@
-const http = request;
+// const http = request;
+const http = require('http');
 
-`<!DOCTYPE html>
+// req: 사용자 요청에 대한 정보 (사용자가 나에게 주는 정보)
+// res: 사용자에게 응답을 하기 위한 정보 (내가 사용자에게 주는 정보)
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {"content-type": "text/html"});
+    res.end(
+        `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -13,7 +19,12 @@ const http = request;
         <p>처음으로 실행하는 node.js http 서버</p>
     </body>
     </html>`
+    );
+});
 
+server.listen(3000, () => {
+    console.log("3000번 포트로 서버 실행중");
+});
 
 // 이제 우리는 앞으로
 /*
@@ -26,7 +37,3 @@ const http = request;
         ex 비밀번호 틀렸다, 없는 아이디다
     }
 */
-
-server.listen =(3000, () => {
-    console.log("3000번 포트로 서번 실행중");
-});
