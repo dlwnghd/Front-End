@@ -3,8 +3,9 @@ module.exports = (sequelize, Datatypes) => {
         "Post",
         {
             content:{
-                type: Datatypes.TEXT,
-                allowNull: false,
+                type: Datatypes.TEXT,   // 문자열
+                allowNull: false,   // not null
+                unique: true,   // 중복허용 X
             },
         },
         {
@@ -13,7 +14,7 @@ module.exports = (sequelize, Datatypes) => {
         }
     );
     Post.associate = (db) => {
-        db.Post.belongsTo(db.User);
+        db.Post.belongsTo(db.User); // 1:1 관계
     };
     return Post;
 };

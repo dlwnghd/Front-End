@@ -35,7 +35,7 @@ app.post("/login", (req, res) => {
 });
 
 app.post("/logout", (req, res) => {
-  req.session.destroy(() => {
+  req.session.destroy(() => { // 세션 삭제
     console.log("세션이 삭제되었습니다");
   });
   res.send("logOutOk");

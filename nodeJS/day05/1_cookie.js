@@ -10,11 +10,13 @@ app.set("port", 3000);
 
 app.get("/setcookie", (req, res) => {
   try {
+    // 쿠키 생성
     res.cookie(
       "member",
-      { id: "apple", name: "김사과", gender: "남성" },
+      { 
+        id: "apple", name: "김사과", gender: "남성" },
       {
-        maxAge: 1000 * 60 * 3,
+        maxAge: 1000 * 60 * 3,  // 쿠키의 유통기한
       }
     );
     res.send("ok");
