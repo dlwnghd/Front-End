@@ -75,4 +75,4 @@ router.post("/", isLoggedin, async (req, res) => {
 // post/asd/
 router.patch("/:postId", isLoggedin, async (req, res, next) => {});
 
-module.exports = router;
+// module.exports = router;
