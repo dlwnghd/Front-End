@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       password: {
-        type: DataTypes.STRING(20),
+        type: DataTypes.STRING(100),
         allowNull: false,
       },
     },
@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   User.associate = (db) => {
     db.User.hasMany(db.Post); // 시퀄라이즈 1:N 관계
+    // db.User.hasMany(db.Comment);
+    // db.User.hasMany(db.Reply);
   };
   return User;
 };

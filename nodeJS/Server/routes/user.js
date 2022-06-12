@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const { User, Post } = require("../models");
 const passport = require("passport");
+const { isLoggedin, isNotLoggedin } = require("./middleware");
 
 // localhost:3000/user
 router.post("/", async (req, res, next) => {
@@ -40,7 +41,10 @@ router.post("/", async (req, res, next) => {
 });
 
 //로그인
-router.post("/login", (req, res, next) => {
+//로그인하지 않은 사용자인지 검사하고 다음 모듈을 실행해라 = isNotLoggedin
+//로그인한 사용자인지 검사하고 다음 모듈을 실행해라 = isLoggedin
+
+router.post("/login", isNotLoggedin, (req, res, next) => {
   //passport 인증 로직 내부의 내용은 이해하지 않아도 괜찮다
   passport.authenticate("local", (err, user, desc) => {
     if (err) {
@@ -71,22 +75,23 @@ router.post("/login", (req, res, next) => {
           },
         ],
       });
-      return res.send(200).json(UserWithoutPassword);
+      return res.status(200).json(UserWithoutPassword);
       //패스워드가 제외된 로그인한 유저의 정보를 제이슨 형태로 res로 프론트엔드에 전달
     });
   })(req, res, next);
 });
 
 //로그아웃
-router.post("/logout", (req, res) => {
+//로그인한 사용자인지 검사하고 다음 모듈을 실행해라 = isLoggedin
+router.post("/logout",isLoggedin, (req, res) => {
   req.logout(() => {
     //요청받은 세선 삭제
     req.session.destroy();
     //쿠키를 값을 삭제한 상태로 돌려준다
     res.clearCookie("connect.sid");
     res.send("ok");
-    // ok라는 메세지를 보내고 다시 hoem("/")으로 주소를 이동해라
-    res.redirect("/");
+    // ok라는 메세지를 보내고 다시 home("/")으로 주소를 이동해라
+    // res.redirect("/"); // redirect 에러가 있어서 주석처리함
   });
 });
 
