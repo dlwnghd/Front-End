@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제</title>
+</head>
+<body>
+    <h2>숙제</h2>
+    <script>
+        // 클래스를 이용한 객체 생성
+        // Animal클래스
+        class Animal{
+            constructor(name,sex,age,sound){ // 매개변수 name,sex,age
+                this.name = name;
+                this.sex = sex;
+                this.age = age;
+                this.sound = sound;
+            }
+            // Cry메소드
+            Cry(){
+                    console.log(this.name+" : "+this.sound);
+            }
+        }
+
+        // const타입의 myAnimal는 Animal타입 안의 매개변수를 사용해서 새로 선언
+        const dog = new Animal('백구', '남자', 5, '월월');
+        const cat = new Animal('까미', '여자', 3, '야옹야옹');
+        const figeon = new Animal('빡대갈', '남자', 2, '누구세용?');
+        
+        // 동물별로 Cry메소드 실행
+        dog.Cry();
+        cat.Cry();
+        figeon.Cry();
+
+    </script>
+</body>
+</html>

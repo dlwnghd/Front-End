@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체형</title>
+</head>
+<body>
+    <h2>객체형</h2>
+</body>
+    <script>
+        let id= "apple";
+
+        const apple = {
+            id, 
+            // id : "apple",
+            pw : "abcd1234",
+            age: 10
+        }
+        console.log(typeof(apple));
+        console.log(apple);
+
+        // . 하위연산자
+        // A.b  > A 안의 b , A 의 b
+        console.log(apple.id);
+        console.log(`비밀번호: ${apple.pw}`);
+        console.log(`나이: ${apple.age}`);
+
+        apple.age= 15;  // let age = 15;
+        console.log(`중학생 apple: ${apple.age}`);
+
+        // 존재하지 않는 프로퍼티 사용 시 undefined
+        console.log(apple.adderess);
+    </script>
+</html>

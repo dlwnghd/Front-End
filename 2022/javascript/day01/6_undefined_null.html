@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>undefined, null</title>
+</head>
+<body>
+    <h2>undefined, null</h2>
+</body>
+    <script>
+        let num;
+        console.log(num);
+        console.log(typeof(num));
+
+        let obj1= null;
+        console.log(obj1);
+        console.log(typeof(obj1));  // null 은 object x
+                                    // JS의 초기 버그   > 하위호환성을 위해 수정X
+
+        let obj2= {};
+        console.log(obj2);
+        console.log(typeof(obj2));
+
+        let num1= 100;
+        let num2= 20;
+        let num3= "10000";
+        // 숫자 + 문자열 = 문자열(string)
+        console.log(typeof(num1 + num3));
+
+        // 숫자 + 숫자 = 숫자(number)
+        console.log(typeof(num1 + num2));
+    </script>
+</html>

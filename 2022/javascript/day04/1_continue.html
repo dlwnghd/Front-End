@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continue 제어</title>
+</head>
+<body>
+    <h2>Continue 제어</h2>
+    <script>
+        for(let i=1;i<=10;i++){
+            if(i == 4){
+                continue;
+            }
+            console.log(i);
+        }
+
+        // continue는 아래의 if ~ else 문으로 처리한 것과 같은 결과를 낸다.
+        for(let i=1;i<=10;i++){
+            if(i == 4){
+
+            }
+            else{
+                console.log(i);
+            }
+        }
+
+    </script>
+</body>
+</html>

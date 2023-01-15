@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 범위</title>
+</head>
+<body>
+    <h2>변수의 범위</h2>
+    <script>
+        // let타입의 num2는 100
+        let num2 = 100;
+        f1();
+        f2();
+        f3();
+        console.log('f3() 들어갔다가 나온 후 출력한 num2 : '+num2)
+        console.log("↑f3()에서 num2를 변경한 것이 외부의 데이터의 영향을 주는 것이 확인 됨")
+        f4();
+        console.log('f4() 들어갔다가 나온 후 출력한 num2 : '+num2)
+        console.log("↑f4()에서 이름은 같지만 let num2라는 새로운 변수를 변경한 것이 외부의 데이터의 영향을 주지 않는 것이 확인 됨")
+
+        // 기능 f2
+        function f1(){
+            // let num1은 10
+            let num1 = 10;
+            // f1에 정의된 num1을 출력
+            console.log('f1() 내부에서 출력한 num1 : '+num1);
+        }
+        // 기능 f2
+        function f2(){
+            // f1 영역에 선언된 num1은 참조할 수 없다.
+            // console.log('f2() 내부에서 출력한 num1 : '+num1);
+            let num1 = 20;
+            console.log('f2() 내부에서 출력한 num1 : '+num1);
+        }
+        // 기능 f3
+        function f3(){
+            // 내부에서 외부에서 선언된 num2 출력
+            console.log('f3() 내부에서 출력한 num2 : '+num2);
+            num2 = 200;
+        }
+        
+        // 기능 f4
+        function f4(){
+            let num2 = 300; //새로운 선언(지역변수 num2 선언)
+            console.log('f4() 내부에서 출력한 num2 : '+num2);
+        }
+
+        var num3 = 1000;
+        if(true){
+            num3 = 2000;
+            console.log('if문 내부에서 출력한 num3 : '+num3);
+        }
+        
+        var num4 = 10000;
+        if(true){
+            var num4 = 20000;//var는 새로운 선언을 하더라도 지역변수로 선언이 안된다. (함수 영역에서는 지역변수로 되긴 함)
+            console.log('if문 내부에서 출력한 num4 : '+num4);
+        }
+        console.log('if문 외부에서 출력한 num4 : '+num4);
+        console.log("var타입으로 선언한 변수는 새로운 선언을 하더라도 지역변수로 선언이 되지않아 변경됨.(함수 영역에서는 지역변수로 되긴 함)")
+
+        let num5 = 100000;
+        if(true){
+            let num5 = 200000;
+            console.log('if문 내부에서 출력한 num5 : '+num5)
+        }
+        console.log('if문 외부에서 출력한 num5 : '+num5);
+        console.log("let타입으로 선언한 변수는 새로운 선언dmf goeh 변경됨.(함수 영역에서는 지역변수로 되긴 함)")
+
+    </script>
+</body>
+</html>

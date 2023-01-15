@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <h2>Quiz</h2>
+    <script>
+        let choice = Number(prompt("다음 중 주말 프론트엔드 강사의 이름은?\n1. 김사과\n2. 반하나\n3. 정다솔\n4. 이체리"))
+        
+        // if(choice == 3){
+        //     console.log("정답입니다");
+        // }
+        // else if(choice == 1 || choice == 2 || choice == 4){
+        //     console.log("오답입니다");
+        // }
+        // else{
+        //     console.log("너는 응애!");
+        // }
+        
+        switch(choice){
+            case 3:
+                console.log("정답입니다");
+                break;
+            case 1: case 2: case 4:
+                console.log("오답입니다");
+                break;
+            default:
+                console.log("너는 응애!");
+        }
+
+    </script>
+</body>
+</html>

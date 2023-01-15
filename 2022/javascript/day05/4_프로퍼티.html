@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로퍼티</title>
+</head>
+<body>
+    <h2>프로퍼티</h2>
+    <script>
+        let username = "반하나";
+        const user = {
+            userid:"apple",
+            userpw:"abcd1234",
+            username:"김사과",
+            usergender:"여자",
+            userphone:'01012341234',
+            intro:function(){
+                console.log(`제 이름은 ${this.username}입니다.`);
+            }
+        }
+        // user객체 안에 있는 intro기능 실행
+        user.intro();
+    </script>
+</body>
+</html>

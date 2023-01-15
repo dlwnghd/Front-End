@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for문 연습문제</title>
+</head>
+<body>
+    <h2>for문 연습문제</h2>
+    <h3 style="text-align: center; background-color: black;color: yellow; font-size: 3em;">다들 파이팅~</h3>
+</body>
+<script>
+    //가능하면 초기식은 let i=0; 증감식은 i++; 로 고정해놓고 연습
+    //1부터 10까지 출력하기
+    // for(let i=0;i<10;i++){
+    //         console.log(i+1);
+    //     }
+
+    //10부터 1까지 출력하기
+    // for(let i=0;i<10;i++){
+    //         console.log(10-i);
+    //     }
+
+    //12부터 3씩 증가하며 13번 출력하기
+    //반복횟수 = (끝값 - 초기값) / 증감값
+    // 12+(13*3)/1=51
+    // for(let i=0;i<13;i++){
+    //     console.log(12+((i)*3));
+    // }
+
+    //100 94 88 82 .... 28 출력하기
+    // for(let i=0; i<37; i++){
+    //     console.log(100-(i*2));
+    // }
+    
+    //1부터 10까지의 총 합 구해서 출력하기
+    // let sum = 0;
+    // for (i = 0; i < 10; i++) {
+    //     sum += i;
+    // }
+    // console.log(sum);
+
+    //n 하나 입력받아서 1부터 n까지의 총 합 구하기
+    // let n = Number(prompt("n 입력"))
+    // let sum = 0;
+    // for(let i=0;i<=n;i++){
+    //     sum += i;
+    // }
+    // console.log(sum);
+
+    //n, m 입력받아서 n부터 m까지 출력하기
+    // let n = Number(prompt("n 입력"))
+    // let m = Number(prompt("m 입력"))
+    // let sum = 0;
+    // for(let i=n;i<=m;i++){
+    //     sum += i;
+    // }
+    // console.log(sum);
+
+    //1부터 100까지 중 짝수만 출력하기
+    // for(let i=0;i<50;i++){
+    //     console.log((i+1)*2);
+    // }
+
+    //1부터 100까지 중 3과 5의 공배수만 출력하기
+    // for(let i=0;i<100;i++){
+    //     if((i+1)%3 == 0 && (i+1)%5 == 0){
+    //         console.log("3과 5의배수 : " + (i+1));
+    //     }
+    // }
+
+    //중첩반복문 사용하지 않고 구구단 전부 출력하기
+    // let i = 1
+    // let j = 1
+    // while (i != 10) {
+    //     console.log(i+" * " + j+" = "+(i*j));
+    //     j++
+
+    //     // 만약 j가 10이고 i가 9가 아니라면
+    //     if(j == 10 && i!=10){
+    //         i++
+    //         j = 1;
+    //     }
+    // }
+    
+    //10진수 숫자 입력받아서 2진수로 출력하기
+    // const num = Number(prompt("숫자를 입력해주세요."));
+    // console.log(num.toString(2));
+
+</script>
+</html>

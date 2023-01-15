@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 - 5</title>
+</head>
+<body>
+    <h2>화살표 함수</h2>
+    <script>
+        const sayHello = () => console.log("Hello Javascript!")
+        // sayHello함수 실행
+        sayHello();
+
+        const add = (x,y) => {
+            console.log('두 수의 덧셈 함수');
+            console.log(`${x}와 ${y}의 합을 구합니다!`);
+            return x+y;
+        }
+        // add함수 출력
+        console.log(add(10,3));
+
+        let num = Number(prompt("숫자를 입력하세요"));
+        let doing = null;
+
+        if(num > 0){
+            doing = () => alert("양수입니다.")
+        }
+        else if(num<0){
+            doing = () => alert("음수입니다.")
+        }
+        else{
+            doing = () => alert("0입니다.")
+        }
+        doing();
+    </script>
+</body>
+</html>

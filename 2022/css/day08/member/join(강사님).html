@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투어 리스트 인 투어</title>
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/common(강사님).css">
+    <link rel="icon" href="../images/favicon.ico">
+</head>
+<body>
+    <ul class="skipnavi">
+        <li><a href="#container">본문내용</a></li>
+    </ul>
+    <!-- wrap 시작 -->
+    <div id="wrap">
+        <!-- header 시작 -->
+        <header>
+            <div class="header_area box_inner clear">
+                <h1><a href="../index(강사님).html">Tourist in Tour</a></h1>
+                <p class="openMOgnb">
+                    <a href="#">
+                        <b class="hdd">메뉴열기</b>
+                        <span></span><span></span><span></span>
+                    </a>
+                </p>
+                <div class="header_cont">
+                    <ul class="util clear">
+                        <li><a href="../member/login(강사님).html">로그인</a></li>
+                        <li><a href="../member/join(강사님).html">회원가입</a></li>
+                    </ul>
+                    <nav>
+                        <ul class="gnb clear">
+                            <li>
+                                <a href="#" class="openAll1">여행정보</a>
+                                <div class="gnb_depth gnb_depth2_1">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">국내</a></li>
+                                        <li><a href="#">해외</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="openAll2">고객센터</a>
+                                <div class="gnb_depth gnb_depth2_2">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">공지사항</a></li>
+                                        <li><a href="#">문의하기</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="openAll3">상품투어</a>
+                                <div class="gnb_depth gnb_depth2_3">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">프로그램 소개</a></li>
+                                        <li><a href="#">여행자료</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="openAll4">티켓/가이드</a>
+                                <div class="gnb_depth gnb_depth2_4">
+                                    <ul class="submenu_list">
+                                        <li><a href="#">항공</a></li>
+                                        <li><a href="#">호텔</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <p class="closePop"><a href="#">닫기</a></p>
+                </div>
+            </div>
+        </header>
+        <!-- header 끝 -->
+        <!-- container 시작 -->
+        <div id="container">
+            <div class="location_area member">
+                <div class="box_inner">
+                    <h2 class="tit_page">TOURIST <span class="in">in</span> TOUR</h2>
+                    <p class="location">
+                        MEMBER <span class="path">/</span> 회원가입
+                    </p>
+                    <ul class="page_menu clear">
+                        <li><a href="#" class="on">회원가입</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 본문 시작 -->
+            <div class="bodytext_area box_inner">
+                <!-- 회원가입 폼 시작 -->
+                <form action="#" class="appForm" method="post">
+                    <fieldset>
+                        <legend>회원가입 입력 양식</legend>
+                        <p class="info_pilsoo pilsoo_item">필수입력</p>
+                        <ul class="app_list">
+                            <!-- 이메일 -->
+                            <li class="clear">
+                                <label for="email_lbl" class="tit_lbl pilsoo_item">이메일</label>
+                                <div class="app_content email_area">
+                                    <input type="text" class="w160" id="email_lbl" title="이메일 주소">
+                                    <span class="ico_space">@</span>
+                                    <input type="text" class="w160" title="이메일 제공업체">
+                                    <div class="select_common">
+                                        <select title="이메일 제공업체">
+                                            <option value="">직접입력</option>
+                                            <option value="naver">naver.com</option>
+                                            <option value="daum">daum.net</option>
+                                            <option value="gmail">gmail.com</option>
+                                            <option value="nate">nate.com</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- 이름 -->
+                            <li class="clear">
+                                <label for="name_lbl" class="tit_lbl pilsoo_item">이름</label>
+                                <div class="app_content">
+                                    <input type="text" class="w100p" id="name_lbl" placeholder="이름을 입력하세요">
+                                </div>
+                            </li>
+                            <!-- 비밀번호 -->
+                            <li class="clear">
+                                <label for="pwd_lbl" class="tit_lbl pilsoo_item">비밀번호</label>
+                                <div class="app_content">
+                                    <input type="password" class="w100p" id="pwd_lbl" placeholder="비밀번호를 입력하세요">
+                                </div>
+                            </li>
+                            <!-- 비밀번호 확인 -->
+                            <li class="clear">
+                                <label for="pwd2_lbl" class="tit_lbl pilsoo_item">비밀번호 확인</label>
+                                <div class="app_content">
+                                    <input type="password" class="w100p" id="pwd2_lbl" placeholder="비밀번호 확인을 입력하세요">
+                                </div>
+                            </li>
+                            <!-- 연락처 -->
+                            <li class="clear">
+                                <label for="phone_lbl" class="tit_lbl pilsoo_item">연락처</label>
+                                <div class="app_content">
+                                    <input type="tel" class="w100p" id="phone_lbl" placeholder="휴대폰 '-' 없이 숫자만 입력하세요">
+                                </div>
+                            </li>
+                            <!-- 성별 -->
+                            <li class="clear">
+                                <span class="tit_lbl">성별</span>
+                                <div class="app_content radio_area">
+                                    <input type="radio" name="gender" id="mmm_lbl" class="css-radio" value="남">
+                                    <label for="mmm_lbl">남</label>
+                                    <input type="radio" name="gender" id="www_lbl" class="css-radio" value="여">
+                                    <label for="www_lbl">여</label>
+                                </div>
+                            </li>
+                            <!-- 개인정보 활용동의 -->
+                            <li class="clear">
+                                <span class="tit_lbl">개인정보 활용동의</span>
+                                <div class="app_content checkbox_area">
+                                    <input type="checkbox" name="agree" id="agree_lbl" class="css-checkbox">
+                                    <label for="agree_lbl">동의함</label>
+                                </div>
+                            </li>
+                            <!-- 문의내용 -->
+                            <li class="clear">
+                                <label for="content_lbl" class="tit_lbl">문의내용</label>
+                                <div class="app_content">
+                                    <textarea id="content_lbl" class="w100p" placeholder="간단한 상담 요청 사항을 남겨주시면 보다 상세한 상담이 가능합니다. 전화 상담 희망시 기재 부탁드립니다"></textarea>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="btn_line">
+                            <a href="" class="btn_basecolor">등록</a>
+                        </p>
+                    </fieldset>
+                </form>
+                <!-- 회원가입 폼 끝 -->
+            </div>
+            <!-- 본문 끝 -->
+        </div>
+        <!-- container 끝 -->
+        <!-- footer 시작 -->
+        <footer>
+            <div class="foot_area box_inner">
+                <ul class="foot_list clear">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보취급방침</a></li>
+                </ul>
+                <h2>투어리스트인투어</h2>
+                <p class="addr">
+                    서울특별시 종로구 혜화동 9길 청운빌딩 5층
+                    <span class="gubun">/</span>
+                    <span class="br_line">
+                        대표전화
+                        <span class="space0">02-1234-5678</span>
+                        <span class="gubun">/</span>
+                    </span>
+                    <span class="br_line">
+                        Email : <span class="space0">titour@touristintour.com</span>
+                    </span>
+                </p>
+                <p class="copy box_inner">
+                    Copyright&copy; TouristInTour all right reserved
+                </p>
+                <ul class="snslink">
+                    <li><a href="#">blog</a></li>
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">instagram</a></li>
+                </ul>
+            </div>
+        </footer>
+        <!-- footer 끝 -->
+    </div>
+    <!-- wrap 끝 -->
+    <!-- 퀵메뉴 시작 -->
+    <div class="quick_area">
+        <ul class="quick_list">
+            <li>
+                <a href="">
+                    <h3>전화문의</h3>
+                    <p>02-1234-5678</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h3>카카오톡 <em>상담</em></h3>
+                    <p>1:1상담</p>                
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <h3 class="to_content">오시는 길</h3>
+                </a>
+            </li>
+        </ul>
+        <p class="to_top"><a href="#">TOP</a></p>
+    </div>
+</body>
+</html>
