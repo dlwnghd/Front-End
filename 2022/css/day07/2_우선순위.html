@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우선순위</title>
+    <style>
+        body {
+            background-color: darkorange !important;
+        }
+        div{
+            display: block;
+            padding: 30px;
+            margin: 10px;
+            background-color: aliceblue;
+            border: 1px solid black;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #id-style{
+            background-color: skyblue;
+        }
+        .class-style{
+            background-color: red;
+        }
+        .class-style2{
+            background-color: blue;
+        }
+        div{
+            background-color: green;
+        }
+        ul > li.li-class{background-color: cornsilk; color: darkmagenta;}
+        ul > li{ color: springgreen;} /* element 2개(2점) */
+        li{color:aqua} /* element 1개(1점) */
+    </style>
+</head>
+<body style="background-color: violet;">
+    <h2>우선순위</h2>
+    <div id="id-style" class="class-style important" style="background-color: violet;">div 1번(!importnat 적용 우선 / darkorange)</div>
+    <div id="id-style" class="class-style" style="background-color: violet;">div 2번(inline 스타일 적용 / 1000점 -> violet)</div>
+    <div id="id-style">div 3번(id 스타일 적용 / 100점 -> skyblue)</div>
+    <div class="class-style">div 4번(class 스타일 적용 / 10점 -> red)</div>
+    <div>div 5번(마지막으로 지정한 스타일이 적용 / 1점 -> green)</div>
+    <!-- 뒤에 쓴 class는 없는 class로 처리 -->
+    <div class="class-style class-style2">inline에서 뒤에 쓴 class는 없는 class로 처리</div>
+    <div class="class-style" class="class-style2">똑같은 속성을 여러개 쓴 경우 앞에 작성한 스타일 우선</div>
+
+    <ul>
+        <li class="li-class">li 1번</li>
+    </ul>
+</body>
+</html>

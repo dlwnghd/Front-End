@@ -1,0 +1,1418 @@
+@import url(./layout_base.css);
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 공통 부분 */
+body{
+    font-family: 'CookieRun-Regular';
+    font-size: 16px;
+    height:100%;
+    color:#444;
+    white-space: normal;
+    word-break: normal;
+    word-wrap: break-word;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+*{
+    margin:0; padding:0;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+    font-size: inherit;
+}
+ul,ol,li{
+    list-style: none;
+}
+a{ text-decoration: none; }
+a:link,a:visited,a:hover,a:focus{ color:#444; }
+.clear::after{
+    content:'';
+    display: block;
+    clear:both;
+}
+img{ border:none; vertical-align: middle; }
+.hdd,legend{
+    font-size: 0;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    top:0; left:0;
+}
+.box_inner{
+    width:1050px;
+    margin:0 auto;
+}
+input, select, textarea, button, form, label{ vertical-align: middle; }
+fieldset{ border:none; }
+
+input[type=text], input[type=number], input[type=password], input[type=tel], input[type=email]{
+    box-sizing: border-box;
+    display: inline-block;
+    height:45px;
+    padding:0 10px;
+    border:1px solid #ccc;
+    line-height: normal;
+    font-size: 15px;
+}
+textarea{
+    box-sizing: border-box;
+    padding:10px;
+    border:1px solid #ccc;
+    font-size: 15px;
+}
+input[type=radio].css-radio{
+    overflow:hidden;
+    position: absolute;
+    left:-1000px;
+    width:1px;
+    height:1px;
+}
+input[type=radio].css-radio + label{
+    display: inline-block;
+    padding-left: 20px !important;
+    margin-right: 20px;
+    background: url(../images/bg_radio.png) no-repeat 0 0;
+    cursor:pointer;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 16px;
+}
+input[type=radio].css-radio:checked + label{
+    background-position: 0 -50px;
+}
+input[type=checkbox].css-checkbox{
+    overflow:hidden;
+    position: absolute;
+    left:-1000px;
+    width:1px;
+    height:1px;
+}
+input[type=checkbox].css-checkbox + label{
+    display: inline-block;
+    padding-left: 30px !important;
+    margin-right: 20px;
+    background: url(../images/bg_checkbox.png) no-repeat 0 0;
+    background-size: 20px;
+    cursor:pointer;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 20px;
+}
+input[type=checkbox].css-checkbox:checked + label{
+    background-position: 0 -20px;
+}
+select{
+    -webkit-appearance: none;
+    appearance: none;
+    height:30px;
+    padding: 0 5px;
+    border:1px solid #ccc;
+}
+.select_common{
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    width:158px;
+    height:35px;
+    border:1px solid #ccc;
+    overflow: hidden;
+    background: url("../images/ico_selectArr.png") no-repeat 100% 50%;
+}
+.select_common select{
+    display: inline-block;
+    width:185px;
+    background: none;
+    height:29px;
+    padding: 0 10px;
+    border:none;
+    font-size: 15px;
+    outline:none;
+}
+.btn_line{
+    text-align: center;
+    font-size: 0;
+}
+.btn_line a{margin-left: 10px;}
+.btn_line a:first-child{ margin-left: 0; }
+
+.btn_basecolor{
+    display: inline-block;
+    border:1px solid #ccc;
+    text-align: center;
+    font-size: 20px;
+    width:125px;
+    height:50px;
+    line-height: 50px;
+    vertical-align: middle;
+    background: #384d75;
+    color:#fff !important;
+    border-radius: 10px;
+}
+.btn_srch{
+    display: inline-block;
+    background: #384d75;
+    color:#fff !important;
+    text-align: center;
+    width:70px;
+    height:35px;
+    font-size: 14px;
+    vertical-align: middle;
+    line-height: 35px;
+    border-radius: 10px;
+}
+.btn_bbs{
+    font-size: 14px;
+    display: inline-block;
+    background: #384d75;
+    color:#fff !important;
+    width:70px;
+    height:35px;
+    line-height: 35px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+table,thead,tbody,tfoot{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border:none;
+}
+input::-webkit-input-placeholder{ color:#999; }
+textarea::-webkit-input-placeholder{
+    color:#999;
+}
+/* ----------서브페이지 공통 시작---------- */
+.bodytext_area{ box-sizing: border-box; padding: 55px 50px 0; }
+.location_area{ height:445px; background: url(../images/img_top2.jpg) no-repeat center bottom;
+background-size: cover;
+}
+
+.location_area.member{
+    background-image:url(../images/img_top5.jpg);
+}
+.location_area.package{
+    background-image: url(../images/img_top3.jpg);
+}
+
+.location_area h2.tit_page{
+    padding: 250px 0 0 0;
+    margin: 0 50px;
+    border-bottom: 1px solid #ccc;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color:#fff;
+}
+.location_area h2.tit_page .in{
+    font-variant: small-caps;
+}
+.location_area p.location{
+    padding: 20px 0 0 50px;
+    color:#fff;
+}
+.location_area p.location .path{
+    display: inline-block;
+    padding: 0 10px;
+}
+.location_area ul.page_menu{ display: none; }
+/* ----------서브페이지 공통 끝---------- */
+
+
+
+
+/* skipnavi */
+/* 
+    웹 접근성을 위한 skipnavi
+    https://nuli.navercorp.com/community/article/1132804
+*/
+.skipnavi{
+    position: absolute;
+    left:0; top:-50px;
+    width:100%;
+    text-indent: -9999px;
+    font-size: 0;
+    z-index: 999;
+}
+.skipnavi > li > a:focus, .skipnavi > li > a:active{
+    position: absolute;
+    width:100%;
+    left:0; top:50px;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    text-indent: 0px;
+    font-size: 12px;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+
+/* ------메인 페이지(index.html) 시작------ */
+/* 헤더 */
+header{
+    position: fixed;
+    top:0; left:0;
+    width:100%;
+    height: 113px;
+    background: rgba(0,0,0,0.5);
+    z-index: 100;
+}
+
+header > .header_area > h1{
+    float:left;
+    padding:45px 0 0;
+}
+header > .header_area > h1 > a{
+    display: block;
+    width:270px;
+    height:71px;
+    background:url(../images/logo.png) no-repeat;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.closePop { font-size: 0; }
+.header_cont{
+    float:right;
+    width:780px;
+}
+.header_cont .util{
+    text-align: right;
+    padding-top:10px;
+}
+.header_cont .util li{ display:inline; }
+.header_cont .util li:first-child::after{
+    content:'|';
+    display: inline-block;
+    padding:0 10px;
+    font-size: 10px;
+    color:#eee;
+    position: relative;
+    top:-2px;
+}
+.header_cont .util li a{
+    font-size: 14px;
+    color:#eee;
+}
+.header_cont .gnb{
+    float:right;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+.header_cont .gnb li{ float:left; }
+.header_cont .gnb li a{ display: block; padding:26px 40px; font-size: 18px; color:#fff; }
+.header_cont .gnb li:last-child a{ padding-right: 0; }
+.gnb_depth{
+    position: absolute;
+    left:0;
+    top:113px;
+    width:100%;
+    background:rgba(250,100,0,0.85);
+    z-index:100;
+    display: none;
+}
+.gnb_depth .submenu_list{ width:1050px; margin:0 auto; text-align: left; box-sizing: border-box; }
+
+.gnb_depth2_1 .submenu_list{ padding-left:480px; }
+.gnb_depth2_2 .submenu_list{ padding-left:600px; }
+.gnb_depth2_3 .submenu_list{ padding-left:730px; }
+.gnb_depth2_4 .submenu_list{ padding-left:945px; }
+
+.gnb_depth .submenu_list li{ display: inline; }
+.gnb_depth .submenu_list li a{ display: inline-block; padding:20px; }
+.gnb_depth .submenu_list li:last-child a{
+    padding-right: 0;
+}
+#container{ padding-bottom: 70px; }
+.main_rolling_mobile{display: none;}
+.visualRoll{
+    position: relative; width:100%;
+}
+.viewImgList{
+    position: relative; width:100%;
+}
+.viewImgList li{
+    text-align: center;
+    height:550px;
+    line-height: 550px;
+    background-size: cover !important;
+}
+.viewImgList li.imgList0{
+    background: url(../images/mainslide01.jpg) no-repeat center;
+    position: relative; z-index: 50;
+}
+.viewImgList li.imgList1{
+    background: url(../images/mainslide02.jpg) no-repeat center;
+    position: absolute; z-index: 10;
+    top:0; left:0; width:100%;
+}
+.viewImgList li.imgList2{
+    background: url(../images/mainslide03.jpg) no-repeat center;
+    position: absolute; z-index: 10;
+    top:0; left:0; width:100%;
+}
+.viewImgList li .roll_content{ position: relative; }
+.viewImgList li .roll_content .roll_txtline{
+    position: absolute;
+    left:0;
+    bottom:60px;
+    width:100%;
+    line-height: 1;
+    text-align: center;
+    font-size: 22px;
+    color:#fff;
+    letter-spacing: 2px;
+}
+.rollbtnArea{
+    position: absolute;
+    width:100%;
+    left:0; bottom:25px;
+    z-index: 70;
+}
+.rollbtnArea .rollingbtn{ width:320px; margin:0 auto; text-align: center; }
+.rollbtnArea .rollingbtn li{ display: inline-block; margin-right: 5px; }
+.rollbtnArea .rollingbtn li.butt0{ margin-left: 10px; }
+.rollbtnArea .rollingbtn li.play{ display: none; }
+.rollbtnArea .rollingbtn li a{ vertical-align: middle; }
+
+.about_area h2{ padding:55px 0 105px; text-align: center; font-size: 40px; }
+.about_area .about_box{ background-color: #f4f0e9; }
+.about_area .place_list li{
+    float:left;
+    width:32%;
+    margin-left: 2%;
+    text-align: center;
+    position: relative;
+    top:-50px;
+}
+.about_area .place_list li:first-child{
+    margin-left: 0;
+}
+.about_area .place_list li .img_topplace{
+    width:100%;
+}
+.about_area .place_list li h3{
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 25px;
+    color:#000;
+}
+.about_area .place_list p.txt{
+    box-sizing: border-box;
+    padding: 10px 30px 0;
+    width:100%;
+    overflow: hidden;
+    word-break: keep-all;
+    line-height: 1.8;
+    color:#666;
+}
+.about_area .place_list li .view{
+    display: inline-block;
+    margin-top: 20px;
+    padding-top: 5px;
+    border-top: 2px solid #333;
+    color:#555;
+}
+
+.appbbs_area{ padding:60px 0; }
+.appbbs_area > .appbbs_box > .app_line{
+    float:left;
+    width:66%;
+    box-sizing: border-box;
+    padding: 45px 0;
+    text-align: center;
+    background: url(../images/bg_app.jpg) no-repeat;
+    font-size: 0;
+}
+.appbbs_area > .appbbs_box > .app_line > a{
+    border:2px solid #fff;
+    display: inline-block;
+    width:45.4%;
+    height:100px;
+    line-height: 100px;
+    box-sizing: border-box;
+    padding-left: 75px;
+    text-align: left;
+    background:rgba(0,0,0,0.3) url(../images/ico_katalk.png) no-repeat 20px 50%;
+    margin-right: 10px;
+    font-size: 26px;
+    color: #fff;
+    vertical-align: middle;
+}
+.appbbs_area > .appbbs_box > .app_line > a+a{
+    margin-right:0;
+    padding-left: 85px;
+    background-image: url(../images/ico_phone.png);
+}
+.appbbs_box > .bbs_line{ float:right; width:30%; }
+.appbbs_box > .bbs_line h3{ font-size: 26px; }
+.appbbs_box > .bbs_line .notice_recent{
+    padding-top: 10px;
+}
+.appbbs_box > .bbs_line > .notice_recent > li{
+    padding: 6px 0;
+}
+.appbbs_box > .bbs_line > .notice_recent > li > a{
+    display: block;
+    height: 20px;
+    padding-left: 14px;
+    background:url(../images/ico_bullet.png) no-repeat 0 40%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+footer{
+    border-top:1px solid #ddd;
+}
+footer > .foot_area{ position: relative; padding-bottom: 40px; }
+footer > .foot_area > .foot_list{ padding-top: 25px; }
+footer > .foot_area > .foot_list > li{ float:left; }
+footer > .foot_area > .foot_list > li:first-child::after{
+    content:'|';
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    color:#000;
+    position: relative;
+    top:-2px;
+}
+footer > .foot_area > .foot_list > li > a{
+    font-weight: bold;
+    font-size: 15px;
+}
+footer > .foot_area > h2{
+    padding-top: 25px;
+    font-size: 14px;
+    color:#666;
+}
+footer > .foot_area > .addr{
+    padding-top: 5px;
+    line-height: 1.4;
+    font-size: 13px;
+    color:#666;
+}
+footer > .foot_area > .addr > .space0{
+    letter-spacing: 0;
+}
+footer > .foot_area > .copy{
+    padding-top: 3px;
+    font-size: 13px;
+    color:#666;
+    letter-spacing: 0;
+}
+footer > .foot_area > .snslink{
+    position: absolute;
+    right:20px; top:50px;
+}
+footer > .foot_area > .snslink > li{
+    float:left;
+    margin-left: 60px;
+}
+footer > .foot_area > .snslink > li > a{
+    background:url(../images/ico_blog_r.png) no-repeat;
+    display: block;
+    width:50px;
+    height:74px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+footer > .foot_area > .snslink > li+li > a{
+    background-image: url(../images/ico_facebook_r.png);
+}
+footer > .foot_area > .snslink > li+li+li > a{
+    background-image: url(../images/ico_instargram_r.png);
+}
+.quick_area{
+    position: fixed;
+    top:171px;
+    right:0;
+    width:94px;
+    z-index: 100;
+}
+.quick_area > .quick_list > li{
+    text-align: center;
+    background-color: #282828;
+    font-size: 15px;
+}
+.quick_area > .quick_list > li > a{
+    display: block;
+    padding: 15px 0;
+    border-top: 1px solid #4d4d4d;
+}
+.quick_area > .quick_list > li:first-child > a{
+    border-top:none;
+}
+.quick_area > .quick_list > li > a > h3{
+    color:#ddd;
+    padding-bottom: 10px;
+    letter-spacing: -1px;
+}
+.quick_area > .quick_list > li:last-child > a > h3{
+    padding-bottom: 0;
+}
+.quick_area > .quick_list > li > a > p{
+    color:#fff;
+    line-height: 1.3;
+    font-size: 12px;
+}
+.to_top{
+    text-align: center;
+    background-color: #fff;
+}
+.to_top a{
+    display: block;
+    box-sizing: border-box;
+    height:45px;
+    text-indent: -9999px;
+    overflow: hidden;
+    border-left: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    background:url(../images/ico_totop.png) no-repeat center;
+    background-size: 50%;
+}
+
+/* ------메인 페이지(index.html) 끝------ */
+/* ------로그인 페이지(login.html) 시작------ */
+.login_wrap{ width:508px; margin:100px auto 0; }
+h1.loginTit{ text-align: center; }
+h1.loginTit > a{ display: block; }
+h1.loginTit > a > img { width:100%; }
+
+.login_list{ width:75%; margin:70px auto 20px; }
+.login_list > li{
+    position: relative;
+    margin-bottom: 4px;
+    height:54px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    /* border:1px solid black; */
+    border-radius: 5px;
+}
+.login_list > li > a{
+    display: block;
+    line-height:54px;
+    text-align: center;
+    font-size: 14px;
+    color:#fff;
+}
+.login_list > li:last-child{ margin-bottom: 0; }
+
+.login_list > li.kakao{
+    background:#f3e129 url(../images/ico_katalk.png) no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.kakao > a{ color:#202224 }
+
+.login_list > li.naver{
+    background:#00c300 url(../images/ico_naver.png) no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.facebook{
+    background:#405ea9 url(../images/ico_face.png) no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.login_list > li.email{
+    background:#888 url(../images/ico_cellphone.png) no-repeat 15px 50%;
+    background-size: 45px 45px;
+}
+.btnonoff_line{ width:75%; margin:10px auto; text-align: center; }
+.btnonoff_line .btn_onoff{ margin-left: 5px; font-size: 14px; }
+/* 
+    appearance
+        운영체제 및 브라우저에 기본적으로 설정되어 있는 테마를 기반으로 요소를 표현할 때 사용함
+        none 값을 준다면 원래 쓰이는 속성을 없앰
+*/
+.switch{
+    /* border:1px solid black; */
+    position: relative;
+    display: inline-block;
+    width:35px;
+    height:22px;
+    margin:0;
+    padding:0;
+    border-radius: 16px;
+    background-color: #e5e5e5;
+    vertical-align: top;
+    cursor:pointer;
+    z-index:0;
+    appearance: none;
+}
+.switch::before{
+    content:"";
+    position: absolute;
+    width:33px;
+    height:20px;
+    border-radius: 15px;
+    background-color: #fff;
+    z-index: 1;
+    left:1px;
+    top:1px;
+}
+.switch::after{
+    content:"";
+    position: absolute;
+    z-index:2;
+    width:19px;
+    height:19px;
+    left:1px;
+    top:1px;
+    box-shadow: 0 2px 5px #999;
+    background-color: #fff;
+    border-radius: 50%;
+}
+/* ------로그인 페이지(login.html) 끝------ */
+/* ------회원가입 페이지(join.html) 시작------ */
+.location_area.member > .box_inner > form{
+    padding-top: 100px;
+}
+.appForm{
+    margin:40px auto 0;
+}
+.appForm .info_pilsoo{
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+    color:#f00;
+}
+.appForm .pilsoo_item::before{
+    content:"*";
+    display: inline-block;
+    position: absolute;
+    left:5px;
+    top:0px;
+    width:15px;
+    font-weight: bold;
+    font-size: 17px;
+    color:#f00;
+}
+.appForm .app_list{
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+.appForm .app_list li{padding: 8px 0;}
+.appForm .app_list .tit_lbl{
+    position: relative;
+    float:left;
+    width:150px;
+    box-sizing: border-box;
+    padding-left: 20px;;
+    line-height: 42px;
+    font-weight: bold;
+    font-size: 17px;
+    letter-spacing: -1px;
+}
+.appForm .app_list li .app_content{
+    float:right; width:770px;
+}
+.appForm .app_list li .app_content *{
+    vertical-align: top;
+}
+.appForm .app_list li .app_content.email_area .ico_space{
+    display: inline-block;
+    padding-top: 15px;
+}
+.appForm .app_list li .app_content label{ vertical-align: middle; }
+.appForm .app_list li .select_common{
+    width:160px;
+    height:45px;
+    background-position: 100% 50%;
+    border:1px solid #ccc;
+}
+.appForm .app_list li .select_common select{
+    width:200px;
+    height:43px;
+}
+.appForm .app_list li .app_content.radio_area{
+    height:45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li .app_content.checkbox_area{
+    height:45px;
+    box-sizing: border-box;
+    padding-top: 12px;
+}
+.appForm .app_list li textarea{
+    height:245px;
+    resize:vertical;
+}
+.btn_line{padding:20px 0;}
+/* ------회원가입 페이지(join.html) 끝------ */
+/* ------내정보 페이지(mypage.html) 시작------ */
+.myinfo dt{
+    background-color: #000;
+    color:#fff;
+    width:170px;
+    height:70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 18px;
+}
+.myinfo dd{ border-top: 2px solid #000; }
+
+.regForm .reg_list{ padding:0 0; background: url(../images/bg_reglist.png) repeat-y; }
+.regForm .reg_list li{
+    min-height: 60px;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+.regForm .reg_list li .tit_lbl{
+    position: relative;
+    float:left;
+    width:150px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.regForm .reg_list li .reg_content{
+    float:right;
+    width:770px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-top: 22.5px;
+    font-size: 15px;
+}
+.regForm .reg_list li .reg_content *{
+    vertical-align: middle;
+}
+/* :not(선택자) --> 선택자에 해당하는 것은 제외하고 */
+.regForm .reg_list li .reg_content.radio_area:not(.gender){
+    padding-top: 12px;
+}
+.regForm .reg_list li .reg_content .info_line{
+    padding: 5px 10px 5px 0;
+    font-size: 15px;
+}
+/* ------내정보 페이지(mypage.html) 끝------ */
+/* ------리스트 페이지(notice_list.html) 시작------ */
+.minisrch_form{ text-align: right; margin-bottom: 20px; }
+.minisrch_form .tbox{
+    padding: 0 5px 0 30px;
+    width:200px;
+    height:35px;
+    line-height: 30px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    background: url(../images/ico_search.png) no-repeat 10px 50%;
+    background-size: 15px;
+}
+.bbsListTbl{
+    width:100%;
+    border-top:2px solid #384d75;
+}
+.bbsListTbl th, .bbsListTbl td{
+    padding:10px;
+    box-sizing: border-box;
+    height:55px;
+}
+.bbsListTbl th{ border-bottom: 1px solid #ccc; background-color: #f0f3fa; }
+.bbsListTbl td{
+    text-align: center;
+    line-height: 1.3;
+    border-bottom: 1px solid #ccc;
+}
+.bbsListTbl td.tit_notice{ text-align: left; }
+.bbsListTbl td:nth-child(1){ width:10%; }
+.bbsListTbl td:nth-child(2){
+    width:55%;
+}
+.bbsListTbl td:nth-child(3){
+    width:15%;
+}
+.bbsListTbl td:nth-child(4){
+    width:20%;
+}
+.pagination{
+    padding:40px 0 0;
+    text-align: center;
+}
+.pagination a{ display: inline-block; }
+.pagination a.pbtn{
+    padding:7px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 0;
+}
+.pagination a .pagenum{
+    display: inline-block;
+    width:25px;
+    height:25px;
+    line-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pagination a .currentPage{
+    background-color: #384d75;
+    color:#fff;
+    border-radius: 3px;
+}
+.pagination a:hover .pagenum{
+    background-color: #ddd;
+    border-radius: 3px;
+}
+/* ------리스트 페이지(notice_list.html) 끝------ */
+/* ------상세보기 페이지(notice_view.html) 시작------ */
+.bbsview_list{ padding-bottom: 30px; border-top: 2px solid #384d75; }
+.bbsview_list li{
+    box-sizing: border-box;
+    padding:0 15px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    color:#666;
+}
+.bbsview_list li.bbs_title{
+    width:100%;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height:50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.bbsview_list li.bbs_date{
+    height:40px;
+    line-height: 40px;
+    width:50%;
+    float:left;
+}
+.bbsview_list li.bbs_hit{
+    height:40px;
+    line-height: 40px;
+    width:50%;
+    float:left;
+}
+
+.bbsview_list li.bbs_content{
+    clear:both;
+    min-height: 200px;
+    padding: 20px 15px;
+}
+.bbsview_list li.bbs_content .editor_content{
+    line-height: 1.4;
+}
+.near_list{
+    border-top: 1px solid #ccc;
+}
+.near_list li{ padding:10px; border-bottom: 1px solid #ccc; }
+.near_list li:after{ content:""; display: block; clear:both; }
+
+.near_list li h4{
+    float:left;
+    width:100px;
+    padding: 0 0 0 50px;
+    background:url(../images/ico_nearNext.png) no-repeat 12px 50%;
+    font-size: 15px;
+}
+.near_list li h4.next{
+    background-image: url(../images/ico_nearPrev.png);
+}
+/* ------상세보기 페이지(notice_view.html) 끝------ */
+/* ------프로그램 페이지(program.html) 시작------ */
+.bodytext_area.place_area{ padding:55px 0 0; }
+.program_list li{ float:left; width:31.5%; margin:0 0.9%; }
+.program_list li:nth-child(3n+1){ clear:both; }
+.program_list li .img_place{
+    display: block;
+    width:100%;
+}
+.program_list li h3{
+    padding: 40px 0 0;
+    font-weight: bold;
+    font-size: 22px;
+}
+.program_list li .subttl{
+    padding: 25px 0 0;
+    font-weight: bold;
+    font-size: 16px;
+    color:#fa6400;
+    letter-spacing: 0;
+}
+.program_list li .program_content p{
+    width:100%;
+    overflow: hidden;
+    word-break: keep-all;
+}
+.program_list li .program_content p .subtxt{
+    display: none;
+}
+.program_list li .btn_more{
+    padding: 10px 0 20px;
+    text-align: center;
+    font-size: 12px;
+}
+.program_list li .btn_more a{
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: tomato;
+    border-radius: 3px;
+    color:#fff;
+}
+/* ------프로그램 페이지(program.html) 끝------ */
+/* ------태블릿 반응형 시작------ */
+@media screen and (max-width:1065px) and (min-width:801px){
+    .box_inner{ width:100%; }
+    header .header_area h1{ padding-left: 20px; }
+    .header_cont{ float:right; width:60%; padding-right: 20px; }
+    .header_cont .gnb li a{ padding: 26px 25px; }
+    .gnb_depth .submenu_list{ width:100%; padding-left: 52%;}
+    .gnb_depth .submenu_list a{ padding:20px; }
+
+    #container{ padding-bottom: 20px; }
+    .about_area .place_list{ box-sizing: border-box; padding: 0 20px; }
+    .appbbs_area .appbbs_box{ box-sizing: border-box; padding:0 20px; }
+    .appbbs_area .appbbs_box .app_line a{ font-size: 21px; }
+
+    footer .foot_area{ box-sizing: border-box; padding-left: 20px; }
+    footer .foot_area .snslink li{ margin-left: 15px; }
+
+    .quick_area .quick_list{ display: none; }
+    .to_top{
+        position: fixed;
+        right:20px;
+        bottom:115px;
+        text-align: center;
+        background: none;
+        z-index: 100;
+    }
+    .to_top a{
+        display: block;
+        width:45px;
+        height:45px;
+        background:url(../images/ico_totop_mo.png) no-repeat center;
+        background-size: 45px;
+        border:none;
+        border-radius: 50%;
+    }
+
+    /* 회원가입 페이지 */
+    .appForm .app_list li .tit_lbl{ width:21%; }
+    .appForm .app_list li .app_content{ width:79%; }
+
+    /* 내정보 페이지 */
+    .regForm .reg_list li .tit_lbl{ width:21%; }
+    .regForm .reg_list li .reg_content{ width:79%; padding-left: 30px;}
+
+}
+/* ------태블릿 반응형 끝------ */
+/* ------모바일 반응형 시작------ */
+@media screen and (max-width:800px){
+    .box_inner{ width:100%; }
+    header{
+        height:90px;
+        text-align: center;
+        z-index: 200;
+        background-color: rgba(0,0,0,0.5);
+    }
+    header .header_area h1{
+        float:none;
+        width:100%;
+        height:50px;
+        text-align: center;
+        padding: 35px 0 0;
+    }
+    header .header_area h1 a{
+        display: inline-block;
+        width:180px;
+        height:23px;
+        background-size: 180px 23px;
+    }
+    header > .header_area > .openMOgnb{
+        display: block;
+        position: absolute;
+        left:15px;
+        top:35px;
+        width:23px;
+        height:16px;
+    }
+    header > .header_area > .openMOgnb span{
+        display: block;
+        background-color: #fff;
+        box-sizing: border-box;
+        width:25px;
+        height:3px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+    }
+    header > .header_area > .openMOgnb span+span{
+        width:17px;
+    }
+    header > .header_area > .openMOgnb span:last-child{
+        width:25px;
+        margin-bottom: 0;
+    }
+    .header_cont{
+        float:none;
+        width:100%;
+        background-color: #31353d;
+        display: none;
+    }
+    .header_cont .util{ padding:20px; }
+    .header_cont .util li{ float:left; }
+    .header_cont .util li:first-child::after{
+        content:'|';
+        display: inline-block;
+        padding:0 10px;
+        font-size: 10px;
+        color:#a2a3a3;
+        position: relative;
+        top:-1px;
+    }
+    .header_cont .util li a{ font-size: 16px; color:#fff; }
+    .header_cont .closePop{
+        display: block; position: absolute;
+        right:0; top:15px;
+    }
+    .header_cont .closePop a{
+        display: block;
+        width:60px;
+        height:60px;
+        text-indent: -9999px;
+        font-size: 0;
+        overflow: hidden;
+        background: url(../images/btn_closeMenu.png) no-repeat;
+        background-size: 60px;
+    }
+    .header_cont .gnb{
+        float:none;
+        box-sizing: border-box;
+        padding-top: 0;
+        height:auto;
+        border-top:1px solid #83868b;
+    }
+    .header_cont .gnb li{
+        float:left;
+        width:50%;
+        text-align: left;
+        box-sizing: border-box;
+        border-bottom: 1px solid #83868b;
+        border-right: 1px solid #83868b;
+    }
+    .header_cont .gnb li a{
+        display: block;
+        padding: 0 0 0 65px;
+        height:60px;
+        line-height: 60px;
+        background:url(../images/ico_gnb01.png) no-repeat 10px center;
+        background-size: 49px;
+        font-size: 16px;
+        color:#fff;
+    }
+    .header_cont .gnb li+li a{
+        background-image: url(../images/ico_gnb02.png);
+    }
+    .header_cont .gnb li+li+li a{
+        background-image: url(../images/ico_gnb03.png);
+    }
+    .header_cont .gnb li+li+li+li a{
+        background-image: url(../images/ico_gnb04.png);
+    }
+    .main_rolling_pc{ display: none; }
+    .main_rolling_mobile{ display: block; }
+    .main_rolling_mobile .swiper-container .swiper-wrapper .swiper-slide img{ width:100%; }
+    .main_rolling_mobile .swiper-container .swiper-wrapper .swiper-slide:nth-child(n+2){
+        display: none;
+    }
+    .main_rolling_mobile .swiper-pagination{
+        width:auto;
+        right:20px;
+        left:auto;
+        bottom:20px;
+        font-size: 0;
+    }
+    .main_rolling_mobile .swiper-pagination-bullet{
+        width:5px; height:5px; margin:0 3px !important;
+        background:#fff; opacity: 0.2;
+    }
+    .main_rolling_mobile .swiper-pagination-bullet-active{
+        opacity: 1;
+    }
+
+    #container{ position: relative; width:100%; padding-bottom: 30px; }
+    .about_area h2{ padding: 27px 0 25px; font-size: 20px; }
+    .about_area h2 b{ display: block; padding-top: 10px; }
+    .about_area .about_box{ background-color: #fff; }
+    .about_area .place_list li{
+        float:none; width:100%; margin:0;
+        box-sizing: border-box; padding: 0 20px; top:0;
+    }
+    .about_area .place_list li p.txt{
+        padding: 10px 50px 30px;
+        line-height: 1.4;
+    }
+    .about_area .place_list li .view{
+        padding-bottom: 10px; margin:0 0 30px;
+    }
+    .appbbs_area{ padding: 0 20px; }
+    .appbbs_box .app_line{ display: none; }
+    .appbbs_box .bbs_line{ 
+        float:none; width:100%; padding: 20px 0;
+        border-top: 1px solid #d6d7d8;
+    }
+    .appbbs_box .bbs_line h3{ font-weight: bold; font-size: 19px; }
+
+    footer .foot_area{
+        box-sizing: border-box; padding:0 20px 120px;
+    }
+    footer .foot_area h2{
+        padding-top: 15px; font-size: 14px;
+    }
+    footer .foot_area .addr{
+        line-height: 1.3; font-size: 14px; color:#767676;
+    }
+    footer .foot_area .copy{
+        padding: 3px 0 20px; font-size: 14px; color:#787878;
+    }
+    footer .gubun{ color:#fff; }
+    footer .br_line{ display: block; }
+
+    footer .foot_area .snslink{
+        position: static; width:210px; margin:10px auto;
+    }
+    footer .foot_area .snslink li{ margin-left: 30px; }
+    footer .foot_area .snslink li:first-child{
+        margin-left: 0;
+    }
+
+    .quick_area .quick_list { position: fixed; left:0; bottom:0; width: 100%; }
+    .quick_area .quick_list li {
+        float:left; width:31%; text-align: left;
+        background:#3a3e46; font-size: 15px;
+    }
+    .quick_area .quick_list li+li{
+        width:37%;
+    }
+    .quick_area .quick_list li+li+li{
+        width:32%;
+    }
+    .quick_area .quick_list li:first-child::after{
+        content:"";
+        display: inline-block; width:1px; height:16px;
+        position: absolute; right:31%; top:50%; margin-top:-8px; background-color: #76787e;
+    }
+    .quick_area .quick_list li:first-child::before{
+        content:"";
+        display: inline-block; width:1px; height:16px;
+        position: absolute; left:32%; top:50%;
+        margin-top: -8px; background: #76787e;
+    }
+    .quick_area .quick_list li a{
+        display: block; padding: 10px 0; border-top: none; color:#fff;
+    }
+    .quick_area .quick_list li a h3{
+        height:37px; line-height: 37px; padding-bottom: 0;
+        padding-left: 45px; background:url(../images/ico_phone_mobtm.png) no-repeat 20px center;
+        background-size: 20px; color:#fff;
+    }
+    .quick_area .quick_list li+li a h3{
+        background-image: url(../images/ico_katalk_mobtm.png);
+    }
+    .quick_area .quick_list li+li+li a h3{
+        background-image: url(../images/ico_contact_mobtm.png);
+    }
+    .quick_area .quick_list a h3 em{ display: inline; }
+    .quick_area .quick_list a p { display: none; }
+
+    .to_top{
+        position: fixed;
+        right:20px;
+        bottom:100px;
+        text-align: center;
+        background: none;
+        z-index:100;
+    }
+    .to_top a{
+        display: block;
+        width:45px; height:45px;
+        border:none;
+        background:url(../images/ico_totop_mo.png) no-repeat center;
+        background-size: 45px;
+        border-radius: 50%;
+    }
+
+    /* 모바일 서브 페이지 공통 */
+    .location_area.member{
+        height: 260px;
+        background:url(../images/img_top5.jpg) no-repeat center bottom / cover;
+    }
+    .location_area.customer{
+        height: 260px;
+        background:url(../images/img_top2.jpg) no-repeat center bottom / cover;
+    }
+    .location_area.package{
+        height: 260px;
+        background:url(../images/img_top3.jpg) no-repeat center bottom / cover;
+    }
+    .location_area h2.tit_page{ padding: 140px 0 0 0; margin: 0 45px; }
+    .location_area p.location{ display: none; }
+    .location_area ul.page_menu{
+        display: block; padding: 10px 0 0 45px;
+    }
+    .location_area ul.page_menu li a{
+        display: block; color:#ddd; margin-right: 45px;
+        font-size: 15px;
+    }
+    .location_area ul.page_menu li a.on{
+        /* display: inline-block; */
+        border-bottom: 1px solid #fff; font-size: 15px;
+    }
+    .bodytext_area{
+        box-sizing: border-box;
+        padding: 33px 20px 0;
+    }
+    .btn_basecolor{
+        width:100%;
+        font-weight: bold;
+    }
+    .btn_bbs{
+        width:100%;
+        font-weight: bold;
+    }
+
+    /* 로그인 페이지 */
+    .login_wrap{
+        width:100%; margin: 0 auto;
+        padding-top: 75px;
+    }
+
+    /* 회원가입 페이지 */
+    .appForm{ margin:20px auto; }
+    .appForm .pilsoo_item::before{ top:-3px; }
+    .appForm .app_list li{
+        position: relative; padding: 10px 0; border-bottom: 1px solid #ccc;
+    }
+    .appForm .app_list li:last-child{
+        border-bottom: none; padding-bottom: 10px;
+    }
+    .appForm .app_list li .tit_lbl{
+        float:none; width:auto; line-height: 30px;
+    }
+    .appForm .app_list li .app_content{
+        float:none;
+        width:auto;
+    }
+    .appForm .app_list li .app_content *{
+        vertical-align: middle;
+    }
+    .appForm .app_list li .app_content input[type=text],
+    .appForm .app_list li .app_content input[type=password],
+    .appForm .app_list li .app_content input[type=tel]{
+        border:none;
+        width:100% !important;
+    }
+    .appForm .app_list li .app_content.email_area{
+        padding: 5px 0 0; font-size: 0;
+    }
+    .appForm .app_list li .app_content.email_area input[type=text]{
+        border:1px solid #ccc;
+        width:45% !important;
+        font-style: 14px;
+    }
+    .appForm .app_list li .app_content.email_area .ico_space{
+        width:10% !important; text-align: center;
+        font-size: 14px; padding-top: 4px;
+    }
+    .appForm .app_list li .select_common{
+        width:100%;
+        height: 45px;
+        margin-top: 10px;
+    }
+    .appForm .app_list li .select_common select{
+        width:100%;
+        height:45px;
+    }
+    /* 내 정보 페이지 */
+    .regForm{
+        width:100%;
+        margin:0 auto;
+    }
+    .regForm .reg_list{
+        background:none;
+        padding: 10px 0 0;
+    }
+    .regForm .reg_list li{
+        position: relative;
+        min-height: 50px;
+        padding: 0;
+    }
+    .regForm .reg_list li .tit_lbl{
+        position: relative;
+        float:none;
+        width:auto;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+    .regForm .reg_list li .reg_content{
+        float:none;
+        width:auto;
+        box-sizing: border-box;
+        padding-left: 10px;
+        padding-top: 0;
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+    .regForm .reg_list li .reg_content .info_line{
+        padding: 10px 10px 3px 0;
+        line-height: 1.4;
+        font-size: 15px;
+    }
+    .regForm .reg_list li .reg_content *{
+        vertical-align: middle;
+    }
+    /* 공지사항 리스트 페이지 */
+    .bbsListTbl{ width:100%; }
+    .bbsListTbl th, .bbsListTbl td{
+        height:45px; padding: 10px; box-sizing: border-box;
+    }
+    .bbsListTbl th:nth-child(1), .bbsListTbl th:nth-child(3),
+    .bbsListTbl td:nth-child(1), .bbsListTbl td:nth-child(3){
+        display: none;
+    }
+    .bbsListTbl th:nth-child(2){ width:75%; }
+    .bbsListTbl th:nth-child(4){ width:25%; }
+    
+    /* 공지사항 상세보기 페이지 */
+    .near_list{ display: none; }
+
+    /* 프로그램 페이지 */
+    .bodytext_area.place_area{
+        padding: 33px 0 0;
+    }
+    .program_list{ padding: 0 20px; }
+    .program_list li{
+        float: none;
+        width:100%;
+        margin:0;
+        box-sizing: border-box;
+        border-top: 1px solid #ccc;
+        padding: 30px 0;
+    }
+    .program_list li:first-child{
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .program_list li h3{
+        padding: 20px 0 0; text-align: center;
+    }
+    .program_list li .subttl{
+        padding: 15px 0; text-align: center;
+        font-size: 18px;
+    }
+    .program_list li .program_content p .subtxt{
+        display: inline;
+    }
+    .program_list li .btn_more{ display: none; }
+}
+/* ------모바일 반응형 끝------ */

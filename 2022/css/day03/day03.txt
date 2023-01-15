@@ -1,0 +1,113 @@
+CSS의 배경
+    background-attachment
+        위치가 설정된 배경 이미지를 원하는 위치에 고정시킬 수 있음
+        고정된 배경 이미지는 스크롤과 무관하게 화면의 위치에서 이동되지 않음
+        fixed
+    
+    background-size
+        배경 이미지 크기를 설정
+        px, %를 사용
+        크기를 하나만 지정하게 될 시에는 가로크기를 기준으로 비율을 유지한 채 크기를 설정하게 됨
+
+        cover
+            배경 이미지의 가로, 세로 모두 요소보다 크다는 조건하에 가능한 크기
+            가능한 이미지를 작게 설정
+            이미지의 가로, 세로 비율은 유지
+            배경 이미지의 크기는 요소의 크기보다 항상 크거나 같음
+
+        contain
+            배경 이미지의 가로, 세로 모두 요소보다 작다는 조건하에 가능한 크기
+            가능한 이미지를 크게 설정
+            이미지의 가로, 세로 비율은 유지
+            배경 이미지의 크기는 요소의 크기보다 항상 작거나 같음
+
+background
+    배경 속성을 한번에 적용
+    background:url(파일위치) 반복여부 위치 사이즈 ...
+
+박스모델(Box Model)
+    모든 HTML요소는 박스 모양으로 구성
+    박스모델이라고 부름
+    박스모델은 HTML요소를 내용, 패딩, 테두리, 마진으로 구분함
+
+내용(content)
+    텍스트나 이미지가 들어있는 박스의 실질적인 내용 부분
+
+패딩(padding)
+    내용과 테두리 사이의 간격(안쪽 여백)
+    padding-top, padding-right, padding-bottom, padding-left
+    padding : 모든 패딩 속성을 한꺼번에 설정, ↑→↓←순으로 설정(시계방향)
+
+    padding : a b c d;
+    ↑ : a // → : b // ↓ : c // ← : d
+    
+    padding : a b c;
+    ↑ : a // → : b // ↓ : c
+    
+    padding : a b;
+    ↑ : a // → : b
+    
+    padding : a;
+    전부 : a
+
+테두리(border)
+    내용(content)과 패딩(padding) 주변을 감싸는 테두리
+    border-style    : 테두리를 다양한 모양으로 설정
+    border-color    : 테두리의 색상을 설정
+    border-width    : 테두리의 두께를 설정
+    border          : 모든 테두리의 속성을 한꺼번에 설정
+
+마진(margin)
+    테두리와 이웃하는 요소 사이의 간격
+    마진은 눈에 보이지 않음
+
+세로 겹침 현상
+    세로로 나열된 두 박스의 간격은 두 마진의 합이 아니라 둘 중 큰 값을 선택
+
+박스사이징(box-sizing)
+    width, heihgt값에 padding이나 border 영역은 포함되지 않음
+    만약 width가 100%로 설정된 요소의 경우 padding이나 border 속성을 
+    추가할 수 없음
+
+    box-sizing:content-box;
+        기존 계산법, width와 height에 둘을 포함 X
+    
+    box-sizing-:border-box
+        width와 height에 padding, border를 포함
+
+둥근 테두리 만들기
+    border-radius : top-left-x top-right-x bottom-right-x bottom-left-x/
+                    top-left-y top-right-y bottom-right-y bottom-left-y
+    
+    대각선의 위치의 값이 같을 때
+    border-radius : top-left-x top-right-x / top-left-y top-right-y
+
+    전부다 같을때
+    border-radius : xy
+
+테이블 테두리 설정(border-collapse)
+    테이블 셀들간의 공백을 어떻게 처리할지를 결정하는 속성
+    separate(기본, 셀들을 분리), collapse(셀들 사이를 합쳐서 공백을 없앰)
+
+CSS display
+    웹 페이지의 레이아웃을 결정하는 속성
+    block           : 새로운 라인에서 시작하고, 해당 라인의 모든 너비를 차지
+    inline          : 새로운 라인에서 시작되지 않고 앞의 요소에 이어서 배치
+    inline-block    : block과 inline 속성을 모두 사용
+                        width, hegith 적용
+                        padding, margin을 사용
+                        line-height를 적용
+                        요소를 가로로 나열
+    none            : 웹 페이지에서 해당 요소가 나타나지 않고 레이아웃해서 사라짐
+
+CSS 폼
+    폼 요소의 스타일을 설정
+    
+    입력부분들
+        선택자:focus        폼 요소가 포커싱 되어있을 때의 스타일을 설정
+                            outline:none -> 포커싱 되었을 때 테두리 없애주기
+        
+        버튼
+            cursor:pointer; -> 마우스를 올렸을 때 커서 모양을 설정(손모양)
+
+        textarea:none; -> textarea의 크기를 사용자가 조정하지 못하도록 설정함

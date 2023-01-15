@@ -1,0 +1,117 @@
+/* 외부 폰트 스타일 불러오기 */
+@font-face {
+    font-family: 'twayair';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twayair.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-family: "twayair";
+}
+
+/* 공통 스타일 적용 구간 */
+#container{
+    width: 100%;
+    margin: 0 auto;
+}
+nav{
+    height: 50px;
+    background-color: black;
+}
+nav > ul{
+    list-style: none;
+    margin: 0;
+    padding: 3px;
+}
+nav > ul > li{
+    display: inline-block;
+    margin: 15px 20px;
+}
+a{ text-decoration: none;}
+a:link, a:visited{ color: white}
+a:active, a:hover{ color: yellow}
+
+header{
+    width: 100%;
+    height: 300px;
+    background: url(../images/header.jpg) no-repeat center / cover;
+    margin: 0;
+}
+
+/* 이미지 가리기 */
+.photo{
+    display: none;
+}
+section{
+    position: relative;
+    width: 100%;
+    padding: 15px 5%;
+}
+
+.page-title{
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    padding: 30px 50px;
+}
+.page-title > h1{margin-bottom: 3px;}
+
+.content{
+    margin: 80px auto 10px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#container section:nth-child(odd){
+    background-color: gold;
+}
+footer{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+footer > p{
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* 테블릿 사이즈*/
+@media screen and (min-width:768px) {
+    section#intro, section#path, section#choice{
+        float: left;
+        width: 40%;
+        height: 300px;
+        margin-bottom: 50px;
+    }
+    footer{
+        float: left;
+    }
+}
+
+/* PC 사이즈 */
+@media screen and (min-width:1024px) {
+    body{
+        width: 80%;
+        margin-left: 10%;
+    }
+    section#intro, section#path, section#choice{
+        width: 90%;
+    }
+    section#path{
+        padding-bottom: 50px;
+    }
+    .photo{
+        float: left;
+        display: flex;
+    }
+    section#choice .photo{
+        float: right;
+    }
+    .content > div{
+        float: left;
+        width: 30%;
+    }
+}

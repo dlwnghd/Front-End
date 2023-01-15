@@ -1,0 +1,28 @@
+#container{
+    width: 1000px;
+    margin: 0 auto;
+}
+div{
+    padding: 20px;
+    border: 1px solid gray;
+}
+#header{
+    margin-bottom: 20px;
+    background-color: antiquewhite;
+}
+#contents{
+    width: 700px;
+    float: left;
+    margin-bottom: 20px;
+    height: 420px;
+}
+#sidebar{
+    width: 200px;
+    float: right;
+    background-color: aliceblue;
+    height: 420px;
+}
+#footer{
+    background-color: whitesmoke;
+    clear: both;
+}

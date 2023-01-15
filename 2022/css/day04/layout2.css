@@ -1,0 +1,38 @@
+#container{
+    width: 1000px;
+    margin: 0 auto;
+}
+div{
+    padding: 20px;
+    border: 1px solid gray;
+}
+#header{
+    margin-bottom: 20px;
+    background-color: antiquewhite;
+}
+#contents{
+    width: 430px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    height: 520px;
+}
+#sidebar1{
+    float: left;
+    width: 200px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    height: 200px;
+}
+#sidebar2{
+    float: right;
+    width: 200px;
+    box-sizing: border-box;
+    background-color: aliceblue;
+    height: 200px;
+}
+#footer{
+    background-color: whitesmoke;
+    clear: both;
+}

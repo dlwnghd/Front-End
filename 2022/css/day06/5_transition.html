@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition - 1</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            border: 1px solid black;
+        }
+        #bg-tr{
+            background-color: coral;
+            transition: background-color linear 2s;
+        }
+        #bg-tr:hover{
+            background-color: navy;
+            border: 5px dotted red;
+        }
+        #border-tr{
+            background-color: springgreen;
+            border: 5px dotted deeppink;
+            transition: all ease 2s;
+        }
+        #border-tr:hover{
+            background-color: indianred;
+            border: 10px dashed powderblue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h2>transition - 1</h2>
+    <div id="bg-tr"></div>
+    <div id="border-tr"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>절대 위치 지정방식</title>
+    <style>
+        #wrap{
+            width: 500px;
+            height: 500px;
+            border: 3px solid red;
+            position: relative;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: deeppink;
+            color: white;
+            position: absolute;
+        }
+        #ab1{top: 0; right: 0;}
+        #ab2{bottom: 0; left: 0;}
+        #ab3{bottom: 0; right: 0;}
+        #ab4{top: 200px; right: 200px;}
+        #ab5{top: 200px; right: 200px;}
+    </style>
+</head>
+<body>
+    <h2>절대 위치 지정방식</h2>
+    <div id="wrap">
+        <div class="box" id="ab1">1</div>
+        <div class="box" id="ab2">2</div>
+        <div class="box" id="ab3">3</div>
+        <div class="box" id="ab4">4</div>
+        <div class="box" id="ab5">5</div>
+    </div>
+</body>
+</html>

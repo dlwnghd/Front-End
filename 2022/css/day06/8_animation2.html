@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation - 2</title>
+    <style>
+            /* rotateX, rotateY */
+            .box{
+                width: 100px;
+                height: 100px;
+                background-color: deeppink;
+                margin-top: 100px;
+                margin-left: 100px;
+                padding: 20px;
+                animation: rotate 1.5s infinite alternate ;
+            }
+            @keyframes rotate {
+                from{
+                    transform: perspective(150px);
+                }
+                50%{
+                    background-color: pink;
+                    transform:perspective(150px) rotateX(-180deg);
+                }
+                100%{
+                    background-color: deeppink;
+                    transform: rotateX(-180deg) rotateY(-180deg);
+                }
+            }
+        </style>
+</head>
+<body>
+    <h2>animation - 2</h2>
+    <div class="box"></div>
+</body>
+</html>
