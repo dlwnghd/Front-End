@@ -31,6 +31,7 @@ const FONT_WEIGHT = {
 
 const theme = {
     PALETTE,
+    FONT_SIZE,
     FONT_WEIGHT,
 };
 
