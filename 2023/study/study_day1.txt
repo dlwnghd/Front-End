@@ -1,0 +1,14 @@
+1. 터미널에서 npx create-react-app todolist로 프로젝트 생성
+2. src 폴더에서 index.js를 제외한 나머지 파일들을 삭제
+3. js파일을 만들어서 import와 export를 통해 rendering을 할 수 있음
+4. npm i styled-components로 설치
+5. css-in-js를 이용해서 css스타일이 적용된 태그를 렌더링(Wrapper)
+
+React는 JS를 HTML태그화 해서 Return을 통해서 웹 화면에 렌더링
+css in js는 CSS형태의 코드를 JS형태로 바꿔요.
+
+6. & 태그를 이용한 자식태그 접근 및 hover와 같은 이벤트 활성
+7. theme provider 방식으로 css를 js화 하는데 key와 value를 사용해서 원하는 css특성을 주입할 수 있다.
+
+ex) Fontsize.theme.small    ⭕
+    Fontsize.theme.[0]      ❌
