@@ -71,6 +71,12 @@ const hoverCSS = {
       background: ${({ theme }) => theme.PALETTE.primary[500]};
       box-shadow: 0 0 10px 0 ${({ theme }) => theme.PALETTE.primary[500]};
     }
+  `,
+  test3: css`
+  &:hover {
+    background: black;
+    color: white;
+  }
   `
 };
 

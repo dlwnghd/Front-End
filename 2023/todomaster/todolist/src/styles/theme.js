@@ -3,6 +3,7 @@ const PALETTE = {
         100: '#CCFFF9',
         200: '#00E5C9',
         300: '#00C7AE',
+        500: 'orange'
     },
     subColor: '#EBF1F4',
     fontColor: '#FFFFFF',

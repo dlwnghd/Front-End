@@ -1,0 +1,42 @@
+1. routing
+
+const router 생성
+App.js에서 routing 썻던 path를 배열로 관리
+
+2. App.js에서 <RouterProvider> 생성
+
+router를 import해서 사용
+'react-router-dom'에서 RouterProvier 받아옴(최신기술이라고 함)
+
+3. route 잘되는지 확인하기 위해 npm start
+localhost경로와 localhost:****/todo가 잘 작동하는지 확인
+
+4. 스타일들 컴포넌트에 속성값으로 데이터를 전달할 수 있다.
+moder={form}
+로그인 일때 회워가입일때 를 나누어야하기 때문에 LoginSelector, SignUpSelector로 분리
+
+5. const LoginSelector 와 const SignUpSelector 생성
+background-color를 줄 것인데 기존에 테마를 들고 올 땐 call back 함수의 인자로 값을 가져왔다
+ex1) background-color: ${({ mode }) => (mode === "login" ? "#e0e0e0" : "#f5f5f5")};
+ex2) background-color: ${({ mode }) => (mode === "sign" ? "#e0e0e0" : "#f5f5f5")};
+
+6. 컴포넌트와 스타일컴포넌트 헷갈리지 않나?
+그래서 기술을 사용해서 나누어서 해결한다고 하심
+const S = {} 로 객체화 시킴
+근데 화면 렌더링은 안해준다.
+
+7.기본 baseurl을 설정(기본경로)
+	- jsconfig.json 파일 생성
+	
+{
+    "compilerOptions": {
+        "baseUrl": "./src"
+    },
+    "include": ["src"]
+}
+
+
+8. css-in-js 코드의 경우 강사님이 주심
+
+9. login과 signup의 css코드가 같기 때문에 style.js를 만들어서 스타일컴포넌트화하여 js코드로 사용
+

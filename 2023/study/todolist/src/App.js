@@ -1,42 +1,45 @@
-import styled from "styled-components";
-import { testBackground } from "./styles/common";
+import { BrowserRouter, Routes, Route, RouterProvider } from 'react-router-dom';
+
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/global';
+
+import HomePage from './pages/Home';
+import { TodoPage } from "./pages/Todo";
+import theme from './styles/theme';
+import router from './routes/routing';
 
 function App() {
-    return (
-        <S.Wrapper>
-            <S.Form>
-                <h1>test</h1>
-                <input />
-            </S.Form>
-        </S.Wrapper>
-    );
+
+  // return (
+  //   // React.Fragment = <>...</>
+  //   // 컴포넌트는 다른태그로 감싸주어야 연달아서 사용 가능 
+  //   <React.Fragment>
+  //     {/* 주석 */}
+  //     <Header />
+  //     <Content />
+  //     <Footer />
+  //   </React.Fragment>
+  // );
+
+  // return (
+  //   <ThemeProvider theme={theme}>
+  //     <BrowserRouter>
+  //       <GlobalStyles />
+  //       {/* HTML5를 지원하는 브라우저 주소를 감지 */}
+  //       <Routes>
+  //         {/* Route path와 감지한 주소가 일치한 router만을 랜더링 시켜주는 역할 */}
+  //         <Route path="/" element={<HomePage />} />
+  //         <Route path="/todo" element={<TodoPage />} />
+  //       </Routes>
+  //     </BrowserRouter>
+  //   </ThemeProvider>
+  // );
+
+  return (
+    <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
 export default App;
-
-const Wrapper = styled.div`
-  ${testBackground};
-`;
-
-const Form = styled.form`
-  width: 480px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  padding: 32px;
-
-  & input {
-    :hover {
-        background-color: black;
-        color: red;
-    }
-  }
-`;
-
-const S = {
-    Wrapper,
-    Form
-};
