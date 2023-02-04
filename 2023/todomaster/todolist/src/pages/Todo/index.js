@@ -3,15 +3,31 @@ import styled from "styled-components";
 import { flexAlignCenter, flexCenter } from "styles/common";
 import TodoList from "./components/List/TodoList";
 import TodoFormModal from "./components/Modal/TodoForm";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast} from 'react-toastify';
 
 export const print = () => {
     console.log('반갑습니다');
 };
 
 function TodoPage() {
+
+  const onAddTodo = new Promise((resolve) => {
+    setTimeout(() => resolve('todo', 3000));  // 3초 뒤 무조건 성공시킴
+  });
+
+
+  const showToastMessage = () => {    // 화살표 함수
+    toast.promise(onAddTodo, {
+      pending: 'TODO LOADING',
+      success: 'TODO SUCCESS',
+      error: 'TODO ERROR',
+    });  
+  };
+
     return (
       <>
-        <TodoFormModal />
+        <TodoFormModal showToastMessage={showToastMessage} />
         <S.Wrapper>
           <S.Container>
             <S.Title>List</S.Title>
@@ -24,6 +40,7 @@ function TodoPage() {
               </Button>
             </S.ButtonBox>
           </S.Container>
+          <ToastContainer autoClose={2000} theme="colored" />
         </S.Wrapper>
       </>
     );

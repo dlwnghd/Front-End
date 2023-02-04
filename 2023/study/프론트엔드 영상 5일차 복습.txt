@@ -1,0 +1,42 @@
+1. Layout폴더 생성
+	- Header1️⃣
+	- Footer2️⃣
+	-index.js	(내부 컨포넌트 총괄 파일(?))
+
+2. index.js 안에 Outlet 생성
+	- routing.js에서 children 객체를 생성하고 안에서 path 와 element 정의
+
+	- Outlet 개념 설명
+		- 자식에 있는 데이터를 들고와서 컴포넌트에 연결하여 사용
+		- children으로는 자식 요소를 들고 올 수 없어서
+		- Outlet으로 children 내부에 있는 ⭐path를 통해서 element를 들고 올 수 있음
+
+3. Card.js
+	- Import fontAwesome 
+	- text-decoration: ${({ state }) => (state ? "line-through" : "none")};
+	- ⬆️에서 state 값에 따라서 삼항연산자를 이용하여 state의 값에 따라서 text-decoration에서 사용되는 css 값을 변경함
+	- 대량 코드 수정
+
+4. npm install --save react-toastify
+	- ⚠️설치경로 확인 필수⚠️
+
+5. Businnes Logic이 컴포넌트에 있어야 하는가?
+	- 일단 답은 아니다!
+	- 결낮응높(결합도는 낮게 응집도는 높게)
+	- 의존성을 낮추고 재사용성을 높이자
+
+6. Todo/index.js
+	- import { ToastContainer, toast} from 'react-toastify';
+
+7. 과정 설명해주심
+
+8. npx create-react-app hook
+
+9. hook폴더 기본 세팅
+
+10. hook.txt 생성
+	- hook 함수 정의
+
+11. useState.js 생성
+
+12. 크롬 웹스토어에서 React Developer tools 설치

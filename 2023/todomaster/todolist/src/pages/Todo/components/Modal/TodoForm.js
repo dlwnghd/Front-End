@@ -1,22 +1,27 @@
 import styled from "styled-components";
 import { flexAlignCenter, flexCenter, ModalBackground } from "styles/common";
 
-function TodoFormModal() {
-    return (
-        <S.Wrapper>
-            <S.Form>
-                <S.Title>
-                    <span>ADD TODO LIST</span>
-                    <button>x</button>
-                </S.Title>
-                <S.Content>
-                    <input placeholder="제목을 입력해주세요" />
-                    <textarea placeholder="할 일 내용을 입력해주세요"></textarea>
-                </S.Content>
-                <S.Button>ADD</S.Button>
-            </S.Form>
-        </S.Wrapper>
-    );
+function TodoFormModal({ showToastMessage }) {
+  const onClickAddtodoBtn = (e) => {
+    e.preventDefault(); // URL의 변경을 막음 form 태그는 제출이되어도 action을 취하지 않는다. 기본기능을 막는다
+    showToastMessage();
+  };
+
+  return (
+    <S.Wrapper>
+      <S.Form>
+        <S.Title>
+          <span>ADD TODO LIST</span>
+          <button>x</button>
+        </S.Title>
+        <S.Content>
+          <input placeholder="제목을 입력해주세요" />
+          <textarea placeholder="할 일 내용을 입력해주세요"></textarea>
+        </S.Content>
+        <S.Button onClick={onClickAddtodoBtn}>ADD</S.Button>
+      </S.Form>
+    </S.Wrapper>
+  );
 }
 export default TodoFormModal;
 
