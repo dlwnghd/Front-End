@@ -20,7 +20,7 @@
 4. npm install --save react-toastify
 	- ⚠️설치경로 확인 필수⚠️
 
-5. Businnes Logic이 컴포넌트에 있어야 하는가?
+5. Business Logic이 컴포넌트에 있어야 하는가?
 	- 일단 답은 아니다!
 	- 결낮응높(결합도는 낮게 응집도는 높게)
 	- 의존성을 낮추고 재사용성을 높이자
@@ -40,3 +40,4 @@
 11. useState.js 생성
 
 12. 크롬 웹스토어에서 React Developer tools 설치
+
