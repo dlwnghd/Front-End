@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const variantCSS = {
   primary: css`
-    background: ${({ theme }) => theme.PALETTE.primary[300]}; 
+    background: ${({ theme }) => theme.PALETTE.primary[300]};
     color: ${({ theme }) => theme.PALETTE.fontColor};
   `,
 
@@ -71,9 +71,8 @@ const hoverCSS = {
       background: ${({ theme }) => theme.PALETTE.primary[500]};
       box-shadow: 0 0 10px 0 ${({ theme }) => theme.PALETTE.primary[500]};
     }
-  `
+  `,
 };
-
 
 export const Button = styled.button`
   /*      ⬇️ 콜백함수의 인자로 받아옴 */
@@ -84,7 +83,13 @@ export const Button = styled.button`
   /* ⬇️ Button의 공통 스타일 속성들 */
   cursor: pointer;
   border: none;
-  /* :hover {
+  :hover {
     opacity: 0.8;
-  } */
+  }
+  :disabled {
+    background-color: #d9d9d9;
+    color: #333;
+    opacity: 0.8;
+    cursor: none;
+  }
 `;

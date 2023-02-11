@@ -7,7 +7,7 @@ const PALETTE = {
     },
     subColor: '#EBF1F4',
     fontColor: '#FFFFFF',
-    error: '#FF0000',
+    error: '#ff0000',
     white: '#FFFFFF',
     black: '#000000',
     gray: {

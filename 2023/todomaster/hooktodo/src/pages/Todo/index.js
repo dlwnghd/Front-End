@@ -5,6 +5,7 @@ import TodoList from "./components/List/TodoList";
 import TodoFormModal from "./components/Modal/TodoForm";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast} from 'react-toastify';
+import { useState } from "react";
 
 export const print = () => {
     console.log('반갑습니다');
@@ -12,30 +13,101 @@ export const print = () => {
 
 function TodoPage() {
 
-  const onAddTodo = new Promise((resolve) => {
-    setTimeout(() => resolve('todo', 3000));  // 3초 뒤 무조건 성공시킴
-  });
+  // state
+  const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
+  const [todoList, setTodoList] = useState([
+        {
+            id: 1,
+            title: 'example1',
+            content: 'content1',
+            state: false,
+            edit:false,
+        },
+        {
+            id: 2,
+            title: 'example2',
+            content: 'content2',
+            state: true,
+            edit:false,
+        },
+        {
+            id: 3,
+            title: 'example3',
+            content: 'content3',
+            state: false,
+            edit:false,
+        },
+        {
+            id: 4,
+            title: 'example4',
+            content: 'content4',
+            state: false,
+            edit:false,
+        },
+  ])
 
+  // toast
+  const handleAddTodo = (title, content) => {
+    return new Promise((resolve, reject) => {
+      if(!title || !content){
+        return resolve("need fullfilled");
+      }
 
-  const showToastMessage = () => {    // 화살표 함수
-    toast.promise(onAddTodo, {
-      pending: 'TODO LOADING',
-      success: 'TODO SUCCESS',
-      error: 'TODO ERROR',
+      setTimeout(() => {
+        const newTodo = {
+          id: Math.floor(Math.random() * 100000),
+          title,
+          content
+        };
+        resolve(newTodo)
+      }, 1000)
+      
+    }).then((res)=>{
+      // const newTodoList = [...todoList].push(res)
+      setTodoList([res, ...todoList])
+      setIsOpenAddTodoModal(false)
+    })
+  }
+
+  // handle
+  const showAddTodoToastMessage = (title, content) => {    // 화살표 함수
+    toast.promise(handleAddTodo(title, content), {
+      pending: "TODO LOADING",
+      success: "TODO SUCCESS",
+      error: "TODO ERROR",
     });  
   };
 
+
+  const handleOpenTodoAddModal = () => {
+    setIsOpenAddTodoModal(true);
+  }
+
+  const handleCloseTodoAddModal = () => {
+    setIsOpenAddTodoModal(false);
+  }
+
+
     return (
       <>
-        <TodoFormModal showToastMessage={showToastMessage} />
+        {isOpenAddTodoModal && (
+          <TodoFormModal
+            showAddTodoToastMessage={showAddTodoToastMessage}
+            onClose={handleCloseTodoAddModal}
+          />
+        )}
         <S.Wrapper>
           <S.Container>
             <S.Title>List</S.Title>
             <S.Content>
-              <TodoList />
+              <TodoList todoList={todoList} setTodoList={setTodoList} />
             </S.Content>
             <S.ButtonBox>
-              <Button variant={"primary"} size={"full"}>
+              <Button
+                variant={"primary"}
+                size={"full"}
+                onClick={handleOpenTodoAddModal}
+              >
                 추가
               </Button>
             </S.ButtonBox>

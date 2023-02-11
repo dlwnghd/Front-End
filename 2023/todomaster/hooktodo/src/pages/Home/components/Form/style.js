@@ -36,3 +36,10 @@ export const InputBox = styled.div`
     padding: 0 5px;
   }
 `;
+
+export const Error = styled.p`
+  color: ${({ theme }) => theme.PALETTE.error};
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
+  margin-bottom: 16px;
+  visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
+`;

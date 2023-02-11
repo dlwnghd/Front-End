@@ -8,13 +8,15 @@ import SignUpForm from "./components/Form/SignUp/SignUp";
 
 // Pagination
 function HomePage() {
-  const [form, setForm] = useState('login');
+  const [form, setForm] = useState("login");
 
   const onFormChange = (e) => {
     const { innerText } = e.target;
     setForm(innerText.toLowerCase());
+    console.log("폼변화");
   };
 
+  console.log("여기까지옴");
   return (
     <S.Wrapper>
       <S.Header>
@@ -25,7 +27,7 @@ function HomePage() {
           SIGN
         </S.SignUpSelector>
       </S.Header>
-      {form === "login" ? <LoginForm /> : <SignUpForm />}
+      {form === "login" ? <LoginForm /> : <SignUpForm setForm = {setForm}/>}
       {/* <a href="/todo">일반 투두페이지로 이동</a>
         <Link to="/todo">라우터로 투두페이지 이동</Link> */}
     </S.Wrapper>

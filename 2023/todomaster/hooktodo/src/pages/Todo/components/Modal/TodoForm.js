@@ -1,24 +1,31 @@
 import styled from "styled-components";
 import { flexAlignCenter, flexCenter, ModalBackground } from "styles/common";
 
-function TodoFormModal({ showToastMessage }) {
+function TodoFormModal({ showAddTodoToastMessage, onClose }) {
+
+
   const onClickAddtodoBtn = (e) => {
     e.preventDefault(); // URL의 변경을 막음 form 태그는 제출이되어도 action을 취하지 않는다. 기본기능을 막는다
-    showToastMessage();
+    console.log(e.target.title.value);  // 제목
+
+    const title = e.target.title.value;
+    const content = e.target.content.value;
+    // onsubmit 이벤트 발생시 e.target.name명.value로 값을 가지고 올 수 있다.
+    showAddTodoToastMessage(title, content);
   };
 
   return (
     <S.Wrapper>
-      <S.Form>
+      <S.Form onSubmit={onClickAddtodoBtn}>
         <S.Title>
           <span>ADD TODO LIST</span>
-          <button>x</button>
+          <button onClick={onClose}>x</button>
         </S.Title>
         <S.Content>
-          <input placeholder="제목을 입력해주세요" />
-          <textarea placeholder="할 일 내용을 입력해주세요"></textarea>
+          <input placeholder="제목을 입력해주세요" name="title" />
+          <textarea placeholder="할 일 내용을 입력해주세요" name="content"></textarea>
         </S.Content>
-        <S.Button onClick={onClickAddtodoBtn}>ADD</S.Button>
+        <S.Button>ADD</S.Button>
       </S.Form>
     </S.Wrapper>
   );
