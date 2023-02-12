@@ -1,4 +1,4 @@
-import {useState } from "react";
+// import {useState } from "react";
 import {
   ADD_STATE,
   REMOVE_STATE,
@@ -10,8 +10,10 @@ import UserList from "./userList";
 
 function User(){
 
+  // useContext()를 이용해서 만든 새롭게 만든 저장소를 가져옴
   const userList = useUserState();
   const dispatch = useUserDisPatch();
+  
   // 내가 만든 context 사용하겠다
   // 그 context의 value? = [state, setState]
 
@@ -52,6 +54,7 @@ function User(){
     const onAddUser = (name) => {
       const id = userList[userList.length - 1].id + 1;
       dispatch(ADD_STATE({id, name}));
+    //                      ⬆️ payload
     };
 
     return (

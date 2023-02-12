@@ -18,10 +18,12 @@ const initialState = [
     }
 ];
 
+// 전역 저장소를 만들겠다
 export const UserContext = createContext();
+
+// Dispatch를 보내기 위한 Context
 export const UserDisPatchContext = createContext();
 
-// 전역 저장소를 만들겠다
 export const useUserState = () => useContext(UserContext)
 export const useUserDisPatch = () =>  useContext(UserDisPatchContext); // 새로운 저장소를 만듬
 
@@ -31,6 +33,7 @@ export const REMOVE_STATE = createAction('REMOVE_STATE');
 // reducer
 const userListReducer = (state, action) => {
     switch (action.type) {
+        // ⚠️case에 함수 ADD_STATE 넣지 않도록 주의⚠️
         case 'ADD_STATE':
             return [...state, { id:action.payload.id, name : action.payload.name}];
         case 'REMOVE_STATE':
@@ -41,14 +44,17 @@ const userListReducer = (state, action) => {
 };
 
 const ContextProvider = ({ children }) => {
+
+    // useState 방식
     // const [state, setState] = useState(initialState);
+    
+    // useReducer 방식
     const [state, dispatch] = useReducer(userListReducer, initialState);
 
     return (
       <UserContext.Provider value={state}>
-        <UserDisPatchContext.Provider
-          value={dispatch}
-        >
+        {/* value={[state, dispatch || setState ]} ⬅️ 옆과 같이 배열로 전달해도 괜찮지만 Redux 환경과 최대한 비슷하게 하기 위해 DispatchContext를 만듬*/}
+        <UserDisPatchContext.Provider value={dispatch}>
           {children}
         </UserDisPatchContext.Provider>
       </UserContext.Provider>

@@ -1,5 +1,5 @@
-import ContextProvider from "./components/context/user";
 import Counter from "./components/counter/counter";
+import ContextProvider from "./components/context/user";
 import User from "./components/user";
 
 function App() {

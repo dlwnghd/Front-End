@@ -1,15 +1,20 @@
+// import
 import { useReducer, useState } from "react";
 import { countReducer } from "../../reducer/count";
 
 function Counter() {
+
+  // 기존에 useState를 이용하여 상태를 관리함
   // const [count, setCount] = useState(0);
+
+  // useReducer를 이용하여 외부에서 상태를 관리함
   const [count, dispatch] = useReducer(countReducer, 0);
 
   // + 버튼 클릭 : dispatch의 매개변수를 action에 전달
   const onIncrementCount = () => {
     dispatch({
       type: "INCREMENT",
-      count: 1,
+      plus: 1,
     });
   };
 
@@ -17,7 +22,7 @@ function Counter() {
   const onDecrementCount = () => {
     dispatch({
       type: "DECREMENT",
-      count: 1,
+      minus: 1,
     });
   };
 

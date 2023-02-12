@@ -1,12 +1,12 @@
-export const countReducer = (state, action) => {
-    //                        ⬆️     ⬆️
-    //  dispatch에서 받아온 count / dispatch 내부에 정의된 객체
+export const countReducer = (count, action) => {
+//                            ⬆️     ⬆️
+//  dispatch에서 받아온 count(상태) / dispatch의 매개변수
     switch (action.type) {
     case "INCREMENT":
-      return state + action.count;
+      return count + action.plus;
     case "DECREMENT":
-      return state - action.count;
+      return count - action.minus;
     default:
-      return state;
+      return count;
   }
 };
