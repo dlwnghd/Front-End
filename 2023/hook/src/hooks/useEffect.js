@@ -6,9 +6,13 @@ function UseEffect(){
     const [count, setCount] = useState(0);
 
     useEffect(()=> {
+        console.log("useEffect 실행!")
         setIsActive(true);
     }, []);
-    /* 컴포넌트가 마운트 되었을 때만 실행 */
+    /* 
+    컴포넌트가 마운트 되었을 때만 실행 
+    ➡️처음에 화면에 랜더링되었을 때 1회 실행
+    */
 
     useEffect(() => {
         if(!isActive) return;

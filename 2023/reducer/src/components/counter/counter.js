@@ -11,8 +11,9 @@ function Counter() {
   const [count, dispatch] = useReducer(countReducer, 0);
 
   // + 버튼 클릭 : dispatch의 매개변수를 action에 전달
+  // ⬇️ flux패턴의 ❤️action이다!
   const onIncrementCount = () => {
-    dispatch({
+    dispatch({    // 🧡dispatcher이다!
       type: "INCREMENT",
       plus: 1,
     });

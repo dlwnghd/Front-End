@@ -52,7 +52,7 @@ React 쓰는 이유
 
 CSR, SSR
 
-CSR (Clinet Side Rendering)
+CSR (Client Side Rendering)
     * 사용자가 웹페이지를 그린다
     사용자가 웹 페이지 접속 -> 프론트엔드 서버에 페이지를 랜더링할 때 필요한 리소스 전달
 
