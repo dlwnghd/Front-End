@@ -8,8 +8,9 @@ import SignUpForm from "./components/Form/SignUp/SignUp";
 
 // Pagination
 function HomePage() {
-  const [form, setForm] = useState("login");
+  const [form, setForm] = useState("login");  // 로그인인지 아니면 회원가입인지를 관리해주는 state
 
+  // 폼을 변경해주는 함수
   const onFormChange = (e) => {
     const { innerText } = e.target;
     setForm(innerText.toLowerCase());

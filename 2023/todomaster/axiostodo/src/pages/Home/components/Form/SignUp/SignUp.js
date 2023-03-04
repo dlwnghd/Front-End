@@ -2,9 +2,9 @@ import Button from "components/Button/Button";
 import * as S from "../style";
 import useInputs from "hooks/useInputs";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import AuthApi from "apis/authApi";
 
-function SignUpForm(setForm) {
+function SignUpForm({ setForm }) {
   const [{ email, password, passwordConfirm }, onChangeForm] = useInputs({
     email: "",
     password: "",
@@ -18,20 +18,16 @@ function SignUpForm(setForm) {
     if (password !== passwordConfirm)
       return alert("비밀번호 확인이 일치하지 않습니다");
 
-    console.log(email);
-    console.log(password);
     try {
-      const res = await axios.post("http://localhost:9000/user/sign", {
-        email,
-        password,
-      });
-      if(!alert(res.data.data)) {
+      const { data } = await AuthApi.signup(email, password);
+      console.log(data);
+      if (!alert(data.data)) {
         setForm("login");
       }
     } catch (err) {
-      setError(err.response.data.error);
       console.log(err);
-      
+      setError(err.response.data.error);
+
       // throw new Error(err);
       // console.log(err);
     }

@@ -4,15 +4,16 @@ import useInputs from "hooks/useInputs";
 import { useEffect, useState } from "react";
 
 function SignUpForm(setForm) {
-  const [isPasswordConfirm, setPasswordIsConfirm] = useState(false);
-  const [{ email, password, passwordConfirm }, onChangeForm] = useInputs({
+  const [isPasswordConfirm, setPasswordIsConfirm] = useState(false);  // 비밀번호 확인이 맞는지 아닌지의 대한 상태값 저장
+  const [{ email, password, passwordConfirm }, onChangeForm] = useInputs({  // <= useInputs: 커스텀 훅
     email: "",
     password: "",
     passwordConfirm: "",
   });
 
+  // 제출버튼
   const handleSignUpSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // form태그가 가지고 있는 기본 성질 해제
     if (!email || !password) return alert("정보를 입력해주세요");
     if (!isPasswordConfirm) return alert("비밀번호 확인이 일치하지 않습니다");
     setForm("login");
@@ -33,7 +34,7 @@ function SignUpForm(setForm) {
   */
 
   useEffect(() => {
-    if (password !== passwordConfirm) {
+    if (password !== passwordConfirm) { // 비밀번호와 비밀번호 확인의 값이 같지 않다면
       return setPasswordIsConfirm(false);
     }
     return setPasswordIsConfirm(true);
@@ -63,6 +64,7 @@ function SignUpForm(setForm) {
         />
         <span>비밀번호 확인</span>
       </S.InputBox>
+      {/* 아래와 같이 visible을 통해 관리하면 공간을 차지하고 있기 때문에 갑작스럽게 공간을 차지하는 display:none과는 다르게 표현할 수 있다. */}
       <S.Error visible={!isPasswordConfirm}>
         비밀번호 확인이 일치하지 않습니다.
       </S.Error>

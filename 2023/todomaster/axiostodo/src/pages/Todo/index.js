@@ -4,89 +4,92 @@ import { flexAlignCenter, flexCenter } from "styles/common";
 import TodoList from "./components/List/TodoList";
 import TodoFormModal from "./components/Modal/TodoForm";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast} from 'react-toastify';
-import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import TodoApi from "apis/todoApi";
 
 export const print = () => {
-    console.log('반갑습니다');
+  console.log("반갑습니다");
 };
 
 function TodoPage() {
-
   // state
   const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
-  const todoList = [];
+  const [todoList, setTodoList] = useState([]);
+
+  useEffect(() => {
+    const getTodoList = async () => {
+      const res = await TodoApi.getTodo();
+      setTodoList(res.data.data);
+    };
+
+    getTodoList();
+  }, []);
 
   // toast
   const handleAddTodo = (title, content) => {
-    return new Promise((resolve, reject) => {
-      if(!title || !content){
-        return resolve("need fullfilled");
-      }
+    if (!title | !content) {
+      return alert("빈칸을 채워주세요");
+    }
 
-      setTimeout(() => {
-        const newTodo = {
-          id: Math.floor(Math.random() * 100000),
-          state: false,
-          title,
-          content
-        };
-        resolve(newTodo)
-      }, 1000)
-      
-    }).then((res)=>{
-      
-      setIsOpenAddTodoModal(false)
-    })
-  }
+    return TodoApi.addTodo({ title, content })
+      .then((res) => {
+        if (res.status === 200) {
+          setTodoList([res.data.data, ...todoList]);
+        }
+        setIsOpenAddTodoModal(false);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
 
   // handle
-  const showAddTodoToastMessage = (title, content) => {    // 화살표 함수
+  const showAddTodoToastMessage = (title, content) => {
+    // 화살표 함수
     toast.promise(handleAddTodo(title, content), {
       pending: "TODO LOADING",
       success: "TODO SUCCESS",
       error: "TODO ERROR",
-    });  
+    });
   };
-
 
   const handleOpenTodoAddModal = () => {
     setIsOpenAddTodoModal(true);
-  }
+  };
 
   const handleCloseTodoAddModal = () => {
     setIsOpenAddTodoModal(false);
-  }
+  };
 
-
-    return (
-      <>
-        {isOpenAddTodoModal && (
-          <TodoFormModal
-            showAddTodoToastMessage={showAddTodoToastMessage}
-            onClose={handleCloseTodoAddModal}
-          />
-        )}
-        <S.Wrapper>
-          <S.Container>
-            <S.Title>List</S.Title>
-            <S.Content>
-              <TodoList todoList={todoList}/>
-            </S.Content>
-            <S.ButtonBox>
-              <Button
-                variant={"primary"}
-                size={"full"}
-                onClick={handleOpenTodoAddModal}
-              >
-                추가
-              </Button>
-            </S.ButtonBox>
-          </S.Container>
-          <ToastContainer autoClose={2000} theme="colored" />
-        </S.Wrapper>
-      </>
-    );
+  return (
+    <>
+      {isOpenAddTodoModal && (
+        <TodoFormModal
+          showAddTodoToastMessage={showAddTodoToastMessage}
+          onClose={handleCloseTodoAddModal}
+        />
+      )}
+      <S.Wrapper>
+        <S.Container>
+          <S.Title>List</S.Title>
+          <S.Content>
+            <TodoList todoList={todoList} />
+          </S.Content>
+          <S.ButtonBox>
+            <Button
+              variant={"primary"}
+              size={"full"}
+              onClick={handleOpenTodoAddModal}
+            >
+              추가
+            </Button>
+          </S.ButtonBox>
+        </S.Container>
+        <ToastContainer autoClose={2000} theme="colored" />
+      </S.Wrapper>
+    </>
+  );
 }
 export default TodoPage;
 
@@ -141,3 +144,15 @@ const S = {
   ButtonBox,
   Content,
 };
+
+
+
+
+
+/*
+
+prettier, eslint, husky
+errorboundary, customApiError, suspense
+axiosTodo 종료 --> redux - tool - kit
+
+*/

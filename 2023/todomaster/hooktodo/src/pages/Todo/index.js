@@ -14,8 +14,8 @@ export const print = () => {
 function TodoPage() {
 
   // state
-  const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
-  const [todoList, setTodoList] = useState([
+  const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);  // 모달창의 활성화를 관리하는 state함수
+  const [todoList, setTodoList] = useState([  // todoList의 데이터를 관리하는 state함수 초기값은 아래와 같다(더미데이터 채워놓기)
         {
             id: 1,
             title: 'example1',
@@ -50,7 +50,7 @@ function TodoPage() {
   const handleAddTodo = (title, content) => {
     return new Promise((resolve, reject) => {
       if(!title || !content){
-        return resolve("need fullfilled");
+        return reject("need fullfilled");
       }
 
       setTimeout(() => {
@@ -63,9 +63,10 @@ function TodoPage() {
       }, 1000)
       
     }).then((res)=>{
+      // 성공하면
       // const newTodoList = [...todoList].push(res)
-      setTodoList([res, ...todoList])
-      setIsOpenAddTodoModal(false)
+      setTodoList([res, ...todoList]); // state의 불변성을 지키기 위해 깊은복사를 한 얕은비교를 함 ⭐⭐⭐⭐⭐ (res를 앞에 붙인 것은 최신순으로 Todo카드를 추가하기 위함 )
+      setIsOpenAddTodoModal(false);
     })
   }
 
