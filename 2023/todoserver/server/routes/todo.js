@@ -3,13 +3,13 @@ import { jwtAuth } from '../middlewares/jwtAuth.js';
 import { TodoService } from '../services/todoService.js';
 const router = express.Router();
 
-router.post('/',  TodoService.create);
-
-    // post /todo
-
 router.get('/', TodoService.read);
 
     // get /todo
+
+router.post('/',  TodoService.create);
+
+    // post /todo => {title, content}
 
 router.put('/:todoId', TodoService.update);
 
