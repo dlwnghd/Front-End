@@ -9,11 +9,9 @@ const TodoApi = {
     return res;
   },
   addTodo({title, content}) {
-    console.log(title);
-    console.log(content);
     return Axios.post(PATH, { title, content });
   },
-  updateTodo(id, content, state) {
+  updateTodo(id, {content, state}) {
     return Axios.put(PATH + "/" + id, { content, state });
   },
   deleteTodo(id) {

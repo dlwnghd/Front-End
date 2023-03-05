@@ -1,5 +1,6 @@
 import passport from 'passport';
 import { FailureData } from '../util/resultData.js';
+import jwt from 'jsonwebtoken';
 
 export const jwtAuth = (req, res, next) => {
   passport.authenticate('jwt', { session: false }, (err, user) => {

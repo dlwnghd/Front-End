@@ -35,7 +35,7 @@ function TodoPage() {
     return TodoApi.addTodo({ title, content })
       .then((res) => {
         if (res.status === 200) {
-          setTodoList([res.data.data, ...todoList]);
+          setTodoList([...todoList, res.data.data]);
         }
         setIsOpenAddTodoModal(false);
       })

@@ -4,7 +4,12 @@
 // 어떻게 나눌 수 있는지 생각해보아라
 
 import axios from "axios";
+import TokenService from "repository/TokenService";
 
+// 의존성 역전 원칙
 export const Axios = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
+  headers: {
+    Authorization: `Bearer ${TokenService.getToken()}`,
+  },
 });

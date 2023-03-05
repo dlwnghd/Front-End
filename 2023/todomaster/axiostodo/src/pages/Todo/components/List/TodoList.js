@@ -3,35 +3,47 @@ import TodoCard from "./Card/Card";
 
 function TodoList({ todoList, setTodoList }) {
   
-  const handleUpdateTodo = (id, content, state) => {
-    return TodoApi.updateTodo(id, content, state)
-      .then((res) => {
-        if (res.status === 200) {
-          setTodoList((prev) =>
-            prev.map((todo) =>
-              todo.id === res.data.data.id ? res.data.data : todo
-            )
-          );
-        }
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
+  const handleUpdateTodo = async (id, content, state) => {
+    try{
+      const {data} = await TodoApi.updateTodo(id, {content, state});
+      const newTodoList = [...todoList];
+      const index = newTodoList.findIndex((todo) => todo.id === data.data.id);
+      newTodoList[index] = data.data;
+      setTodoList(newTodoList);
+    } catch (err) {
+      console.log(err);
+    }
+
+    // 아래는 내가 했었던 풀이
+    // return TodoApi.updateTodo(id, {content, state})
+    //   .then((res) => {
+    //     if (res.status === 200) {
+    //       setTodoList((prev) =>
+    //         prev.map((todo) =>
+    //           todo.id === res.data.data.id ? res.data.data : todo
+    //         )
+    //       );
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     throw new Error(err);
+    //   });
   };
-
-
-
+/**
+ * Todo의 id를 받아 일치하는 Todo를 삭제하는 비지니스 로직 함수
+ */
   const handleDeleteTodo = async (id) => {
   if (window.confirm("정말 삭제하시겠습니까")) {
-    try {
-      await TodoApi.deleteTodo(id);
-      setTodoList(todoList.filter((todo) => todo.id !== id));
-    } catch (error) {
-      console.error(error);
-    }
+    const {data} = await TodoApi.deleteTodo(id);
+    setTodoList(todoList.filter((todo) => todo.id !== data.data));
+    // try {
+    //   await TodoApi.deleteTodo(id);
+    //   setTodoList(todoList.filter((todo) => todo.id !== id));
+    // } catch (error) {
+    //   console.error(error);
+    // }
   }
 };
-
 
   return (
     <div>
