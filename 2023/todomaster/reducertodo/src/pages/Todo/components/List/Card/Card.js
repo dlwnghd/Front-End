@@ -9,8 +9,8 @@ function TodoCard(props) {
   const { onDelete, handleEdit } = props;
   const { id, state, title, content } = props.todo;
 
-  const [isTodoEdit, setIsTodoEdit] = useState(false);
-  const [editContent, onChangeEditContent] = useInput(content);
+  const [isTodoEdit, setIsTodoEdit] = useState(false); // 수정상태를 관리
+  const [editContent, onChangeEditContent] = useInput(content); // 수정될 내용 기억
 
   const onSetIsTodoEditTrue = () => {
     setIsTodoEdit(true);
@@ -39,7 +39,7 @@ function TodoCard(props) {
               icon={faPen}
               onClick={isTodoEdit ? onClickTodoEditBtn : onSetIsTodoEditTrue}
             />
-            <FontAwesomeIcon icon={faBan} onClick={()=>onDelete(id)} />
+            <FontAwesomeIcon icon={faBan} onClick={() => onDelete(id)} />
           </div>
         </S.Title>
       </S.Header>

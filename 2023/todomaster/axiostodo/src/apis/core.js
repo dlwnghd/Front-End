@@ -10,6 +10,7 @@ import TokenService from "repository/TokenService";
 export const Axios = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
   headers: {
+    //              ⬇️ 보안 아이템
     Authorization: `Bearer ${TokenService.getToken()}`,
   },
 });

@@ -3,6 +3,7 @@ import TodoCard from "./Card/Card";
 
 function TodoList({ todoList, setTodoList }) {
   
+  /** Todo 업데이트 */
   const handleUpdateTodo = async (id, content, state) => {
     try{
       const {data} = await TodoApi.updateTodo(id, {content, state});

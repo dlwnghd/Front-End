@@ -3,15 +3,21 @@
 
 import { Axios } from "./core";
 
-const PATH = '/user';
+const PATH = "/user";
 
 const AuthApi = {
+  /**
+   *
+   * @param {string} email - 이메일
+   * @param {string} password - 비밀번호
+   * @returns 사용자 정보가 암호화 되어있는 토큰
+   */
   async login(email, password) {
-    const res = await Axios.post(PATH + '/login', { email, password });
+    const res = await Axios.post(PATH + "/login", { email, password });
     return res.data;
   },
   signup(email, password) {
-    return Axios.post (PATH + '/sign', {email, password});
+    return Axios.post(PATH + "/sign", { email, password });
   },
 };
 

@@ -47,7 +47,7 @@ function User(){
 
     // 삭제 버튼 클릭
     const onDeleteUser = (id) => {
-        dispatch(REMOVE_STATE({id}));
+      dispatch(REMOVE_STATE({id}));
     };
 
     // 추가 버튼 클릭

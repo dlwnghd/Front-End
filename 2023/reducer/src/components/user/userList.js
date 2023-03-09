@@ -6,6 +6,7 @@ import { UserContext } from "../context/user";
 function UserList({ onDeleteUser }) {
   
   const userList = useContext(UserContext);
+  console.log(userList);
 
   return userList.map((user, index) => (
     <div key={index}>

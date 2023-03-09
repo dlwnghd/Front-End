@@ -26,23 +26,23 @@ function LoginForm() {
 
   const onLoginSubmit = async (e) => {
     e.preventDefault();
-    try{
-      const {data: response} = await AuthApi.login(email, password);
+    try {
+      const { data: response } = await AuthApi.login(email, password);
       TokenService.setToken(response.token);
-      if(TokenService.getToken()) {
-        navigate('/todo');
+      if (TokenService.getToken()) {
+        navigate("/todo");
       }
 
       // token == access_token
       // token 값을 저잘할 것, token 값이 있다면 로그인이 된 것
-      // 프론트엔드의 로그인 유무 판단
+      // 프론트엔드의 로그인 유무 판단에서 토큰을 사용할 수 있다.
       /*
         1. 웹스토리지 (로컬, 세션스토리지)
-        2. state (redux-persist)
+        2. state (redux-persist) => 강사님은 개인적으로 비추천🤢, 하지만 사용하는 회사도 있다.
         3. refreshToken
-          access_token은 어디에 저장하든 탈취 위험
+          access_token은 어디에 저장하든 탈취 위험이 있다.
           따라서 access_token이 탈취되어도 이 토큰에 기간을 설정해서 
-          해커한테 제어권이 넘어가는 시간을 최소화
+          해커한테 제어권이 넘어가는 시간을 최소화 한다.
 
           access_token => 만료 => 사용자는 접근 권한 x => 프론트엔드 로그아웃 처리를
           사용자가 불편해요 안해요
@@ -52,7 +52,7 @@ function LoginForm() {
       */
     } catch (err) {
       console.error(err);
-      alert('아이디와 비밀번호를 확인해주세요');
+      alert("아이디와 비밀번호를 확인해주세요");
     }
   };
 
