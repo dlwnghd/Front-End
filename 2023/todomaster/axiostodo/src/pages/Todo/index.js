@@ -17,6 +17,11 @@ function TodoPage() {
   const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
   const [todoList, setTodoList] = useState([]);
 
+  // useEffect안에서 async를 사용하는 것이 불가능하다.
+  // 해결법(2)
+  // 1. then, catch를 이용하는 방법
+  // 2. 내부에 함수를 만들어서 거기에 async를 사용하는 방법
+
   useEffect(() => {
     const getTodoList = async () => {
       const res = await TodoApi.getTodo();
@@ -27,6 +32,12 @@ function TodoPage() {
   }, []);
 
   // toast
+  /**
+   *
+   * @param {String} title - Todo 제목
+   * @param {String} content - Todo 내용
+   * @returns
+   */
   const handleAddTodo = (title, content) => {
     if (!title | !content) {
       return alert("빈칸을 채워주세요");
@@ -35,6 +46,8 @@ function TodoPage() {
     return TodoApi.addTodo({ title, content })
       .then((res) => {
         if (res.status === 200) {
+          console.log(todoList);
+          console.log(res.data.data);
           setTodoList([...todoList, res.data.data]);
         }
         setIsOpenAddTodoModal(false);
@@ -74,7 +87,7 @@ function TodoPage() {
         <S.Container>
           <S.Title>List</S.Title>
           <S.Content>
-            <TodoList todoList={todoList} setTodoList={setTodoList}/>
+            <TodoList todoList={todoList} setTodoList={setTodoList} />
           </S.Content>
           <S.ButtonBox>
             <Button
@@ -144,10 +157,6 @@ const S = {
   ButtonBox,
   Content,
 };
-
-
-
-
 
 /*
 

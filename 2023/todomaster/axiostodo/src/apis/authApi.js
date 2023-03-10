@@ -3,11 +3,14 @@
 
 import { Axios } from "./core";
 
+/**
+ * 실무에서 만약에 기획단계에서 url의 경로가 바뀌었을 경우 여기를 1차적으로 수정하면 나머지 경로도 한번의 수정으로 모두 포함이 됨
+ */
 const PATH = "/user";
 
 const AuthApi = {
   /**
-   *
+   * 로그인 API
    * @param {string} email - 이메일
    * @param {string} password - 비밀번호
    * @returns 사용자 정보가 암호화 되어있는 토큰
@@ -16,6 +19,12 @@ const AuthApi = {
     const res = await Axios.post(PATH + "/login", { email, password });
     return res.data;
   },
+  /**
+   * 회원가입 API
+   * @param {string} email - 이메일
+   * @param {string} password - 비밀번호
+   * @returns 사용자 정보가 암호화 되어있는 토큰
+   */
   signup(email, password) {
     return Axios.post(PATH + "/sign", { email, password });
   },

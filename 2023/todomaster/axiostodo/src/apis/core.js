@@ -7,6 +7,9 @@ import axios from "axios";
 import TokenService from "repository/TokenService";
 
 // 의존성 역전 원칙
+/**
+ * 기본 디폴트 값을 설정
+ */
 export const Axios = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_URL,
   headers: {
