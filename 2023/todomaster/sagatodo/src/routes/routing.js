@@ -1,5 +1,4 @@
 import Layout from "components/Layout";
-import NotFoundPage from "pages/404";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/Home";
 import TodoPage from "../pages/Todo";
@@ -21,18 +20,12 @@ const router = createBrowserRouter([
         path: "todo",
         element: <TodoPage />,
       },
-      // 404페이지 생성 방법1.
-      // {
-      //   path: "*",
-      //   element: <NotFoundPage />,
-      // },
     ],
   },
-  // 404페이지 생성 방법2.
-  {
-    path: "*",
-    element: <NotFoundPage />,
-  },
+//   path가 user일때 다른 컨포넌트를 넣을 수도 있다.
+//   {
+//     path: "/user"
+//   }
 ]);
 
 export default router;

@@ -5,8 +5,10 @@ import TodoList from "./components/List/TodoList";
 import TodoFormModal from "./components/Modal/TodoForm";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import { useEffect, useState } from "react";
-import TodoApi from "apis/todoApi";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodo } from "store/todo";
+import axios from "axios";
 
 export const print = () => {
   console.log("반갑습니다");
@@ -15,45 +17,22 @@ export const print = () => {
 function TodoPage() {
   // state
   const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
-  const [todoList, setTodoList] = useState([]);
-
-  // useEffect안에서 async를 사용하는 것이 불가능하다.
-  // 해결법(2)
-  // 1. then, catch를 이용하는 방법
-  // 2. 내부에 함수를 만들어서 거기에 async를 사용하는 방법
-
-  useEffect(() => {
-    const getTodoList = async () => {
-      const res = await TodoApi.getTodo();
-      setTodoList(res.data.data);
-    };
-
-    getTodoList();
-  }, []);
+  const todoList = useSelector((state) => state.todo);
+  const dispatch = useDispatch(); // 전서구
 
   // toast
-  /**
-   * @param {String} title - Todo 제목
-   * @param {String} content - Todo 내용
-   * @returns
-   */
   const handleAddTodo = (title, content) => {
-    if (!title | !content) {
-      return alert("빈칸을 채워주세요");
+    if (!title || !content) {
+      return alert("빈칸을 채워주세요.");
     }
+    const newTodo = {
+      title,
+      content,
+    };
 
-    return TodoApi.addTodo({ title, content })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(todoList);
-          console.log(res.data.data);
-          setTodoList([...todoList, res.data.data]);
-        }
-        setIsOpenAddTodoModal(false);
-      })
-      .catch((err) => {
-        throw new Error(err);
-      });
+    return axios.post("/api/todo", newTodo).then((res) => {
+      console.log(res);
+    });
   };
 
   // handle
@@ -86,7 +65,7 @@ function TodoPage() {
         <S.Container>
           <S.Title>List</S.Title>
           <S.Content>
-            <TodoList todoList={todoList} setTodoList={setTodoList} />
+            <TodoList todoList={todoList} />
           </S.Content>
           <S.ButtonBox>
             <Button
@@ -156,11 +135,3 @@ const S = {
   ButtonBox,
   Content,
 };
-
-/*
-
-prettier, eslint, husky
-errorboundary, customApiError, suspense
-axiosTodo 종료 --> redux - tool - kit
-
-*/

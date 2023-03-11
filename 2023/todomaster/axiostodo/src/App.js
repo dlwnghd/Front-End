@@ -5,13 +5,16 @@ import GlobalStyles from "./styles/global";
 
 import theme from "./styles/theme";
 import router from "./routes/routing";
+import AuthProvider from "context/auth";
 
 function App() {
   return (
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <AuthProvider>
         <GlobalStyles />
         <RouterProvider router={router} />
-      </ThemeProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 export default App;
