@@ -1,17 +1,16 @@
-import { RouterProvider } from "react-router-dom";
-import createConfig from ''
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "./styles/global";
-
-import theme from "./styles/theme";
-import Routing from "./routes/routing";
-import { Provider } from "react-redux";
-import { store } from "store/store";
-import { worker } from "__mock__/browser";
+import { Provider } from 'react-redux';
+import createConfig from 'store/store';
+import { ThemeProvider } from 'styled-components';
+import { worker } from '__mock__/browser';
+import Routing from './routes/Routing';
+import GlobalStyles from './styles/global';
+import { theme } from './styles/theme';
 
 function App() {
   const store = createConfig();
+  
 
+  // npx msw init public/ 
   if(process.env.NODE_ENV === "development"){
     worker.start()
   }
@@ -25,4 +24,5 @@ function App() {
     </Provider>
   );
 }
+
 export default App;

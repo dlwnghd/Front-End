@@ -1,29 +1,37 @@
-import styled from "styled-components";
-import { flexAlignCenter, flexCenter, ModalBackground } from "styles/common";
+import { flexAlignCenter, flexCenter, ModalBackground } from 'styles/common';
+import styled from 'styled-components';
+import { toast } from 'react-toastify';
+import useInput from 'hooks/useInput';
 
-function TodoFormModal({ showAddTodoToastMessage, onClose }) {
+function TodoFormModal({ onCloseFormModal, onAddTodo }) {
+  const [title, onChnageTitle] = useInput('');
+  const [content, onChangeContent] = useInput('');
 
-
-  const onClickAddtodoBtn = (e) => {
-    e.preventDefault(); // URL의 변경을 막음 form 태그는 제출이되어도 action을 취하지 않는다. 기본기능을 막는다
-    console.log(e.target.title.value);  // 제목
-
-    const title = e.target.title.value;
-    const content = e.target.content.value;
-    // onsubmit 이벤트 발생시 e.target.name명.value로 값을 가지고 올 수 있다.
-    showAddTodoToastMessage(title, content);
+  const showToastMessage = (e) => {
+    e.preventDefault();
+    toast.promise(onAddTodo(title, content), {
+      pending: 'TODO LOADING',
+      success: 'TODO SUCCESS',
+      error: 'TODO ERROR',
+    });
   };
 
   return (
     <S.Wrapper>
-      <S.Form onSubmit={onClickAddtodoBtn}>
+      <S.Form onSubmit={showToastMessage}>
         <S.Title>
           <span>ADD TODO LIST</span>
-          <button onClick={onClose}>x</button>
+          <button type="button" onClick={onCloseFormModal}>
+            X
+          </button>
         </S.Title>
         <S.Content>
-          <input placeholder="제목을 입력해주세요" name="title" />
-          <textarea placeholder="할 일 내용을 입력해주세요" name="content"></textarea>
+          <input placeholder="제목을 입력해주세요" value={title} onChange={onChnageTitle} />
+          <textarea
+            placeholder="할 일 내용을 입력해주세요"
+            value={content}
+            onChange={onChangeContent}
+          ></textarea>
         </S.Content>
         <S.Button>ADD</S.Button>
       </S.Form>
@@ -43,7 +51,7 @@ const Form = styled.form`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${({ theme }) => theme.PALETTE.white};
+  background-color: ${({ theme }) => theme.palette.white};
   border-radius: 8px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   padding: 32px;
@@ -94,13 +102,13 @@ const Button = styled.button`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.PALETTE.primary[300]};
-  color: ${({ theme }) => theme.PALETTE.fontColor};
+  background-color: ${({ theme }) => theme.palette.primary[300]};
+  color: ${({ theme }) => theme.palette.fontColor};
   margin: 0 auto;
   cursor: pointer;
   :hover {
     background-color: transparent;
-    color: ${({ theme }) => theme.PALETTE.primary[300]};
+    color: ${({ theme }) => theme.palette.primary[300]};
   }
 `;
 

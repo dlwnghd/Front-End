@@ -5,7 +5,7 @@ import GlobalStyles from "./styles/global";
 
 import theme from "./styles/theme";
 import router from "./routes/routing";
-import AuthProvider from "context/auth";
+import AuthProvider from "contexts/auth";
 
 function App() {
   return (

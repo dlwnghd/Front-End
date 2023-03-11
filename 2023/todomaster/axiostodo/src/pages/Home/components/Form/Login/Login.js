@@ -1,7 +1,7 @@
 import AuthApi from "apis/authApi";
 import axios from "axios";
 import Button from "components/Button/Button";
-import { useAuth } from "context/auth";
+import { useAuth } from "contexts/auth";
 import useInput from "hooks/useInput";
 import useInputs from "hooks/useInputs";
 import { useEffect, useRef, useState } from "react";

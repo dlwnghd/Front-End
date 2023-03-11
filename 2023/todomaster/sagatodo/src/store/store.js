@@ -1,11 +1,14 @@
-import { applyMiddleware, createStore } from "redux";
-import { rootReducer } from "./@root";
+import { rootReducer } from "reducer";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 
-export const store = createStore(
-  rootReducer,
-  process.env.NODE_ENV === "development" && composeWithDevTools(applyMiddleware(logger))
-);
-// rootReducer ---> 채워넣는다
-// middleware 설정
+const createConfig = () => {
+  const store = createStore(
+    rootReducer,
+    process.env.NODE_ENV === "development" &&
+      composeWithDevTools(applyMiddleware(logger))
+  );
+  return store;
+};
+export default createConfig;

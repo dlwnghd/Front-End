@@ -21,6 +21,9 @@ export const Axios = axios.create({
 });
 
 Axios.interceptors.request.use(
+  /**
+   * config가 있다면(error가 없다면)
+   */
   (config) => {
     const access_token = TokenService.getToken();
     if (access_token) {
@@ -29,33 +32,37 @@ Axios.interceptors.request.use(
     }
     return config;
   },
-  // config
 
+  /**
+   * error가 생긴다면
+   */
   (error) => {
-    // error
     return Promise.reject(error);
   }
 );
 
 Axios.interceptors.response.use(
-  // 성공
+  /**
+   * 성공했을 때
+   */
   (response) => {
     return response;
   },
-  // 실패
+  /**
+   * 실패했을 때
+   */
   (error) => {
     const originalRequest = error.config;
-    //                                      ⬇️ 이게 false이면 => 무한 재요청을 막기 위해
-    if (error.response.status === 401 && originalRequest._retry) {
+    //                                      ⬇️ 이게 false이면 이라는 조건 추가 => 무한 재요청을 막기 위해
+    if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       /*
       const res = 백엔드에서 refresh token으로 access_token을 응답받는 주고
                   axios.post("/jwtRefresh")
 
-
       1. refreshToken이 쿠키로 관리되고 있다면
-        보낼 필요가 없다. 백에드와 프론트에서 쿠키값을 공유할 수 있음
+        보낼 필요가 없다. 백엔드와 프론트엔드에서 쿠키값을 공유할 수 있음
 
       2. 로컬스토리지, 세션스토리지, 웹쿠키(공유하지 않는다는 전제)
       

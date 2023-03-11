@@ -5,6 +5,11 @@ import HomePage from "../pages/Home";
 import TodoPage from "../pages/Todo";
 
 // App.js에서 routing 했던 path를 배열로 관리
+/**
+ * @param "/" - 기본 경로
+ * @param "todo" - todo 경로
+ * @param "*" - 그 외 경로(404)
+ */
 const router = createBrowserRouter([
   {
     path: "/",

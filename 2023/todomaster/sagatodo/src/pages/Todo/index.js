@@ -1,65 +1,50 @@
-import Button from "components/Button/Button";
-import styled from "styled-components";
-import { flexAlignCenter, flexCenter } from "styles/common";
-import TodoList from "./components/List/TodoList";
-import TodoFormModal from "./components/Modal/TodoForm";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodo } from "store/todo";
-import axios from "axios";
-
-export const print = () => {
-  console.log("반갑습니다");
-};
+import styled from 'styled-components';
+import { Button } from 'components/Button/Style';
+import { flexAlignCenter, flexCenter } from 'styles/common';
+import TodoFormModal from './compoents/Modal/Form/Form';
+import TodoList from './compoents/List/List';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo, ADD_TODO } from 'reducer/todo';
+import axios from 'axios';
 
 function TodoPage() {
-  // state
-  const [isOpenAddTodoModal, setIsOpenAddTodoModal] = useState(false);
+  const [isOpenFormModal, setIsOpenFormModal] = useState(false);
   const todoList = useSelector((state) => state.todo);
-  const dispatch = useDispatch(); // 전서구
+  const dispatch = useDispatch();
 
-  // toast
-  const handleAddTodo = (title, content) => {
+  const onOpenFormModal = () => {
+    setIsOpenFormModal(true);
+  };
+
+  const onCloseFormModal = () => {
+    setIsOpenFormModal(false);
+  };
+
+  // addtodo
+  const onAddTodo = (title, content) => {
     if (!title || !content) {
-      return alert("빈칸을 채워주세요.");
+      return alert('빈칸을 채워주세요.');
     }
     const newTodo = {
       title,
       content,
     };
 
-    return axios.post("/api/todo", newTodo).then((res) => {
-      console.log(res);
-    });
-  };
+    return axios.post("/api/todo", newTodo).then(
+      (res) => {
+        console.log(res)
+      }
+    )
 
-  // handle
-  const showAddTodoToastMessage = (title, content) => {
-    // 화살표 함수
-    toast.promise(handleAddTodo(title, content), {
-      pending: "TODO LOADING",
-      success: "TODO SUCCESS",
-      error: "TODO ERROR",
-    });
-  };
-
-  const handleOpenTodoAddModal = () => {
-    setIsOpenAddTodoModal(true);
-  };
-
-  const handleCloseTodoAddModal = () => {
-    setIsOpenAddTodoModal(false);
-  };
+  }
 
   return (
     <>
-      {isOpenAddTodoModal && (
-        <TodoFormModal
-          showAddTodoToastMessage={showAddTodoToastMessage}
-          onClose={handleCloseTodoAddModal}
-        />
+      {isOpenFormModal && (
+        <TodoFormModal onCloseFormModal={onCloseFormModal} onAddTodo={onAddTodo} />
       )}
       <S.Wrapper>
         <S.Container>
@@ -68,11 +53,7 @@ function TodoPage() {
             <TodoList todoList={todoList} />
           </S.Content>
           <S.ButtonBox>
-            <Button
-              variant={"primary"}
-              size={"full"}
-              onClick={handleOpenTodoAddModal}
-            >
+            <Button variant="primary" size="full" onClick={onOpenFormModal}>
               추가
             </Button>
           </S.ButtonBox>
@@ -84,11 +65,6 @@ function TodoPage() {
 }
 export default TodoPage;
 
-// const test = 'test';
-// export default test;
-// export default 되어있는 경우 경로만 맞으면 내 마음대로 이름을 정해서 가지고 올 수 있구요
-// export 되어있는 경우는 {} 구조분해할당을 통해 해당 export된 변수명 혹은 함수명 등을 이용하여 key값으로 가지고온다.
-
 const Wrapper = styled.div`
   height: calc(100vh - 60px);
   padding-bottom: 60px;
@@ -98,15 +74,15 @@ const Wrapper = styled.div`
 const Container = styled.div`
   width: 420px;
   height: 100%;
-  background-color: ${({ theme }) => theme.PALETTE.white};
+  background-color: ${({ theme }) => theme.palette.white};
   border-radius: 8px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   position: relative;
 `;
 
 const Title = styled.h1`
-  background-color: ${({ theme }) => theme.PALETTE.primary[300]};
-  color: ${({ theme }) => theme.PALETTE.fontColor};
+  background-color: ${({ theme }) => theme.palette.primary[300]};
+  color: ${({ theme }) => theme.palette.fontColor};
   padding-left: 32px;
   height: 32px;
   ${flexAlignCenter};
