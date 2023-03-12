@@ -4,6 +4,7 @@
 // 어떻게 나눌 수 있는지 생각해보아라
 
 import axios from "axios";
+import { useAuth } from "contexts/auth";
 import TokenService from "repository/TokenService";
 
 // 의존성 역전 원칙
@@ -51,11 +52,25 @@ Axios.interceptors.response.use(
   /**
    * 실패했을 때
    */
-  (error) => {
+  async (error) => {
+    const auth = useAuth();
+    if (error.response.status === 401) {
+      await Axios.logout();
+      auth.logout();
+    }
+
     const originalRequest = error.config;
     //                                      ⬇️ 이게 false이면 이라는 조건 추가 => 무한 재요청을 막기 위해
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if (error.response.status === 403 && !originalRequest._retry) {
       originalRequest._retry = true;
+
+      const res = await Axios.post(`/user/jwt`);
+      if (res.status === 200) {
+        const token = res.data.data;
+        TokenService.setToken(token);
+        Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        return Axios(originalRequest);
+      }
 
       /*
       const res = 백엔드에서 refresh token으로 access_token을 응답받는 주고
@@ -80,6 +95,6 @@ Axios.interceptors.response.use(
       */
     }
     // 그외의 다른 에러들은 던져줌
-    return Promise.reject(error)
+    return Promise.reject(error);
   }
 );

@@ -68,11 +68,6 @@ app.use(
     saveUninitialized: false,
     resave: false,
     secret: process.env.SESSION_SECRET_KEY,
-    cookie: {
-      sameSite: 'none',
-      httpOnly: true,
-      secure: true,
-    },
   }),
 );
 

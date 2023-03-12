@@ -3,6 +3,7 @@ import NotFoundPage from "pages/404";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/Home";
 import TodoPage from "../pages/Todo";
+import PrivateRoute from "./private";
 
 // App.js에서 routing 했던 path를 배열로 관리
 /**
@@ -23,17 +24,23 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "todo",
-        element: <TodoPage />,
+        // 아래는 로그인이 된 사람만 가능한 컴포넌트들
+        element: <PrivateRoute />,
+        children: [
+          {
+            path: "todo",
+            element: <TodoPage />,
+          },
+        ],
       },
-      // 404페이지 생성 방법1.
+      // ⬇️ 404페이지 생성 방법1.
       // {
       //   path: "*",
       //   element: <NotFoundPage />,
       // },
     ],
   },
-  // 404페이지 생성 방법2.
+  // ⬇️ 404페이지 생성 방법2.
   {
     path: "*",
     element: <NotFoundPage />,

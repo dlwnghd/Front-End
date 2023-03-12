@@ -12,13 +12,13 @@ export const useAuth = () => useContext(AuthContext);
 function AuthProvider({ children }) {
   const [accessToken, setAccessToken] = useState(TokenService.getToken());
 
-  // useEffect(()=> {
-  //   // 만약에 웹 스토리지에 token이 남아 있다면
-  //   const token = TokenService.getToken();
-  //   if(token){
-  //       setAccessToken(token);
-  //   }
-  // },[])
+  useEffect(() => {
+    // 만약에 웹 스토리지에 token이 남아 있다면
+    const token = TokenService.getToken();
+    if (token) {
+      setAccessToken(token);
+    }
+  }, []);
 
   /**
    * 로그인 : 토큰 생성
@@ -43,7 +43,6 @@ function AuthProvider({ children }) {
   );
 }
 export default AuthProvider;
-
 
 /*
 privateRoute (접근권한)

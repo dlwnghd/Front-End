@@ -28,6 +28,11 @@ const AuthApi = {
   signup(email, password) {
     return Axios.post(PATH + "/sign", { email, password });
   },
+
+  async logout() {
+    const res = await Axios.post(PATH + "/logout");
+    return res.data;
+  },
 };
 
 /*

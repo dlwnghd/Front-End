@@ -5,21 +5,14 @@ import { useAuth } from "contexts/auth";
 import useInput from "hooks/useInput";
 import useInputs from "hooks/useInputs";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import TokenService from "repository/TokenService";
 import * as S from "../style";
 
 function LoginForm() {
   const navigate = useNavigate();
   const auth = useAuth();
-  // const [email, onChangeEmail, setEmail] = useInput('');
-  // const [password, onChangePassword, setPassword] = useState('');
-
-  // react-hook-form, zod 를 썻으면 좋겠지만 나중에...
-
-  // // useRef
-  // const email = useRef();
-  // const password = useRef();
+  const { state } = useLocation();
 
   const [{ email, password }, onChangeForm] = useInputs({
     email: "",
@@ -31,9 +24,9 @@ function LoginForm() {
     try {
       const { data: response } = await AuthApi.login(email, password);
       auth.login(response.token);
-      if (TokenService.getToken()) {
-        navigate("/todo");
-      }
+      // if (TokenService.getToken()) {
+      //   navigate("/todo");
+      // }
 
       // token == access_token
       // token 값을 저잘할 것, token 값이 있다면 로그인이 된 것
@@ -57,6 +50,20 @@ function LoginForm() {
       alert("아이디와 비밀번호를 확인해주세요");
     }
   };
+
+  /*access_token이 있다면 로그인 페이지 접근을 막고 todo 페이지로 이동 */
+  useEffect(() => {
+    if (auth.accessToken) return navigate("/todo");
+  }, []);
+
+  /**해당 로직은 필수가 아니라 어떻게 로그아웃 후 처리를 할 건지 설계에 따라 달라짐*/
+  useEffect(() => {
+    if (!auth.accessToken) return;
+    if (!state) return navigate("/todo");
+
+    // state에 from객체로 보내줌
+    navigate(state.from);
+  }, [auth]);
 
   /*
     1. 관심사분리 axios를 하나의 service 파일로 만들 것
