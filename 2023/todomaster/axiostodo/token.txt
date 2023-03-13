@@ -12,8 +12,8 @@
 
 
     1) 웹스토리지(session)
-    2) 쿠키
-        - 쿠키로 토큰을 관리하는 경우에는
+    2) 쿠키🍪
+        - 쿠키🍪로 토큰을 관리하는 경우에는
         - 백엔드 개발자와 이야기 후 진행해야한다.
     3) state
 
@@ -23,19 +23,19 @@
         ex) const res = await ...
             res.data
 
-            ----> 웹스토리지, 쿠키 , state(⬅️비추천🤢) 중 아무데나 저장
+            ----> 웹스토리지, 쿠키🍪 , state(⬅️비추천🤢) 중 아무데나 저장
 
     2) res.header
         ex) const res = await ...
             res.config.header
 
-            ----> 웹스토리지, 쿠키 , state(🤢) 중 아무데나 저장
+            ----> 웹스토리지, 쿠키🍪 , state(🤢) 중 아무데나 저장
 
     3) cookies
         axios의 인스턴스 옵션에서
         withCredentials => true로 해야만 프론트엔드가 토큰을 전달 받을 수 있음
 
-        이 경우 만약 쿠키를 사용해야한다면
+        이 경우 만약 쿠키🍪를 사용해야한다면
         react-cookie라는 라이브러리를 설치하여
 
         const [cookies, setCookie] = useCookies(['access_token'])

@@ -29,6 +29,10 @@ const AuthApi = {
     return Axios.post(PATH + "/sign", { email, password });
   },
 
+  /**
+   * 로그아웃 API
+   * @return Axios의 logout경로를 돌려줌
+   */
   async logout() {
     const res = await Axios.post(PATH + "/logout");
     return res.data;

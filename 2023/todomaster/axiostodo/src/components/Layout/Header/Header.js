@@ -9,6 +9,9 @@ import { useAuth } from "contexts/auth";
 function BasicHeader() {
   const auth = useAuth();
 
+  /**
+   * Backend에게도 logout을 했다고 알려줄 필요가 있음
+   */
   const onLogOut = async () => {
     await Axios.logout();
     auth.logout();
