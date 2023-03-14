@@ -74,15 +74,23 @@ export const addTodo = createAsyncThunk('todo/addTodo', async todo => {
 	const res = await axios.post('/api/todo', todo)
 	return res.data
 })
-
+/**
+ * Todo 조회
+ */
 export const getTodos = createAsyncThunk('todo/getTodos', async () => {
 	return null
 })
 
+/**
+ * Todo 수정
+ */
 export const updateTodo = createAsyncThunk('todo/updateTodo', async () => {
 	return null
 })
 
+/**
+ * Todo 삭제
+ */
 export const deleteTodo = createAsyncThunk('todo/deleteTodo', async () => {
 	return null
 })
