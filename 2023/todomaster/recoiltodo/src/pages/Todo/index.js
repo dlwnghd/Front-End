@@ -5,7 +5,7 @@ import TodoList from "./components/List/TodoList";
 import TodoFormModal from "./components/Modal/TodoForm";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import TodoApi from "apis/todoApi";
 import { useRecoilState } from "recoil";
 import { addModalAtom } from "atoms/ui.atom";
@@ -21,10 +21,7 @@ function TodoPage() {
   const [isOpenAddTodoModal, setIsOpenAddTodoModal] =
     useRecoilState(addModalAtom);
 
-  const { data: todoList, status, isLoading } = useGetTodo();
   const { mutate } = useAddTodo();
-
-  console.log(status, isLoading);
 
   // toast
   /**
@@ -66,7 +63,6 @@ function TodoPage() {
     setIsOpenAddTodoModal(false);
   };
 
-  if(isLoading) return<div>...로딩중</div>
   return (
     <>
       {isOpenAddTodoModal && (
@@ -79,7 +75,9 @@ function TodoPage() {
         <S.Container>
           <S.Title>List</S.Title>
           <S.Content>
-            <TodoList todoList={todoList?.data.data} />
+            <Suspense>
+              <TodoList />
+            </Suspense>
           </S.Content>
           <S.ButtonBox>
             <Button

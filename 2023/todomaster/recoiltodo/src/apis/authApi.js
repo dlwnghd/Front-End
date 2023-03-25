@@ -9,6 +9,7 @@ import { Axios } from "./core";
 const PATH = "/user";
 
 const AuthApi = {
+
   /**
    * 로그인 API
    * @param {string} email - 이메일
@@ -19,6 +20,7 @@ const AuthApi = {
     const res = await Axios.post(PATH + "/login", { email, password });
     return res.data;
   },
+
   /**
    * 회원가입 API
    * @param {string} email - 이메일

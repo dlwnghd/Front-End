@@ -6,6 +6,7 @@
 import axios from "axios";
 import { useAuth } from "contexts/auth";
 import TokenService from "repository/TokenService";
+import AuthApi from "./authApi";
 
 // 의존성 역전 원칙
 /**
@@ -55,7 +56,7 @@ Axios.interceptors.response.use(
   async (error) => {
     const auth = useAuth();
     if (error.response.status === 401) {
-      await Axios.logout();
+      await AuthApi.logout();
       auth.logout();
     }
 

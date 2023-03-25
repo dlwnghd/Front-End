@@ -7,12 +7,13 @@ const useGetTodo = (params) => {
     [QUERY_KEY.GET_TODO],
     () => TodoApi.getTodo(params),
     {
+      // suspense: true,   // Suspense 사용하려면 true
+      suspense: true,
       refetchOnWindowFocus: false,
       retry: 1,
       cacheTime: 1000 * 5 * 60,
       onSuccess: () => {},
       onError: () => {},
-      // suspense: true,   // Suspense 사용하려면 true
     }
   );
 
