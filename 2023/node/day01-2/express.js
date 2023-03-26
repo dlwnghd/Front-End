@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const path = require("path");
 app.set("port", 3002);
 
 //미들웨어
@@ -9,8 +10,13 @@ app.set("port", 3002);
 app.use(morgan("dev"));
 app.use(express.json()); // json 데이터를 읽는 것을 허용
 app.use(express.urlencoded({ extended: false }));
-// url에 있는 정보 (params) 정보를 해설할 때 express 내부에 있는 모듈만 사용할 것인지
+// url에 있는 정보 (params) 정보를 해석할 때 express 내부에 있는 모듈만 사용할 것인지
 // 만약 false라면 추가 라이브러리가 아닌 내장 모듈로만 해당 주소 값을 해석
+
+//                                       ⬇️ 현재경로
+app.use("/", express.static(path.join(__dirname, "public")));
+// 정적인 파일 이미지, html, css ... 이와 같은 것들을
+// 사용자가 특정 라우트에 접속 하였을 때 폴더 접근 권한을 주는 미들웨어
 
 // 라우팅
 app.get("/todo/:todoId", (req, res) => {
