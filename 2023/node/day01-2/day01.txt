@@ -4,7 +4,7 @@ http
 
     createServer() : server 객체를 생성
     writeHead() : HTTP RESPONSE MESSAGE(응답메세지)의 HEADER 작성할 수 있음
-    end() : HTTP RESPONSE MESSAGE(응답메시지)의 BODY 작성할 수 있음
+    end() : HTTP RESPONSE MESSAGE(응답메세지)의 BODY 작성할 수 있음
     listen() : 서버를 실행하고 클라이언트를 기다리는 상태
 
     하지만 현재에 이르러 http만을 사용하여 서버를 구성하지 않습니다.

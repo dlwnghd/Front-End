@@ -1,5 +1,6 @@
 const fs = require("fs");
 
+//  ⬇️파일을 비동기적으로 읽음
 fs.readFile("./test1.txt", "utf-8", (err, data) => {
   if (data) {
     console.log(data);
@@ -9,6 +10,7 @@ fs.readFile("./test1.txt", "utf-8", (err, data) => {
 });
 
 try {
+  //                 ⬇️ 파일을 동기적으로 읽음
   let text = fs.readFileSync("./test2.txt", "utf-8");
   console.log(text);
 } catch (err) {
