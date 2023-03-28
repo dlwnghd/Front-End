@@ -12,7 +12,9 @@ const useGetTodo = (params) => {
       refetchOnWindowFocus: false,
       retry: 1,
       cacheTime: 1000 * 5 * 60,
-      onSuccess: () => {},
+      onSuccess: (res) => {
+        console.log(res);
+      },
       onError: () => {},
     }
   );

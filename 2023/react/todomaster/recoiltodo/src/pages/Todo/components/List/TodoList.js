@@ -1,4 +1,5 @@
 import TodoApi from "apis/todoApi";
+import useDeleteTodo from "hooks/queries/todo/delete-todo";
 import useGetTodo from "hooks/queries/todo/get-todo";
 import useUpdateTodo from "hooks/queries/todo/update-todo";
 import TodoCard from "./Card/Card";
@@ -6,32 +7,25 @@ import TodoCard from "./Card/Card";
 function TodoList() {
   const { data: todoList, status, isLoading } = useGetTodo();
   const updateTodo = useUpdateTodo();
-  
-  //   /** Todo 업데이트 */
-    const handleUpdateTodo = async (id, content, state) => {
-      updateTodo.mutate({
-        id, data: {
-          content,
-          state
-        }
-      })
-    };
+  const deleteTodo = useDeleteTodo();
 
-  /**
-   * Todo의 id를 받아 일치하는 Todo를 삭제하는 비지니스 로직 함수
-   */
-  //   const handleDeleteTodo = async (id) => {
-  //   if (window.confirm("정말 삭제하시겠습니까")) {
-  //     const {data} = await TodoApi.deleteTodo(id);
-  //     setTodoList(todoList.filter((todo) => todo.id !== data.data));
-  //     // try {
-  //     //   await TodoApi.deleteTodo(id);
-  //     //   setTodoList(todoList.filter((todo) => todo.id !== id));
-  //     // } catch (error) {
-  //     //   console.error(error);
-  //     // }
-  //   }
-  // };
+  /** Todo 업데이트 */
+  const handleUpdateTodo = async (id, content, state) => {
+    updateTodo.mutate({
+      id,
+      data: {
+        content,
+        state,
+      },
+    });
+  };
+
+  /** Todo 삭제 */
+  const handleDeleteTodo = async (id) => {
+    deleteTodo.mutate({
+      id,
+    });
+  };
 
   return (
     <div>
@@ -44,7 +38,7 @@ function TodoList() {
               todo={todo}
               example={"test"}
               handleEdit={handleUpdateTodo}
-              // onDelete={handleDeleteTodo}
+              onDelete={handleDeleteTodo}
             />
           ))
           .reverse()}

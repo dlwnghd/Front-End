@@ -10,7 +10,7 @@ const useUserLogin = () => {
       auth.login(res.data.token);
     },
     // onError
-    // onSettled
+    // onSettled (성공과 실패의 유무 상관없이)
   });
 };
 export default useUserLogin;

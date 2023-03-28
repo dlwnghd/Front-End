@@ -15,6 +15,7 @@ function App() {
   //   defaultOptions: {
   //     queries: {
   //       cacheTime:
+  //       staleTime:
   //     }
   //   }
   // }

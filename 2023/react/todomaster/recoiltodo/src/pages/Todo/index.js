@@ -39,7 +39,7 @@ function TodoPage() {
         title,
         content,
       };
-      resolve(newTodo);
+      return resolve(newTodo);
     });
 
     mutate(data);

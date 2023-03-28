@@ -10,8 +10,10 @@ const useAddTodo = () => {
 
   return useMutation((todo) => TodoApi.addTodo(todo), {
     onSuccess: () => {
-      queryClient.invalidateQueries(QUERY_KEY.GET_TODO);
       // 개발자가 원할 때 새로운 요청을 할 수 있는 로직
+
+      // ⬇️ 유효성을 유효하지 않게 만들겠다. => 데이터를 새로 받아오겠다.
+      queryClient.invalidateQueries(QUERY_KEY.GET_TODO);
       setAddModal(false);
     },
   });
