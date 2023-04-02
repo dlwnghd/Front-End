@@ -24,13 +24,13 @@ app.get("/todo/:todoId", (req, res) => {
   res.send("Hello Express!");
 });
 
-// app.listen(포트번호, 콜백함수);
-app.listen(app.get("port"), () => {
-  console.log(`${app.get("port")}으로 서버 실행 중`);
-});
-
 app.get("/todos", (req, res) => {
   console.log(req.query.todoId);
   console.log(req.query.page);
   res.send("Hello Todos!");
+});
+
+// app.listen(포트번호, 콜백함수);
+app.listen(app.get("port"), () => {
+  console.log(`${app.get("port")}으로 서버 실행 중`);
 });
