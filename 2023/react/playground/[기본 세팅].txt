@@ -1,0 +1,115 @@
+[기본 세팅]
+
+1. npx create-react-app 프로젝트명
+
+2. npm i styled-components
+	- styled-components : CSS-IN_JS
+
+3. 프로젝트 경로에 jsonconfig.json 파일 생성
+
+4. npm i -D eslint eslint-plugin-prettier eslint-plugin-react eslint-plugin-unused-imports prettier
+	- eslint 관련 패키지 추가
+	- prettier 관련 패키지 추가
+
+5. 아래 파일들 프로젝트 경로에 생성
+	- .prettierrc.js
+	- .eslintrc.js
+
+6. vscode의 확장프로그램 ESLint 설치
+
+7. VS코드의 설정에서 오른쪽 상단에 `설정 열기(JSON)` 클릭
+	- "editor.defaultFormatter": "esbenp.prettier-vscode", 추가
+		=> vscode에 있는 파일을 우선시하게 해줌
+
+	- "editor.codeActionsOnSave": {
+    		"source.fixAll.eslint": true
+  	  }, 추가
+		=> 저장했을 때 fix해주는 옵션
+
+	- "editor.formatOnSave": true, 확인 없으면 추가
+
+8. `.eslintrc.js` 에 아래내용 추가
+module.exports = {
+	env: {
+		browser: true,
+		es6: true,
+	},
+	parserOptions: {
+		ecmaFeatures: {
+			modules: true,
+			jsx: true,
+		},
+		ecmaVersion: 2020,
+		sourceType: 'module',
+	},
+	plugins: ['react', 'unused-imports'],
+	rules: {
+		'react/jsx-uses-vars': 'error',
+		'react/jsx-uses-react': 'error',
+		'space-before-function-paren': [
+			'error',
+			{
+				anonymous: 'ignore',
+				named: 'never',
+				asyncArrow: 'always',
+			},
+		],
+		'unused-imports/no-unused-imports-ts': ['error'],
+	},
+}
+
+9. `.prettierrc.js` 에 아래내용 추가
+module.exports = {
+	endOfLine: 'lf',
+	semi: false,
+	singleQuote: true,
+	jsxSingleQuote: false,
+	tabWidth: 2,
+	useTabs: true,
+	trailingComma: 'all',
+	arrowParens: 'avoid',
+}
+
+10. package.json 파일에 안에 내용 추가
+	- scripts에	
+		"scripts": {
+			"start": "react-scripts start",
+			"build": "react-scripts build",
+			"test": "react-scripts test",
+			"eject": "react-scripts eject",
+			"lint": "eslint . --ext .js,.jsx",
+			"lint:fix": "eslint . --ext .js,.jsx --fix",
+			"format": "prettier --write --cache \"src/**/*.{js,jsx}\""
+		}, 추가
+
+11. npm i -D husky 입력
+
+12. npx husky install 입력
+	- 만약 안된다면 git init을 해야할 것이다.
+
+13. package.json의 scripts에 아래 내용 추가
+	- "postinstall": "husky install",
+
+14. npx husky add .husky/pre-commit "npm run format"
+
+15. npx husky add .husky/pre-push "npm run lint:fix"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

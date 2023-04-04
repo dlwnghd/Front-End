@@ -48,11 +48,15 @@ function TodoPage() {
   // handle
   const showAddTodoToastMessage = (title, content) => {
     // 화살표 함수
+    console.log("1");
+    console.log(title, content);
     toast.promise(handleAddTodo(title, content), {
       pending: "TODO LOADING",
       success: "TODO SUCCESS",
       error: "TODO ERROR",
     });
+    console.log("2");
+    console.log(title, content);
   };
 
   const handleOpenTodoAddModal = () => {
