@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This</title>
+  </head>
+  <body>
+    <script>
+      //          ⬇️ window를 불러온다 => 가장 최상위 요소
+      console.log(this);
+
+      function thisPrint() {
+        console.log(this); // 이 함수도 window가 불러서 window이다
+
+        const method = {
+          print() {
+            console.log(this); // method
+          },
+        };
+        method.print();
+      }
+      thisPrint();
+      // ⭐누가 해당 함수를 호출했는가에 따라 this는 달라진다
+      // this가 바인딩 되는 경우의 수는 없음
+      // 따라서 this가 정해지는 원리에 대해서만 이해하면 됨
+
+      class thisClass {
+        print() {
+          console.log(this); // thisClass
+        }
+      }
+
+      // thisClass.print();
+      // 누가 호출했느냐가 중요하다
+      // 경우에 따라 바인딩 다른 경우
+
+      const method_2 = {
+        print() {
+          console.log(this);    // method_2
+        },
+
+        print2: () => {
+          console.log(this);    // print2❌ => window
+          // 화살표 함수는 this의 바인딩 방식이 다름
+          // this를 사용해야하는 경우 화살표 함수를 사용해서는 안됨
+        },
+
+        print3: function () {
+          console.log(this);    // method_2
+        },
+      };
+
+      /* new */
+      /* 해당 함수를 이용하여 새로운 인스턴스(객체)를 만들어내겠다 */
+      /* 다르다. */
+
+      /* 
+      새로운 인스턴스(객체)가 생성되어 값을 공유하지 않고
+      각자 고유만의 주홍, 선영의 객체가 만들어졌다.
+      */
+
+      function thisfunc(이름){
+        this.name = 이름;
+        console.log(this);
+
+        this.logName = function (age) {
+          console.log(this.name, age);
+        };
+      }
+
+      const juhong = new thisfunc("주홍")
+      const seonyeong = new thisfunc("선영")
+
+      console.log(juhong.name);
+      console.log(seonyeong.name);
+
+      // apply, call, bind
+      // this를 여러분들이 마음대로 조작할 수 있는 함수
+      // call, apply는 첫 번째 인자로 this에 set하고 싶은 객체를 넘겨줄 수 있음
+
+      juhong.logName(20); // 주홍, 20
+      juhong.logName.call(seonyeong, 20); // 성용 this.name = 선영 this.name
+      juhong.logName.apply({name: "주홍"}, [20]); // 주홍, 20
+
+      // bind
+      const newJuhong = juhong.logName.bind(seonyeong, 20); // 선영, 20
+      // 실행을 하지 않음
+      // bind를 통해 this 값이 새로운 객체값으로 결정 되었지만
+      // 값을 실행하지 않고 내가 원하는 시기에 실행할 수 있다.
+      // 한편 call, apply는 적용과 동시에 실행 됩니다.
+
+      // 실행을 따로 진행해야 한다.
+      newJuhong();
+
+    </script>
+  </body>
+</html>
