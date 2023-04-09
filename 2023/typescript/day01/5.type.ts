@@ -25,7 +25,10 @@ const StateObj = {
   Success: 2,
   Failure: 3,
 } as const; // <= 읽기만 가능
-// as const readonly 타입이 됨 객체라고 하더라도 수정이 불가능
+
+  // type StateObjType = keyof 
+
+  // as const readonly 타입이 됨 객체라고 하더라도 수정이 불가능
 // COLORS와 같은 수정이 되지 않은 상수의 객체는 as const를 활용하여 readonly 상태를 만들고
 // 객체의 변경을 방지하고 안전한 상황에서 프로그래밍 할 수 있다
 
